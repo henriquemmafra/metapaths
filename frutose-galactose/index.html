@@ -1,0 +1,1006 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%2306122a%27/%3E%3Cpolygon points=%2726,16 21,24.7 11,24.7 6,16 11,7.3 21,7.3%27 fill=%27none%27 stroke=%27%23f2ead3%27 stroke-width=%272.4%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%273%27 fill=%27%23ff72b6%27/%3E%3C/svg%3E"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Frutose e Galactose</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mini-capítulos animados: frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&display=swap">
+<style>
+/* Layout: cabeçalho com os 4 capítulos → trilha dos 3 níveis → palco (via bioquímica | tecido/órgão) → doca fixa com legenda, 8 etapas e transporte.
+   Visual único e deliberadamente escuro (prancha de atlas sobre azul-noite), mesma família da "Glicogenólise 3D". */
+:root{
+  color-scheme:dark;
+  --bg:#06122a; --bg-2:#0a1a38; --panel:#0b1c3c; --panel-2:#0f2449; --line:#26446f; --line-soft:rgba(96,136,196,.24);
+  --ink:#eaf0f9; --ink-2:#aebfda; --ink-3:#7891b5; --ivory:#f2ead3; --ivory-ink:#0b1a36;
+  --fru:#ffc98f; --gal:#e3eaff; --glc:#8fe57c; --pi:#ff72b6; --tol:#6fdcff; --h2o:#4aa8ff; --ok:#46d98c;
+  --ef:#45d0b0; --hfi:#ff5a52; --galk:#b28cff; --galt:#ffa53d; --vg:#8fa0bf; --cur:#45d0b0;
+  --f-display:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-label:"IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+html{box-sizing:border-box;background:var(--bg)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--f-ui);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ivory);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:1320px;margin:0 auto;padding-block:16px 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- topo ---------- */
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 20px;flex-wrap:wrap}
+.eyebrow{font:500 11px/1.2 var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.brand h1{margin:4px 0 0;font:600 27px/1.05 var(--f-display);letter-spacing:-.01em;text-wrap:balance}
+.brand h1 em{font-style:italic;font-weight:500;color:var(--ink-2)}
+.tbtn{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink-2);font:500 12.5px/1 var(--f-ui)}
+.tbtn:hover{color:var(--ink);border-color:#3d669f}
+.chaps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.chap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center;text-align:left;cursor:pointer;
+  border:1px solid var(--line-soft);background:var(--panel);border-radius:12px;padding:10px 12px;color:var(--ink-2)}
+.chap i{grid-row:span 2;width:10px;height:28px;border-radius:3px;background:var(--c)}
+.chap b{font:600 14px/1.15 var(--f-display);color:var(--ink);min-width:0}
+.chap small{font:500 11px/1.2 var(--f-label);letter-spacing:.04em;color:var(--ink-3);min-width:0}
+.chap:hover{border-color:var(--line)}
+.chap[aria-pressed="true"]{border-color:var(--c);background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--c)}
+.chap[aria-pressed="true"] small{color:var(--c)}
+
+/* ---------- perfil + níveis ---------- */
+.rail{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin:12px 0 12px}
+.prof{display:flex;flex-wrap:wrap;gap:6px}
+.pchip{font:500 12px/1 var(--f-label);padding:6px 9px;border-radius:6px;border:1px solid var(--line-soft);color:var(--ink-2);background:rgba(255,255,255,.02)}
+.pchip b{color:var(--ink);font-weight:600}
+.pchip.k{border-color:var(--cur);color:var(--ink)}
+.levels{display:flex;gap:4px;align-items:stretch}
+.lv{display:grid;gap:2px;padding:6px 11px;border-radius:9px;border:1px solid var(--line-soft);min-width:0}
+.lv b{font:600 10.5px/1 var(--f-label);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.lv span{font:400 11.5px/1.2 var(--f-ui);color:var(--ink-3)}
+.lv.on{border-color:var(--ivory);background:rgba(242,234,211,.07)}
+.lv.on b{color:var(--ivory)} .lv.on span{color:var(--ink-2)}
+.lv.done b{color:var(--ink-2)}
+
+/* ---------- palco ---------- */
+.stage{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:14px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:12px 14px 14px;min-width:0}
+.chead{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:8px;min-width:0}
+.chead .eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status{font:600 11px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;border-radius:4px;background:var(--cur);color:#08142c;white-space:nowrap}
+.status.nrm{background:var(--ok)}
+.pw{overflow-x:auto;border-radius:10px}
+.pw svg{display:block;width:100%;min-width:520px;height:auto}
+.meters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.mt{display:grid;gap:5px;padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.03);border:1px solid var(--line-soft);min-width:0}
+.mt-h{display:flex;justify-content:space-between;gap:8px;font:500 11.5px/1.2 var(--f-label);color:var(--ink-2)}
+.mt-h em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.mt-h em.bad{color:var(--cur)}
+.mt .tr{height:6px;border-radius:3px;background:#17305a;position:relative;overflow:hidden}
+.mt .tr i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:3px;background:var(--ivory)}
+.mt .tr s{position:absolute;top:-2px;bottom:-2px;width:2px;background:rgba(242,234,211,.45)}
+.mt.bad .tr i{background:var(--cur)}
+.glyphs{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font:400 11.5px/1.2 var(--f-label);color:var(--ink-3)}
+.glyphs span{display:inline-flex;align-items:center;gap:6px}
+.glyphs svg{width:20px;height:20px;flex:none}
+
+/* ---------- tecidos ---------- */
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.figs[data-n="1"]{grid-template-columns:minmax(0,1fr)}
+.figs[data-n="3"] figure:first-child{grid-column:1/-1}
+.figs[data-n="1"] canvas{aspect-ratio:16/10}
+.figs[data-n="3"] figure:first-child canvas{aspect-ratio:2/1}
+figure.fg{margin:0;display:grid;gap:6px;align-content:start;min-width:0}
+figure.fg canvas{display:block;width:100%;aspect-ratio:4/3;border-radius:10px;background:#071530;border:1px solid var(--line-soft)}
+figure.fg figcaption{font:400 12.5px/1.4 var(--f-ui);color:var(--ink-2);padding:0 2px}
+figure.fg figcaption b{display:block;font:600 11px/1.3 var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:1px}
+
+/* ---------- diferencial ---------- */
+.dif-h{font:600 20px/1.15 var(--f-display);margin:0 0 4px}
+.dif-sub{margin:0 0 10px;font:400 12.5px/1.4 var(--f-ui);color:var(--ink-2)}
+.dtw{overflow-x:auto;border:1px solid var(--line-soft);border-radius:10px}
+.dt{display:grid;grid-template-columns:84px repeat(var(--n),minmax(110px,1fr));min-width:calc(84px + var(--n) * 110px)}
+.dt>div{padding:7px 8px;border-bottom:1px solid var(--line-soft);font:400 12px/1.35 var(--f-ui);color:var(--ink-2);min-width:0}
+.dt .l{font:600 10.5px/1.3 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:rgba(255,255,255,.02)}
+.dt .h{display:grid;gap:3px;align-content:start;border-top:3px solid var(--c)}
+.dt .h b{font:600 13.5px/1.2 var(--f-display);color:var(--ink)}
+.dt .h small{font:500 10.5px/1.2 var(--f-label);letter-spacing:.06em;color:var(--c)}
+.dt .me{background:rgba(255,255,255,.045);color:var(--ink)}
+.dt .key{color:var(--ivory);font-weight:600;background:rgba(242,234,211,.07)}
+.dt>div.last{border-bottom:0}
+.rule{margin:10px 0 0;padding:10px 12px;border-radius:9px;border-left:4px solid var(--cur);background:rgba(255,255,255,.04);font:500 14px/1.4 var(--f-display);color:var(--ink)}
+
+/* ---------- resumo ---------- */
+.sumcard{border:1px solid var(--cur);border-radius:12px;overflow:hidden}
+.sumcard header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 14px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--line-soft)}
+.sumcard header b{font:600 19px/1.15 var(--f-display)}
+.sumcard header span{font:600 10.5px/1 var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:var(--cur);white-space:nowrap}
+.sumcard dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;margin:0;padding:12px 14px}
+.sumcard dt{font:600 10.5px/1.6 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sumcard dd{margin:0;font:400 13.5px/1.4 var(--f-ui);color:var(--ink)}
+.sumcard dd.mono{font-family:var(--f-mono);font-size:13px;color:var(--ivory)}
+.take{margin:12px 0 0;padding:14px 16px;border-radius:12px;background:var(--ivory);color:var(--ivory-ink)}
+.take span{display:block;font:600 10.5px/1 var(--f-label);letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+.take q{font:600 19px/1.3 var(--f-display);quotes:"\201C" "\201D"}
+.nextc{margin-top:10px;width:100%;padding:10px 12px;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);cursor:pointer;text-align:left;font:500 13px/1.2 var(--f-ui)}
+.nextc:hover{background:rgba(255,255,255,.07)}
+
+/* ---------- doca ---------- */
+.dock{position:sticky;bottom:0;z-index:5;margin-top:14px;padding-block:0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,transparent,var(--bg) 22%)}
+.dock-in{display:grid;gap:10px;background:rgba(10,24,52,.94);border:1px solid var(--line);border-radius:16px;padding:12px 14px 10px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cap-meta{display:flex;gap:8px;align-items:baseline;font:600 11px/1.2 var(--f-label);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);min-width:0}
+.cap-meta b{color:var(--ivory);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cap-meta .lvtag{margin-left:auto;font:600 10px/1 var(--f-label);letter-spacing:.14em;padding:4px 7px;border-radius:4px;border:1px solid var(--ivory);color:var(--ivory);white-space:nowrap}
+#capText{margin:5px 0 0;font:400 15px/1.5 var(--f-ui);color:var(--ink);max-width:110ch;min-height:3em;text-wrap:pretty}
+#capText b{color:var(--ivory);font-weight:600}
+#capText .d{color:var(--cur);font-weight:600}
+.prog{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.chip{display:flex;flex-direction:column;gap:6px;background:none;border:0;padding:4px 0 2px;cursor:pointer;text-align:left;color:var(--ink-3);min-width:0}
+.chip .bar{position:relative;height:4px;border-radius:2px;background:#1a325c;overflow:hidden}
+.chip .bar i{position:absolute;inset:0;transform-origin:0 50%;transform:scaleX(0);background:var(--ink-2)}
+.chip .nm{font:500 11.5px/1.15 var(--f-label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip .nm span{font-family:var(--f-mono);margin-right:4px}
+.chip:hover .nm{color:var(--ink-2)}
+.chip.on .nm{color:var(--ivory)}
+.chip.on .bar i,.chip.done .bar i{background:var(--cur)}
+.transport{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ibtn{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;color:var(--ink);padding:0}
+.ibtn:hover{border-color:#3d669f;background:#11284e}
+.ibtn svg{width:18px;height:18px;display:block}
+.play{width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:var(--ivory);color:var(--ivory-ink);cursor:pointer}
+.play svg{width:20px;height:20px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel)}
+.seg button{border:0;background:transparent;border-radius:999px;padding:6px 10px;cursor:pointer;color:var(--ink-2);font:500 12px/1 var(--f-mono)}
+.seg button[aria-pressed="true"]{background:var(--ivory);color:var(--ivory-ink)}
+.time{font:500 12px/1 var(--f-mono);color:var(--ink-3);font-variant-numeric:tabular-nums}
+.note{margin-left:auto;font:400 11.5px/1.3 var(--f-ui);color:var(--ink-3);max-width:46ch;text-align:right}
+
+/* ---------- atlas de tecidos ---------- */
+dialog.atl{width:min(1100px,calc(100% - 32px));max-height:calc(100% - 32px);border:1px solid var(--line);border-radius:16px;background:var(--bg-2);color:var(--ink);padding:16px 18px}
+dialog.atl::backdrop{background:rgba(3,9,22,.72)}
+.atl-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.atl-h h2{margin:2px 0 0;font:600 21px/1.15 var(--f-display)}
+.atl-h p{margin:4px 0 0;font:400 12.5px/1.4 var(--f-ui);color:var(--ink-2)}
+.atl-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.atl-g figure.fg canvas{aspect-ratio:4/3}
+.use{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.use i{font:600 10px/1 var(--f-label);font-style:normal;letter-spacing:.06em;padding:3px 6px;border-radius:3px;color:#08142c;background:var(--c)}
+.use i.no{background:transparent;color:var(--ink-3);border:1px dashed var(--line)}
+
+/* ---------- SVG da via ---------- */
+.lane{fill:#1a0e22;stroke:#43213c;stroke-width:1.2}
+.lanetx{fill:#d08aa0;font:600 10.5px var(--f-label);letter-spacing:.16em}
+.lanesm{fill:#a77d92;font:400 10.5px var(--f-label)}
+.cell{fill:#0b1f45;stroke:#3a5f95;stroke-width:2}
+.cell2{fill:none;stroke:#244476;stroke-width:1;stroke-dasharray:2 4}
+.celltx{fill:var(--ink-3);font:600 10.5px var(--f-label);letter-spacing:.16em}
+.tp rect{fill:#2b4c80;stroke:#6d93cc;stroke-width:1}
+.tp text{fill:var(--ink-3);font:500 9px var(--f-mono)}
+.node rect{fill:#0a1a38;stroke:#3b5b8e;stroke-width:1.3}
+.node text{fill:var(--ink);font:500 13px var(--f-label);text-anchor:middle;dominant-baseline:central}
+.node.hot rect{stroke:var(--ivory);stroke-width:1.8}
+.node.acc rect{stroke:var(--cur);stroke-width:2.4;fill:#1a1430}
+.node.dim{opacity:.35}
+.edge{fill:none;stroke:#5d7fb5;stroke-width:1.6}
+.edge.dash{stroke-dasharray:5 4}
+.edge.off{stroke-opacity:.18}
+.edge.hot{stroke:var(--ivory)}
+.enz rect{fill:#12305e;stroke:#4a72ad;stroke-width:1}
+.enz text{fill:#cfe0ff;font:500 11px var(--f-mono);text-anchor:middle;dominant-baseline:central}
+.enz .cof{fill:var(--ink-3);font:400 9.5px var(--f-mono)}
+.enz.hot rect{stroke:var(--ivory);fill:#1b3d72}
+.enz.dead rect{fill:#141a2c;stroke-dasharray:3 3}
+.enz.dead text:not(.cof){fill:var(--ink-3);text-decoration:line-through}
+.blk line{stroke-width:4.2;stroke-linecap:round}
+.blk text{font:700 10px var(--f-label);letter-spacing:.1em;text-anchor:middle}
+.ann rect{fill:rgba(5,14,32,.94);stroke:var(--line);stroke-width:1}
+.ann text{fill:var(--ink);font:500 11.5px var(--f-label)}
+.ann.d rect{stroke:var(--cur);stroke-width:1.5}
+.ann.ok rect{stroke:var(--ok)}
+.ann.ok text{fill:#c9f7dc}
+.boxt{fill:var(--ink-2);font:500 12px var(--f-label);text-anchor:middle;dominant-baseline:central}
+.g-fru{fill:rgba(255,201,143,.2);stroke:var(--fru);stroke-width:1.8}
+.g-gal{fill:rgba(227,234,255,.18);stroke:var(--gal);stroke-width:1.8}
+.g-glc{fill:rgba(143,229,124,.2);stroke:var(--glc);stroke-width:1.8}
+.g-pi{fill:var(--pi)}
+.g-tol{fill:none;stroke:var(--tol);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.g-tolo{fill:var(--tol)}
+.g-tri{fill:rgba(242,234,211,.25);stroke:var(--ivory);stroke-width:1.5}
+.g-h2o{fill:var(--h2o)}
+.ring{fill:none;stroke-width:2}
+.pool text{fill:#ffb6d9;font:500 10px var(--f-mono);text-anchor:middle}
+
+@media (max-width:1060px){.stage{grid-template-columns:minmax(0,1fr)}.chaps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .wrap{display:flex;flex-direction:column}.stage{order:2}.dock{position:static;order:1;margin:0 0 12px;padding-block:0;background:none}
+  .brand h1{font-size:22px}.levels{width:100%}.lv{flex:1}.lv span{display:none}
+  .prog{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .chip .nm b{display:none}
+  .note{display:none}
+  #capText{font-size:14px}
+  .meters{grid-template-columns:minmax(0,1fr)}
+  .figs{grid-template-columns:minmax(0,1fr)}
+  .figs canvas{aspect-ratio:4/3!important}
+}
+@media (max-width:460px){.chaps{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="gl-fru"><polygon class="g-fru" points="0,-8.5 8.08,-2.63 5,6.88 -5,6.88 -8.08,-2.63"/></g>
+    <g id="gl-gal"><polygon class="g-gal" points="8.5,0 4.25,7.36 -4.25,7.36 -8.5,0 -4.25,-7.36 4.25,-7.36"/></g>
+    <g id="gl-glc"><polygon class="g-glc" points="8.5,0 4.25,7.36 -4.25,7.36 -8.5,0 -4.25,-7.36 4.25,-7.36"/></g>
+    <g id="gl-ph"><line x1="4.6" y1="-4.4" x2="8.6" y2="-8.4" stroke="#ff72b6" stroke-width="1.6"/><polygon class="g-pi" points="11,-15 15.6,-7.4 6.4,-7.4"/></g>
+    <g id="gl-frup"><use href="#gl-fru"/><use href="#gl-ph"/></g>
+    <g id="gl-galp"><use href="#gl-gal"/><use href="#gl-ph"/></g>
+    <g id="gl-glcp"><use href="#gl-glc"/><use href="#gl-ph"/></g>
+    <g id="gl-pi"><polygon class="g-pi" points="0,-6.5 5.8,4 -5.8,4"/></g>
+    <g id="gl-tol"><polyline class="g-tol" points="-10,3 -6,-3 -2,3 2,-3 6,3 10,-3"/><circle class="g-tolo" cx="-6" cy="-5.4" r="1.6"/><circle class="g-tolo" cx="2" cy="-5.4" r="1.6"/><circle class="g-tolo" cx="-2" cy="5.4" r="1.6"/><circle class="g-tolo" cx="6" cy="5.4" r="1.6"/></g>
+    <g id="gl-tri"><polygon class="g-tri" points="0,-6 6,5 -6,5"/></g>
+    <g id="gl-h2o"><path class="g-h2o" d="M0,-7 C4,-2 5,1 5,3 A5,5 0 0 1 -5,3 C-5,1 -4,-2 0,-7Z"/></g>
+    <g id="gl-x"><line x1="-6" y1="-6" x2="6" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="6" y1="-6" x2="-6" y2="6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></g>
+    <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5d7fb5"/></marker>
+    <marker id="arH" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f2ead3"/></marker>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow">Bioquímica médica · açúcares da dieta · nível USMLE Step 1</div>
+      <h1>Frutose e galactose <em>quatro doenças, quatro bloqueios</em></h1>
+    </div>
+    <button class="tbtn" id="atlB" type="button">Atlas de tecidos</button>
+  </header>
+  <nav class="chaps" id="chaps" aria-label="Capítulos"></nav>
+
+  <div class="rail">
+    <div class="prof" id="prof" aria-label="Perfil da doença"></div>
+    <div class="levels" id="levels" aria-label="Níveis de ensino">
+      <div class="lv" data-l="bio"><b>1 · Bioquímico</b><span>enzima · acúmulo · etapa que parou</span></div>
+      <div class="lv" data-l="cli"><b>2 · Clínico</b><span>órgão · achado · por que adoece</span></div>
+      <div class="lv" data-l="dif"><b>3 · Diferencial</b><span>o que parece igual · o que distingue</span></div>
+    </div>
+  </div>
+
+  <main class="stage">
+    <section class="card" aria-labelledby="pwTitle">
+      <div class="chead"><span class="eyebrow" id="pwTitle">Via bioquímica · hepatócito</span><span class="status nrm" id="pwStatus">Via normal</span></div>
+      <div class="pw"><svg id="pw" viewBox="0 0 640 440" role="img" aria-labelledby="pwTitle"></svg></div>
+      <div class="meters" id="meters"></div>
+      <div class="glyphs" id="glyphs"></div>
+    </section>
+    <section class="card" aria-labelledby="rtTitle">
+      <div class="chead"><span class="eyebrow" id="rtTitle">Tecido e órgão</span><span class="status nrm" id="rtStatus">Normal</span></div>
+      <div id="rt"></div>
+    </section>
+  </main>
+
+  <div class="dock">
+    <div class="dock-in">
+      <div class="caption" aria-live="polite">
+        <div class="cap-meta"><span id="capNum">Etapa 1/8</span><b id="capTitle"></b><span class="lvtag" id="capLv">Bioquímico</span></div>
+        <p id="capText"></p>
+      </div>
+      <div class="prog" id="prog" role="group" aria-label="Etapas do capítulo"></div>
+      <div class="transport">
+        <button class="ibtn" id="bRestart" type="button" title="Reiniciar capítulo" aria-label="Reiniciar capítulo"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 9a6 6 0 1 1 1.4 5.2"/><path d="M3.6 4.4V9h4.6"/></svg></button>
+        <button class="ibtn" id="bBack" type="button" title="Etapa anterior" aria-label="Etapa anterior"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4h2v12H5zM16 4.6v10.8L8.2 10z"/></svg></button>
+        <button class="play" id="bPlay" type="button" aria-label="Pausar"><svg id="icoPause" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg><svg id="icoPlay" viewBox="0 0 20 20" fill="currentColor" hidden><path d="M6 3.8v12.4L16 10z"/></svg></button>
+        <button class="ibtn" id="bFwd" type="button" title="Próxima etapa" aria-label="Próxima etapa"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 4h2v12h-2zM4 4.6v10.8L11.8 10z"/></svg></button>
+        <div class="seg" id="speed" role="group" aria-label="Velocidade">
+          <button type="button" data-s="0.5" aria-pressed="false">0,5×</button>
+          <button type="button" data-s="1" aria-pressed="true">1×</button>
+          <button type="button" data-s="1.5" aria-pressed="false">1,5×</button>
+        </div>
+        <span class="time" id="time">0:00 / 0:00</span>
+        <span class="note">Esquema didático: formas e posições das moléculas não são estruturais. Espaço = play/pausa · ← → = etapas.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<dialog class="atl" id="atl" aria-labelledby="atlT">
+  <div class="atl-h">
+    <div><div class="eyebrow">Sistema visual</div><h2 id="atlT">Atlas de tecidos</h2>
+      <p>Ilustrações que os mini-capítulos usam. As sem capítulo marcado ficam prontas para módulos futuros.</p></div>
+    <button class="ibtn" id="atlX" type="button" aria-label="Fechar atlas"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </div>
+  <div class="atl-g" id="atlG"></div>
+</dialog>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const clamp=(x,a=0,b=1)=>x<a?a:x>b?b:x;
+const lerp=(a,b,t)=>a+(b-a)*t;
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const es=(t,a,b)=>ease(seg(t,a,b));
+const REDUCED=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const SVGNS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);if(attrs)for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function hx(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
+
+/* ======================= dados dos capítulos ======================= */
+const STEPS=['Via normal','Bloqueio enzimático','Substrato acumulado','Consequência metabólica','Tecidos e órgãos','Quadro clínico','Como não confundir','Quadro resumo'];
+const STEP_SHORT=['Via normal','Bloqueio','Acúmulo','Consequência','Tecidos','Clínica','Diferencial','Resumo'];
+const LEVEL=['bio','bio','bio','bio','cli','cli','dif','dif'];
+const LEVEL_NAME={bio:'Nível 1 · Bioquímico',cli:'Nível 2 · Clínico',dif:'Nível 3 · Diferencial'};
+const DUR=[10,8,9,11,11,12,15,12];
+const COLORS={ef:'#45d0b0',hfi:'#ff5a52',galk:'#b28cff',galt:'#ffa53d',vg:'#8fa0bf',hep:'#7d8db0'};
+
+const CH=[
+{ id:'ef', c:'ef', path:'fru', name:'Essential fructosuria', pt:'Frutosúria essencial', enzyme:'fructokinase', chip:'fk',
+  prof:[['Enzima','Fructokinase (KHK)'],['Acúmulo','açúcar livre'],['Dano','benigno']],
+  meters:[
+    {l:'Frutose no sangue',base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
+    {l:'ATP hepático',base:1,v:[1,1,1,1,1,1,1,1]},
+    {l:'Glicemia',base:.62,v:[.62,.62,.62,.62,.62,.62,.62,.62]}],
+  steps:[
+    {cap:'Frutose da dieta (frutas, mel, <b>sacarose</b> = glicose + frutose, <b>sorbitol</b>) é absorvida pelo GLUT5 e chega ao fígado pela veia porta. No hepatócito, a <b>fructokinase</b> a fosforila em <b>fructose-1-phosphate</b> (gasta ATP) e a prende dentro da célula; a <b>aldolase B</b> a quebra em DHAP + gliceraldeído, que entram na glicólise/gliconeogênese abaixo da PFK-1.',
+      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
+      figs:[{o:'intestine',t:'Intestino delgado',c:'Frutose entra no enterócito pelo GLUT5 e segue para a veia porta.',s:u=>({mode:'fru',u})},
+            {o:'hepatocyte',t:'Hepatócito',c:'Fructokinase fosforila a frutose: o fosfato a “prende” na célula até a aldolase B quebrá-la.',s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:['1ª etapa: fructokinase prende a frutose (ATP → ADP)'],at:.25},{x:440,y:150,t:['aldolase B','→ trioses'],at:.55}]},
+    {cap:'Na frutosúria essencial falta a <span class="d">fructokinase</span> (gene <i>KHK</i>, autossômica recessiva). A frutose chega ao hepatócito, mas <b>não é fosforilada</b>: sem o fosfato, nada a mantém dentro da célula.',
+      rt:'Hepatócito', rs:'Fructokinase ausente',
+      figs:[{o:'hepatocyte',t:'Hepatócito sem fructokinase',c:'A frutose entra e sai: sem fosforilação, não há fructose-1-phosphate.',s:u=>({fru:.9,f1p:0,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:['sem fructokinase: frutose não é fosforilada'],k:'d',at:.3}]},
+    {cap:'O que acumula é <b>frutose livre</b> — no sangue e na urina. Ela volta para a circulação e é filtrada pelo rim. Repare: <span class="d">não há fructose-1-phosphate</span> se acumulando e nenhum fosfato fica preso.',
+      rt:'Sangue e rim', rs:'Frutose livre ↑',
+      figs:[{o:'blood',t:'Plasma',c:'Frutose livre circulando, sem nenhum dano às células.',s:u=>({sug:'fru',n:.3+.7*u})},
+            {o:'kidney',t:'Rim',c:'O glomérulo filtra a frutose e ela aparece na urina (frutosúria).',s:u=>({sug:'fru',spill:u})}],
+      ann:[{x:150,y:48,t:['acúmulo = AÇÚCAR LIVRE (sem fosfato)'],k:'d',at:.15},{x:140,y:150,t:['frutose sai','da célula →','sangue e urina'],at:.45}]},
+    {cap:'Como nenhum fosfato fica preso, <b>Pᵢ e ATP ficam normais</b>: glicogenólise e gliconeogênese funcionam e a glicemia não cai. Parte da frutose é usada pela <b>hexokinase</b> do músculo e do tecido adiposo, que a converte em fructose-6-phosphate — rota lenta, mas que escoa o excesso.',
+      rt:'Músculo e hepatócito', rs:'Sem toxicidade',
+      figs:[{o:'muscle',t:'Músculo esquelético',c:'Rota de escape: hexokinase converte frutose em fructose-6-phosphate, que entra na glicólise.',s:u=>({hk:u})},
+            {o:'hepatocyte',t:'Hepatócito',c:'Mitocôndrias com ATP normal; glicogênio disponível.',s:u=>({fru:.6,f1p:0,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:470,y:52,t:['pool de Pᵢ intacto','ATP normal'],k:'ok',at:.2},{x:140,y:150,t:['hexokinase','(músculo, adiposo)','frutose → F6P'],at:.5}]},
+    {cap:'O único órgão “envolvido” é o <b>rim</b>, que apenas deixa passar a frutose para a urina — sem lesão tubular. Fígado, cérebro e cristalino ficam intactos, porque não existe metabólito tóxico.',
+      rt:'Órgãos', rs:'Sem lesão',
+      figs:[{o:'kidney',t:'Rim',c:'Filtra frutose; túbulo íntegro.',s:u=>({sug:'fru',spill:1})},
+            {o:'liver',t:'Fígado',c:'Tamanho e cor normais.',s:u=>({size:1})},
+            {o:'brain',t:'Cérebro',c:'Glicemia normal: aporte de glicose preservado.',s:u=>({glu:1})}],
+      ann:[{x:150,y:48,t:['nenhum órgão lesado'],k:'ok',at:.2}]},
+    {cap:'<b>Assintomática</b> — costuma ser achado incidental. Na urina: <b>teste de redução de cobre positivo</b> (há um açúcar redutor) com <b>fita de glicose-oxidase negativa</b> (o açúcar não é glicose). Não precisa de tratamento.',
+      rt:'Exame de urina', rs:'Achado incidental',
+      figs:[{o:'urine',t:'Urina',c:'Pegadinha clássica: redutor positivo, fita de glicose negativa = outro açúcar (frutose).',s:u=>({u})}],
+      ann:[{x:150,y:48,t:['achado incidental · sem tratamento'],k:'ok',at:.2}]}
+  ],
+  diff:{sub:'As duas doenças da frutose “param” em etapas vizinhas. A diferença está no que fica preso dentro da célula.',
+    cols:[{n:'Essential fructosuria',s:'Frutosúria essencial',c:'ef',me:1},{n:'Hereditary fructose intolerance',s:'HFI',c:'hfi'}],
+    rows:[['Enzima','Fructokinase','Aldolase B'],
+      ['Acúmulo','Frutose livre (sangue, urina)','Fructose-1-phosphate dentro do hepatócito'],
+      ['Fosfato e ATP','Preservados','Pᵢ preso → ATP ↓'],
+      ['Glicemia','Normal','Hipoglicemia após frutose'],
+      ['Fígado','Normal','Hepatomegalia, icterícia, lesão'],
+      ['Gravidade','Benigna, sem tratamento','Tóxica: excluir frutose, sacarose e sorbitol']],
+    key:['O que decide','Nem fosforila: a frutose escapa','Fosforila e trava: F1P tóxico'],
+    rule:'Fructokinase deficiency = benigna. Aldolase B deficiency = toxicidade importante. As duas podem ter frutose na urina.',
+    blocks:[['fk','ef'],['aldo','hfi']]},
+  sum:{enz:'Fructokinase (KHK)',acc:'Frutose livre no sangue e na urina',tis:'Rim (só filtra; sem lesão)',cli:'Assintomática; urina com redutor positivo e fita de glicose negativa; sem tratamento',nc:'Hereditary fructose intolerance — aldolase B, F1P preso, ATP ↓, hipoglicemia'},
+  take:'Fructokinase deficiency is usually benign.'
+},
+{ id:'hfi', c:'hfi', path:'fru', name:'Hereditary fructose intolerance', pt:'Intolerância hereditária à frutose', enzyme:'aldolase B', chip:'aldo',
+  prof:[['Enzima','Aldolase B (ALDOB)'],['Acúmulo','fosfato preso (F1P)'],['Dano','fígado, rim, hipoglicemia']],
+  meters:[
+    {l:'Pᵢ livre no hepatócito',base:1,v:[1,1,.55,.15,.15,.15,.15,.15]},
+    {l:'ATP hepático',base:1,v:[1,1,.8,.22,.22,.22,.22,.22]},
+    {l:'Glicemia',base:.62,v:[.62,.62,.6,.18,.18,.18,.18,.18]}],
+  steps:[
+    {cap:'Via normal, com foco na segunda etapa: a <b>fructokinase</b> fosforila a frutose em <b>fructose-1-phosphate</b> (F1P) e a <b>aldolase B</b> quebra o F1P em DHAP + gliceraldeído. Note o <b>pool de fosfato (Pᵢ)</b> do hepatócito: cada F1P formado “empresta” um fosfato, devolvido quando a via segue.',
+      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
+      figs:[{o:'intestine',t:'Intestino delgado',c:'Frutose, sacarose e sorbitol da dieta viram frutose que chega ao fígado.',s:u=>({mode:'fru',u})},
+            {o:'hepatocyte',t:'Hepatócito',c:'F1P é intermediário de passagem: não se acumula quando a aldolase B funciona.',s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
+      ann:[{x:440,y:150,t:['aldolase B','F1P → DHAP + gliceraldeído'],at:.4},{x:470,y:52,t:['pool de Pᵢ: fosfato','circula e volta'],at:.65}]},
+    {cap:'Na intolerância hereditária à frutose falta a <span class="d">aldolase B</span> (gene <i>ALDOB</i>, autossômica recessiva). A fructokinase continua funcionando: a frutose entra, é fosforilada — e para no meio do caminho.',
+      rt:'Hepatócito', rs:'Aldolase B ausente',
+      figs:[{o:'hepatocyte',t:'Hepatócito sem aldolase B',c:'A frutose continua sendo fosforilada; o F1P começa a se acumular.',s:u=>({fru:.6,f1p:.15+.3*u,glyc:.7,atp:1})}],
+      ann:[{x:440,y:150,t:['sem aldolase B:','F1P não é quebrado'],k:'d',at:.3}]},
+    {cap:'Acúmulo: <span class="d">fructose-1-phosphate</span> dentro do hepatócito (também no rim e no intestino). Cada molécula carrega um fosfato que não consegue liberar — o <b>phosphate trapping</b>. O pool de Pᵢ começa a esvaziar.',
+      rt:'Hepatócito', rs:'F1P ↑ · Pᵢ preso',
+      figs:[{o:'hepatocyte',t:'Phosphate trapping',c:'Aglomerados de F1P (fosfato em rosa) ocupam o citosol; o Pᵢ livre some.',s:u=>({fru:.6,f1p:.45+.55*u,glyc:.7,atp:1-.2*u,trap:1})}],
+      ann:[{x:150,y:48,t:['acúmulo = FOSFATO PRESO em F1P'],k:'d',at:.15}]},
+    {cap:'Sem Pᵢ, a mitocôndria não regenera ATP: <b>ATP cai</b>, o AMP é degradado e o <b>ácido úrico sobe</b>. A glicogênio fosforilase precisa de Pᵢ → <b>glicogenólise para</b>; a gliconeogênese também falha (falta ATP e o F1P inibe a etapa de aldolase) → <span class="d">hipoglicemia</span> logo após a ingestão, com acidose lática.',
+      rt:'Hepatócito', rs:'ATP ↓ · glicose ↓',
+      figs:[{o:'hepatocyte',t:'Crise energética',c:'Mitocôndrias apagando (ATP ↓); glicogênio retido, sem liberar glicose.',s:u=>({fru:.6,f1p:1,glyc:.85,atp:.8-.6*u,trap:1,injury:.4*u,lock:u})}],
+      ann:[{x:470,y:52,t:['Pᵢ esgotado → ATP ↓','AMP → ácido úrico ↑'],k:'d',at:.15},{x:140,y:150,t:['fosforilase sem Pᵢ:','glicogenólise para'],k:'d',at:.45},{x:12,y:300,t:['↓ glicose','hipoglicemia'],k:'d',at:.7}]},
+    {cap:'Repercussão: <b>fígado</b> (hepatomegalia, esteatose, lesão hepatocelular, icterícia, risco de insuficiência hepática), <b>rim</b> (disfunção do túbulo proximal, tipo Fanconi: perde fosfato, glicose, aminoácidos e bicarbonato) e <b>cérebro</b> (neuroglicopenia: letargia, convulsões).',
+      rt:'Órgãos', rs:'Lesão sistêmica',
+      figs:[{o:'liver',t:'Fígado',c:'Hepatomegalia: a borda ultrapassa o rebordo costal; icterícia.',s:u=>({size:1+.22*u,jaundice:.45*u,infant:1})},
+            {o:'kidney',t:'Túbulo proximal',c:'Disfunção tipo Fanconi.',s:u=>({sug:'fru',spill:.5,fanconi:u})},
+            {o:'brain',t:'Cérebro',c:'Hipoglicemia → neuroglicopenia.',s:u=>({glu:1-.8*u})}],
+      ann:[{x:150,y:48,t:['F1P tóxico + hipoglicemia'],k:'d',at:.2}]},
+    {cap:'Começa quando frutose, <b>sacarose</b> ou <b>sorbitol</b> entram na dieta — classicamente no <b>desmame</b> (frutas, sucos, papinhas adoçadas). Vômitos, hipoglicemia, letargia, icterícia, hepatomegalia, déficit de crescimento. Crianças maiores criam <b>aversão a doces</b> (e têm poucas cáries). Tratamento: excluir frutose, sacarose e sorbitol.',
+      rt:'Quadro clínico', rs:'Sintomas após frutose',
+      figs:[{o:'timeline',t:'Quando aparece',c:'O gatilho é a frutose: os sintomas começam junto com frutas e açúcar no desmame.',s:u=>({focus:'hfi',u})},
+            {o:'liver',t:'Exame físico',c:'Fígado palpável abaixo do rebordo costal, pele ictérica.',s:u=>({size:1.22,jaundice:.45,infant:1})}],
+      ann:[{x:150,y:48,t:['gatilho: frutose · sacarose · sorbitol'],k:'d',at:.2}]}
+  ],
+  diff:{sub:'Três doenças da infância que também dão hipoglicemia ou lesão hepática. Pergunte sempre o que a criança comeu antes de piorar.',
+    cols:[{n:'Hereditary fructose intolerance',s:'HFI',c:'hfi',me:1},{n:'Essential fructosuria',s:'frutose, benigna',c:'ef'},{n:'Von Gierke (GSD I)',s:'diferencial de hipoglicemia',c:'vg'},{n:'Classic galactosemia',s:'diferencial de hepatotoxicidade',c:'galt'}],
+    rows:[['Enzima','Aldolase B','Fructokinase','Glucose-6-phosphatase','GALT'],
+      ['Gatilho','Frutose, sacarose, sorbitol','Frutose (sem sintomas)','Jejum','Leite (lactose/galactose)'],
+      ['Início típico','Desmame (~4–6 meses)','Achado incidental','~3–4 meses, quando as mamadas se espaçam','Primeiros dias de vida'],
+      ['Defeito','Via da frutose','Via da frutose','Glicogenólise e gliconeogênese — não é frutose','Via da galactose — não é frutose'],
+      ['Fígado','Hepatomegalia, lesão, icterícia','Normal','Hepatomegalia (glicogênio + gordura)','Hepatotoxicidade, icterícia']],
+    key:['O que decide','Piora após frutose; aversão a doces','Redutor + na urina, criança bem','Hipoglicemia de jejum; lactato, ácido úrico e TG ↑','Catarata + sepse por E. coli após o leite'],
+    rule:'Frutose → HFI. Leite → galactosemia clássica. Só jejum → von Gierke.',
+    blocks:[['aldo','hfi'],['fk','ef'],['g6p','vg']]},
+  sum:{enz:'Aldolase B (ALDOB)',acc:'Fructose-1-phosphate (phosphate trapping)',tis:'Fígado, rim (túbulo proximal), cérebro (hipoglicemia)',cli:'Após frutose/sacarose/sorbitol (desmame): vômitos, hipoglicemia, icterícia, hepatomegalia; aversão a doces',nc:'Frutosúria essencial (benigna) · von Gierke (jejum, G6Pase) · galactosemia clássica (leite)'},
+  take:'Aldolase B deficiency causes toxic fructose-1-phosphate accumulation.'
+},
+{ id:'galk', c:'galk', path:'gal', name:'Galactokinase deficiency', pt:'Deficiência de galactoquinase', enzyme:'galactokinase', chip:'galk',
+  prof:[['Enzima','Galactokinase (GALK1)'],['Acúmulo','galactose → galactitol'],['Dano','catarata isolada']],
+  meters:[
+    {l:'Galactose no sangue',base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
+    {l:'Galactitol no cristalino',base:0,v:[0,0,.1,.75,.95,.95,.95,.95]},
+    {l:'Galactose-1-P',base:.1,v:[.1,.03,0,0,0,0,0,0],abs:1}],
+  steps:[
+    {cap:'Lactose do leite → <b>lactase</b> (borda em escova) → glicose + galactose. No fígado: <b>galactokinase</b> (GALK) fosforila a galactose; a <b>GALT</b> troca galactose-1-phosphate + UDP-glicose por <b>glucose-1-phosphate</b> + UDP-galactose; a <b>epimerase</b> regenera UDP-glicose. Glucose-1-P → G6P → glicólise ou glicogênio.',
+      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
+      figs:[{o:'intestine',t:'Intestino delgado',c:'Lactase quebra a lactose; a galactose é absorvida junto com a glicose.',s:u=>({mode:'gal',u})},
+            {o:'hepatocyte',t:'Hepatócito',c:'Galactose fosforilada e convertida em glicose-1-fosfato.',s:u=>({gal:.5,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:['1ª etapa: galactokinase (ATP → ADP)'],at:.25}]},
+    {cap:'Na deficiência de galactoquinase falta a <span class="d">galactokinase</span> (gene <i>GALK1</i>, autossômica recessiva). A galactose não é fosforilada e permanece livre.',
+      rt:'Hepatócito', rs:'GALK ausente',
+      figs:[{o:'hepatocyte',t:'Hepatócito sem GALK',c:'Galactose entra e não é fosforilada; o fígado não sofre.',s:u=>({gal:.9,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:['sem galactokinase: galactose não é fosforilada'],k:'d',at:.3}]},
+    {cap:'Acúmulo: <b>galactose livre</b> no sangue e na urina (galactosemia e galactosúria). Atenção: <span class="d">não há galactose-1-phosphate</span> — por isso não há toxicidade hepática.',
+      rt:'Sangue e rim', rs:'Galactose livre ↑',
+      figs:[{o:'blood',t:'Plasma',c:'Galactose livre circulando.',s:u=>({sug:'gal',n:.3+.7*u})},
+            {o:'kidney',t:'Rim',c:'Galactosúria, sem lesão tubular.',s:u=>({sug:'gal',spill:u})}],
+      ann:[{x:150,y:48,t:['acúmulo = AÇÚCAR LIVRE (galactose)'],k:'d',at:.15}]},
+    {cap:'Desviada, a galactose é reduzida pela <b>aldose redutase</b> (gasta NADPH) a <span class="d">galactitol</span>. Galactitol é um álcool de açúcar: não é metabolizado e não atravessa a membrana — fica preso na célula e puxa água.',
+      rt:'Cristalino', rs:'Galactitol ↑',
+      figs:[{o:'lens',t:'Cristalino',c:'Aldose redutase das fibras do cristalino forma galactitol, que não consegue sair.',s:u=>({tol:u,water:0,opac:0})}],
+      ann:[{x:140,y:290,t:['galactitol = álcool','de açúcar: não sai','da célula'],k:'d',at:.4}]},
+    {cap:'No <b>cristalino</b>, o galactitol preso cria um gradiente osmótico: <b>a água entra</b>, as fibras incham e perdem o arranjo regular → <span class="d">opacidade</span>. O fígado, o rim e o sistema imune ficam poupados.',
+      rt:'Cristalino', rs:'Catarata',
+      figs:[{o:'lens',t:'Influxo osmótico',c:'Água entra seguindo o galactitol; fibras incham e opacificam.',s:u=>({tol:1,water:u,opac:u})},
+            {o:'eye',t:'Reflexo vermelho',c:'Opacidade central no reflexo vermelho.',s:u=>({cat:u})}],
+      ann:[{x:140,y:290,t:['galactitol → água entra','→ fibras incham'],k:'d',at:.2}]},
+    {cap:'<b>Catarata infantil</b> — pode aparecer como falha em fixar e seguir objetos ou ausência de sorriso social. A criança está bem: <b>sem icterícia, sem hepatopatia, sem sepse</b>. Tratamento: restringir galactose; catarata precoce pode regredir.',
+      rt:'Quadro clínico', rs:'Catarata isolada',
+      figs:[{o:'eye',t:'Catarata',c:'Leucocoria/opacidade bilateral em lactente que não segue objetos.',s:u=>({cat:1})},
+            {o:'hepatocyte',t:'Fígado poupado',c:'Sem galactose-1-phosphate, não há lesão hepatocelular.',s:u=>({gal:.7,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:['catarata isolada · criança bem'],k:'d',at:.2}]}
+  ],
+  diff:{sub:'As duas formam galactitol e podem dar catarata. Só uma acumula galactose-1-phosphate e adoece o recém-nascido.',
+    cols:[{n:'Galactokinase deficiency',s:'GALK',c:'galk',me:1},{n:'Classic galactosemia',s:'GALT',c:'galt'}],
+    rows:[['Enzima','Galactokinase','GALT'],
+      ['Acúmulo','Galactose → galactitol','Galactose-1-phosphate (+ galactitol)'],
+      ['Catarata','Sim — achado principal','Sim'],
+      ['Fígado','Poupado','Hepatotoxicidade, icterícia'],
+      ['Sepse por E. coli','Não','Risco marcado'],
+      ['Quadro','Catarata isolada, criança bem','Doença sistêmica grave após o leite']],
+    key:['O que decide','Catarata em criança saudável','Catarata + criança doente'],
+    rule:'Ambas podem gerar galactitol. Só a galactosemia clássica tem toxicidade sistêmica e risco de sepse neonatal.',
+    blocks:[['galk','galk'],['galt','galt']]},
+  sum:{enz:'Galactokinase (GALK1)',acc:'Galactose livre → galactitol',tis:'Cristalino',cli:'Catarata infantil; criança sem icterícia, sem hepatopatia e sem sepse',nc:'Galactosemia clássica — GALT, Gal-1-P, doença sistêmica neonatal'},
+  take:'Galactitol in the lens drives infantile cataracts.'
+},
+{ id:'galt', c:'galt', path:'gal', name:'Classic galactosemia', pt:'Galactosemia clássica', enzyme:'GALT', chip:'galt',
+  prof:[['Enzima','GALT'],['Acúmulo','Gal-1-P (fosfato preso) + galactitol'],['Dano','sistêmico neonatal']],
+  meters:[
+    {l:'Galactose-1-P intracelular',base:.1,v:[.1,.3,.95,.95,.95,.95,.95,.95]},
+    {l:'Galactose no sangue',base:.15,v:[.15,.2,.7,.7,.7,.7,.7,.7]},
+    {l:'Galactitol no cristalino',base:0,v:[0,0,.1,.7,.85,.85,.85,.85]}],
+  steps:[
+    {cap:'Mesma via, foco na segunda etapa: a <b>GALT</b> (galactose-1-phosphate uridyltransferase) pega a galactose-1-phosphate e a troca com UDP-glicose, liberando <b>glucose-1-phosphate</b>. A <b>epimerase</b> fecha o ciclo regenerando UDP-glicose.',
+      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
+      figs:[{o:'intestine',t:'Intestino delgado',c:'Leite materno ou fórmula: lactose → glicose + galactose.',s:u=>({mode:'gal',u})},
+            {o:'hepatocyte',t:'Hepatócito',c:'Galactose-1-phosphate é intermediário de passagem.',s:u=>({gal:.5,glyc:.7,atp:1})}],
+      ann:[{x:470,y:280,t:['GALT: Gal-1-P + UDP-Glc','→ Glc-1-P + UDP-Gal'],at:.35}]},
+    {cap:'Na galactosemia clássica falta a <span class="d">GALT</span> (autossômica recessiva). A galactokinase funciona: a galactose é fosforilada e <b>trava como galactose-1-phosphate</b>.',
+      rt:'Hepatócito', rs:'GALT ausente',
+      figs:[{o:'hepatocyte',t:'Hepatócito sem GALT',c:'Galactose-1-phosphate começa a se acumular.',s:u=>({gal:.6,g1p:.3*u,glyc:.7,atp:1})}],
+      ann:[{x:470,y:280,t:['sem GALT: Gal-1-P','não segue adiante'],k:'d',at:.3}]},
+    {cap:'Acúmulo principal: <span class="d">galactose-1-phosphate</span> — tóxica — em hepatócitos, túbulo renal, cérebro e hemácias. A galactose a montante também sobe no sangue.',
+      rt:'Hepatócito', rs:'Gal-1-P ↑ (tóxico)',
+      figs:[{o:'hepatocyte',t:'Galactose-1-phosphate',c:'Gal-1-P (fosfato em rosa) acumula no citosol.',s:u=>({gal:.6,g1p:.3+.7*u,glyc:.7,atp:1-.15*u,trap:1})}],
+      ann:[{x:150,y:48,t:['acúmulo = FOSFATO PRESO em Gal-1-P · tóxico'],k:'d',at:.15}]},
+    {cap:'O excesso de galactose também vira <b>galactitol</b> (aldose redutase) → catarata. A <span class="d">Gal-1-P</span> lesa hepatócitos e túbulos e inibe a liberação de glicose (fosfoglicomutase, glicose-6-fosfatase) → hipoglicemia. Neutrófilos com menor atividade bactericida → risco de <b>sepse por <i>E. coli</i></b>.',
+      rt:'Célula, cristalino e sangue', rs:'Toxicidade sistêmica',
+      figs:[{o:'hepatocyte',t:'Hepatócito',c:'Gal-1-P tóxica: célula inchada, esteatose.',s:u=>({gal:.6,g1p:1,glyc:.6,atp:.85-.3*u,trap:1,injury:.7*u})},
+            {o:'lens',t:'Cristalino',c:'Galactitol se forma também aqui.',s:u=>({tol:u,water:.3*u,opac:.2*u})},
+            {o:'blood',t:'Sangue',c:'Neutrófilos com baixa atividade bactericida; E. coli proliferando.',s:u=>({ecoli:u,impair:1})}],
+      ann:[{x:140,y:290,t:['galactose → galactitol','(aldose redutase)'],k:'d',at:.25},{x:150,y:48,t:['Gal-1-P tóxica: fígado, rim, cérebro, neutrófilos'],k:'d',at:.5}]},
+    {cap:'Repercussão no recém-nascido: <b>fígado</b> (icterícia, hepatomegalia, coagulopatia, pode evoluir para insuficiência), <b>cristalino</b> (catarata), <b>sangue</b> (sepse por <i>E. coli</i>), <b>rim</b> (disfunção tubular) e <b>cérebro</b> (letargia; déficit cognitivo a longo prazo).',
+      rt:'Órgãos', rs:'Doença sistêmica',
+      figs:[{o:'liver',t:'Fígado neonatal',c:'Hepatomegalia e icterícia nos primeiros dias.',s:u=>({size:1+.2*u,jaundice:.85*u,infant:1})},
+            {o:'lens',t:'Cristalino',c:'Opacidade por galactitol.',s:u=>({tol:1,water:.8,opac:.4+.6*u})},
+            {o:'blood',t:'Sangue',c:'Sepse por E. coli.',s:u=>({ecoli:1,impair:1})}],
+      ann:[{x:150,y:48,t:['início após o leite · primeiros dias'],k:'d',at:.2}]},
+    {cap:'Primeiros dias de vida, logo após o início do <b>leite materno ou da fórmula</b>: vômitos, recusa alimentar, icterícia, hepatomegalia, letargia, <b>déficit de crescimento</b>, catarata e <b>sepse por <i>E. coli</i></b>. Triagem neonatal; atividade de GALT ↓ em hemácias; substâncias redutoras na urina. Tratamento: suspender lactose/galactose (fórmula de soja). Mesmo tratada: risco de déficit cognitivo e insuficiência ovariana prematura.',
+      rt:'Quadro clínico', rs:'Recém-nascido grave',
+      figs:[{o:'growth',t:'Curva de crescimento',c:'Peso cai e cruza percentis: déficit de crescimento.',s:u=>({u})},
+            {o:'eye',t:'Olho',c:'Esclera ictérica e catarata em gota de óleo.',s:u=>({cat:.9,jaundice:.9})},
+            {o:'blood',t:'Hemocultura',c:'E. coli: a sepse neonatal é pista diagnóstica.',s:u=>({ecoli:1,impair:1})}],
+      ann:[{x:150,y:48,t:['gatilho: LEITE · triagem neonatal'],k:'d',at:.2}]}
+  ],
+  diff:{sub:'Icterícia e hepatomegalia no lactente têm várias causas. O gatilho alimentar e a idade de início separam a maioria.',
+    cols:[{n:'Classic galactosemia',s:'GALT',c:'galt',me:1},{n:'Galactokinase deficiency',s:'GALK',c:'galk'},{n:'Hereditary fructose intolerance',s:'aldolase B',c:'hfi'},{n:'Hepatite neonatal',s:'outras causas',c:'hep'}],
+    rows:[['Causa','Deficiência de GALT','Deficiência de galactokinase','Deficiência de aldolase B','Infecções congênitas, deficiência de alfa-1-antitripsina, colestases'],
+      ['Acúmulo','Galactose-1-phosphate','Galactitol (sem Gal-1-P)','Fructose-1-phosphate','—'],
+      ['Gatilho','Leite, primeiros dias','Leite (só o cristalino sofre)','Frutose/sacarose no desmame','Sem relação com a dieta'],
+      ['Catarata','Sim','Sim — achado principal','Não','Não é a regra'],
+      ['Sepse por E. coli','Risco marcado','Não','Não','Depende da causa']],
+    key:['O que decide','GALT ↓ em hemácias; melhora sem lactose','Criança bem, só catarata','Sintomas só depois da frutose','GALT normal; não melhora tirando o leite'],
+    rule:'Leite + icterícia nos primeiros dias + catarata + E. coli = GALT.',
+    blocks:[['galt','galt'],['galk','galk']]},
+  sum:{enz:'GALT (galactose-1-phosphate uridyltransferase)',acc:'Galactose-1-phosphate (+ galactitol no cristalino)',tis:'Fígado, cristalino, rim, cérebro, neutrófilos',cli:'Após o leite nos primeiros dias: vômitos, icterícia, hepatomegalia, déficit de crescimento, catarata, sepse por E. coli',nc:'Deficiência de GALK (só catarata) · HFI (gatilho frutose) · hepatite neonatal (GALT normal)'},
+  take:'GALT deficiency causes systemic neonatal toxicity after milk exposure.'
+}];
+
+/* ======================= via bioquímica (SVG) ======================= */
+const svg=$('#pw');
+const LAY={
+ fru:{ sugar:'fru', diet:['DIETA','frutas · mel','sacarose','sorbitol'],
+   nodes:{FRU:[215,120,'frutose'],F1P:[430,120,'fructose-1-P'],DHAP:[330,250,'DHAP'],GLA:[525,250,'gliceraldeído'],G3P:[525,330,'G3P'],
+     GLY:[215,262,'glicogênio','glyc'],BOX:[400,400,'glicólise ⇄ gliconeogênese','box']},
+   chips:{fk:[318,120,'fructokinase','ATP → ADP'],aldo:[430,182,'aldolase B'],tk:[525,290,'triose kinase'],phos:[215,305,'phosphorylase · Pᵢ'],g6p:[215,345,'G6Pase']},
+   edges:{e1:[[261,120],[378,120]],e2:[[430,134],[430,215]],e3:[[430,215],[352,244]],e4:[[430,215],[500,243]],e5:[[525,264],[525,316]],
+     e6:[[338,264],[360,383]],e7:[[510,344],[455,383]],gout:[[215,282],[215,372],[118,372]],gng:[[276,388],[226,330]],esc:[[175,132],[128,150],[100,160]]},
+   dashed:['esc'],
+   routes:{
+     A:{p:[[60,98],[60,120],[215,120],[318,120],[430,120],[430,182],[430,215],[330,250],[360,383]],g:['fru','fru','fru','frup','frup','tri','tri','tri']},
+     B:{p:[[60,98],[60,120],[215,120],[318,120],[430,120],[430,182],[430,215],[525,250],[525,290],[525,330],[460,383]],g:['fru','fru','fru','frup','frup','tri','tri','tri','tri','tri']},
+     ESC:{p:[[60,98],[60,120],[215,120],[300,120],[215,132],[128,150],[60,170],[60,430]],g:['fru','fru','fru','fru','fru','fru','fru']},
+     STOP:{p:[[60,98],[60,120],[215,120],[318,120],[430,120],[430,166]],g:['fru','fru','fru','frup','frup']},
+     GO:{p:[[215,282],[215,372],[118,372],[60,372],[60,430]],g:['glc','glc','glc','glc']}},
+   piles:{F1P:{c:[430,120],hw:52,hh:14,g:'frup',n:14},FRU:{c:[215,120],hw:42,hh:14,g:'fru',n:8}}
+ },
+ gal:{ sugar:'gal', diet:['DIETA','leite','lactose →','glicose +','galactose'],
+   nodes:{GAL:[215,120,'galactose'],G1P:[440,120,'galactose-1-P'],GC1P:[440,245,'glucose-1-P'],G6P:[440,330,'G6P'],
+     UGLC:[560,160,'UDP-Glc'],UGAL:[560,230,'UDP-Gal'],TOL:[215,235,'galactitol'],BOX:[400,400,'glicólise · glicogênio','box']},
+   chips:{galk:[318,120,'galactokinase','ATP → ADP'],galt:[440,182,'GALT'],pgm:[440,288,'PGM'],ar:[215,178,'aldose reductase','NADPH'],epi:[612,195,'epimerase',null,1]},
+   edges:{e1:[[258,120],[380,120]],e2:[[440,134],[440,231]],e3:[[440,259],[440,316]],e4:[[440,344],[425,383]],
+     u1:[[525,160],[462,176]],u2:[[462,188],[525,226]],u3:[[595,230],[612,230],[612,160],[597,160]],ar:[[215,134],[215,221]],esc:[[175,132],[128,150],[100,160]]},
+   dashed:['ar','esc'],
+   routes:{
+     A:{p:[[60,98],[60,120],[215,120],[318,120],[440,120],[440,182],[440,245],[440,288],[440,330],[420,383]],g:['gal','gal','gal','galp','galp','glcp','glcp','glcp','glcp']},
+     ESC:{p:[[60,98],[60,120],[215,120],[300,120],[215,132],[128,150],[60,170],[60,430]],g:['gal','gal','gal','gal','gal','gal','gal']},
+     STOP:{p:[[60,98],[60,120],[215,120],[318,120],[440,120],[440,166]],g:['gal','gal','gal','galp','galp']},
+     AR:{p:[[215,134],[215,178],[215,221]],g:['gal','tol']}},
+   piles:{G1P:{c:[440,120],hw:59,hh:14,g:'galp',n:14},GAL:{c:[215,120],hw:42,hh:14,g:'gal',n:8},TOL:{c:[215,235],hw:45,hh:14,g:'tol',n:10}}
+ }
+};
+const nodeW=(t,k)=>k==='box'?250:k==='glyc'?0:Math.max(58,t.length*7+20);
+const chipW=t=>t.length*6.6+16;
+
+/* geometria de rotas */
+function prep(r){let L=0;r.d=[0];for(let i=1;i<r.p.length;i++){L+=Math.hypot(r.p[i][0]-r.p[i-1][0],r.p[i][1]-r.p[i-1][1]);r.d.push(L);}r.L=L;}
+function at(r,d){d=clamp(d,0,r.L);let i=1;while(i<r.d.length-1&&r.d[i]<d)i++;const a=r.p[i-1],b=r.p[i],t=(d-r.d[i-1])/((r.d[i]-r.d[i-1])||1);return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,r.g[i-1]];}
+for(const k in LAY)for(const r in LAY[k].routes)prep(LAY[k].routes[r]);
+
+let PW=null; // estado do SVG construído
+function buildPath(kind){
+  const L=LAY[kind];svg.textContent='';
+  const g0=el('g',null,svg);
+  el('rect',{class:'lane',x:8,y:8,width:104,height:424,rx:18},g0);
+  const r=rng(11);for(let i=0;i<14;i++){const x=20+r()*80,y=200+r()*210;el('ellipse',{cx:x,cy:y,rx:6,ry:3.6,fill:'#5a1f2e',opacity:.55,transform:`rotate(${r()*180} ${x} ${y})`},g0);}
+  L.diet.forEach((t,i)=>{const e=el('text',{x:60,y:28+i*14,'text-anchor':'middle',class:i?'lanesm':'lanetx'},g0);e.textContent=t;});
+  const sb=el('text',{x:60,y:424,'text-anchor':'middle',class:'lanesm'},g0);sb.textContent='SANGUE PORTAL';
+  el('rect',{class:'cell',x:128,y:8,width:504,height:424,rx:22},g0);
+  el('rect',{class:'cell2',x:136,y:16,width:488,height:408,rx:16},g0);
+  const ct=el('text',{x:150,y:32,class:'celltx'},g0);ct.textContent='HEPATÓCITO · CITOSOL';
+  [[128,120],[128,372]].forEach(([x,y],i)=>{if(kind==='gal'&&i)return;const t=el('g',{class:'tp'},g0);el('rect',{x:x-5,y:y-13,width:10,height:10,rx:2},t);el('rect',{x:x-5,y:y+3,width:10,height:10,rx:2},t);
+    const tx=el('text',{x:x+9,y:y-16},t);tx.textContent='GLUT2';});
+  const gE=el('g',null,svg),gPool=el('g',{class:'pool'},svg),gPart=el('g',null,svg),gN=el('g',null,svg),gC=el('g',null,svg),gRing=el('g',null,svg),gB=el('g',null,svg),gA=el('g',null,svg);
+  const edges={};for(const k in L.edges){const pts=L.edges[k];const e=el('path',{class:'edge'+(L.dashed.includes(k)?' dash':''),d:'M'+pts.map(p=>p.join(',')).join(' L'),'marker-end':(k==='e2'&&kind==='fru')?'':'url(#ar)'},gE);edges[k]=e;}
+  const nodes={};for(const k in L.nodes){const [x,y,t,ty]=L.nodes[k];const g=el('g',{class:'node'},gN);
+    if(ty==='glyc'){const rr=rng(5);for(let i=0;i<26;i++){const a=rr()*6.283,d=Math.sqrt(rr())*17;el('circle',{cx:x+Math.cos(a)*d,cy:y+Math.sin(a)*d*.8,r:2.4+rr()*1.6,fill:'#c9b78a',opacity:.85},g);}
+      const tx=el('text',{x,y:y-30},g);tx.textContent=t;tx.style.font='500 11.5px var(--f-label)';tx.style.fill='var(--ink-2)';}
+    else{const w=nodeW(t,ty),h=ty==='box'?34:28;el('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:ty==='box'?8:7},g);const tx=el('text',{x,y,class:ty==='box'?'boxt':''},g);tx.textContent=t;}
+    nodes[k]=g;}
+  const chips={},blocks={};for(const k in L.chips){const [x,y,t,cof,vert]=L.chips[k];const w=chipW(t);const g=el('g',{class:'enz',transform:vert?`translate(${x} ${y}) rotate(-90)`:`translate(${x} ${y})`},gC);
+    el('rect',{x:-w/2,y:-10,width:w,height:20,rx:10},g);const tx=el('text',{x:0,y:0},g);tx.textContent=t;
+    if(cof){const c=el('text',{class:'cof',x:k==='ar'?w/2+6:0,y:k==='ar'?0:-17},g);c.textContent=cof;if(k==='ar')c.style.textAnchor='start';}
+    chips[k]=g;
+    const b=el('g',{class:'blk',transform:`translate(${x} ${y})`,opacity:0},gB);const s=el('g',null,b);
+    el('circle',{r:17,fill:'rgba(6,16,36,.55)',stroke:'currentColor','stroke-width':1.5},s);
+    el('line',{x1:-9,y1:-9,x2:9,y2:9,stroke:'currentColor'},s);el('line',{x1:9,y1:-9,x2:-9,y2:9,stroke:'currentColor'},s);
+    const bt=el('text',{y:-23,fill:'currentColor'},s);blocks[k]={g:b,s,t:bt};}
+  const pool=[];if(kind==='fru'){const rr=rng(3);for(let i=0;i<12;i++){const a=i*2.4,d=6+ (i%4)*6;pool.push(el('use',{href:'#gl-pi',x:580+Math.cos(a)*d*1.3,y:180+Math.sin(a)*d},gPool));}
+    const pt=el('text',{x:580,y:214},gPool);pt.textContent='pool de Pᵢ';}
+  const parts=[];for(let i=0;i<72;i++){const u=el('use',{href:'#gl-fru',opacity:0},gPart);u._g='fru';parts.push(u);}
+  const ring=el('ellipse',{class:'ring','stroke-dasharray':'5 5',opacity:0},gRing);const ringT=el('text',{opacity:0,style:'font:700 10.5px var(--f-label);letter-spacing:.12em'},gRing);
+  PW={kind,L,edges,nodes,chips,blocks,pool,parts,ring,ringT,gA,anns:[]};
+  // legenda de glifos
+  const gl=kind==='fru'?[['gl-fru','frutose · açúcar livre'],['gl-frup','açúcar-fosfato · Pᵢ preso'],['gl-tri','trioses'],['gl-pi','fosfato (Pᵢ)'],['gl-glc','glicose']]
+    :[['gl-gal','galactose · açúcar livre'],['gl-galp','açúcar-fosfato · Pᵢ preso'],['gl-tol','galactitol · álcool de açúcar'],['gl-glcp','glucose-1-P / G6P']];
+  $('#glyphs').innerHTML=gl.map(([id,t])=>`<span><svg viewBox="-13 -17 30 30" aria-hidden="true"><use href="#${id}"/></svg>${t}</span>`).join('')+
+    `<span><svg viewBox="-12 -12 24 24" aria-hidden="true" style="color:var(--cur)"><use href="#gl-x"/></svg>bloqueio · cor da doença</span>`;
+}
+
+function setAnns(list){PW.gA.textContent='';PW.anns=(list||[]).map(a=>{const g=el('g',{class:'ann'+(a.k?' '+a.k:''),opacity:0},PW.gA);
+  const w=Math.max(...a.t.map(s=>s.length))*6.25+18,h=a.t.length*15+10;const x=Math.min(a.x,636-w);
+  el('rect',{x,y:a.y,width:w,height:h,rx:6},g);a.t.forEach((s,i)=>{const t=el('text',{x:x+9,y:a.y+18+i*15},g);t.textContent=s;});return {g,at:a.at||0};});}
+
+function pileXY(p,i,T){const half=Math.ceil(p.n/2),col=Math.floor(i/2),top=i%2===0;const span=2*p.hw-14;
+  const x=p.c[0]-p.hw+7+(half>1?col*span/(half-1):span/2);const y=p.c[1]+(top?-1:1)*(p.hh+10+(col%2)*7);
+  return [x+Math.sin(T*1.7+i)*1.2,y+Math.cos(T*1.3+i*2)*1.2];}
+
+/* desenha um quadro da via */
+function drawPath(ch,si,u,T,mv){
+  const P=PW,L=P.L,id=ch.id;let k=0;
+  const put=(g,x,y,op,sc)=>{if(k>=P.parts.length)return;const e=P.parts[k++];if(e._g!==g){e.setAttribute('href','#gl-'+g);e._g=g;}
+    e.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})${sc&&sc!==1?` scale(${sc.toFixed(2)})`:''}`);e.setAttribute('opacity',op.toFixed(2));};
+  const flow=(rk,n,rate,fadeEnd)=>{const r=L.routes[rk];if(!r||n<=0)return;const sp=REDUCED?.35:1;
+    for(let i=0;i<n;i++){const ph=((T*rate*sp/r.L*70)+i/n)%1;const [x,y,g]=at(r,ph*r.L);let op=Math.min(1,ph*8);if(fadeEnd)op*=1-seg(ph,.82,1);put(g,x,y,op);}};
+  const pile=(pk,lev)=>{const p=L.piles[pk];const n=Math.round(p.n*clamp(lev));for(let i=0;i<n;i++){const [x,y]=pileXY(p,i,T);put(p.g,x,y,1,i===n-1?1+.15*Math.sin(T*6):1);}};
+  const blood=(g,lev)=>{const r=rng(21);const n=Math.round(16*clamp(lev));for(let i=0;i<16;i++){const x=22+r()*76,y=190+r()*160;if(i<n)put(g,x+Math.sin(T+i)*3,y+Math.cos(T*.8+i)*3,.9,.9);}};
+  const B=si>=1, pre=si===0;
+  // fluxos e acúmulos
+  if(pre){flow('A',4,1);flow('B',4,1);if(L.routes.GO)flow('GO',4,.8,1);}
+  else if(id==='ef'){flow('ESC',8,1,1);blood('fru',(mv[0]-.15)/.7);flow('GO',4,.8,1);}
+  else if(id==='hfi'){flow('STOP',6,1,1);pile('F1P',si===1?.25*u:si===2?.25+.75*u:1);const go=si<3?4:si===3?Math.round(4*(1-seg(u,.3,.7))):0;flow('GO',go,.8,1);}
+  else if(id==='galk'){flow('ESC',8,1,1);blood('gal',(mv[0]-.15)/.7);pile('GAL',si===1?.3*u:.55);if(si>=3){flow('AR',3,.6,1);pile('TOL',si===3?u:1);}}
+  else if(id==='galt'){flow('STOP',6,1,1);pile('G1P',si===1?.3*u:si===2?.3+.7*u:1);blood('gal',(mv[1]-.15)/.7);if(si>=3){flow('AR',3,.6,1);pile('TOL',si===3?u:1);}}
+  for(;k<P.parts.length;k++)P.parts[k].setAttribute('opacity',0);
+  // pool de fosfato
+  if(P.pool.length){const lev=id==='hfi'?mv[0]:1;const n=Math.round(12*lev);P.pool.forEach((e,i)=>e.setAttribute('opacity',i<n?1:.08));}
+  // arestas e nós
+  const E=P.edges,N=P.nodes;for(const e in E)E[e].setAttribute('class','edge'+(L.dashed.includes(e)?' dash':''));for(const n in N)N[n].setAttribute('class','node');
+  const off=a=>a.forEach(e=>E[e]&&E[e].classList.add('off')),dim=a=>a.forEach(n=>N[n]&&N[n].classList.add('dim')),acc=a=>a.forEach(n=>N[n]&&N[n].classList.add('acc'));
+  if(P.kind==='fru'){E.esc.style.opacity=id==='ef'&&B?1:0;}
+  else{E.esc.style.opacity=id==='galk'&&B?1:0;E.ar.style.opacity=(si>=3&&B)?1:.35;if(si>=3&&B)E.ar.classList.add('hot');}
+  if(B){
+    if(id==='ef'){off(['e1','e2','e3','e4','e5','e6','e7']);dim(['F1P','DHAP','GLA','G3P']);if(si>=2)acc(['FRU']);}
+    if(id==='hfi'){off(['e2','e3','e4','e5','e6','e7']);dim(['DHAP','GLA','G3P']);if(si>=2)acc(['F1P']);if(si>=3){const q=si===3?seg(u,.3,.7):1;E.gout.style.strokeOpacity=1-.8*q;E.gng.style.strokeOpacity=1-.8*q;}}
+    if(id==='galk'){off(['e1','e2','e3','e4','u1','u2']);dim(['G1P','GC1P','G6P']);if(si>=2)acc(['GAL']);if(si>=3)acc(['TOL']);}
+    if(id==='galt'){off(['e2','e3','e4','u1','u2']);dim(['GC1P','G6P']);if(si>=2)acc(['G1P']);if(si>=3)acc(['TOL']);}
+  }
+  if(!(id==='hfi'&&si>=3)&&E.gout){E.gout.style.strokeOpacity='';E.gng.style.strokeOpacity='';}
+  // enzimas e bloqueios
+  for(const c in P.chips){P.chips[c].setAttribute('class','enz');const b=P.blocks[c];b.g.setAttribute('opacity',0);}
+  const mark=(c,color,pop,label,dashed)=>{const b=P.blocks[c];if(!b)return;b.g.style.color=color;b.g.setAttribute('opacity',1);
+    b.s.setAttribute('transform',`scale(${(.2+.8*pop).toFixed(3)})`);b.t.textContent=label||'';b.s.querySelector('circle').setAttribute('stroke-dasharray',dashed?'4 3':'');
+    P.chips[c].classList.add('dead');};
+  if(pre){P.chips[ch.chip].classList.add('hot');}
+  else if(si===6){ch.diff.blocks.forEach(([c,col])=>{const isMe=col===ch.c;mark(c,COLORS[col],1,isMe?'':({ef:'EF',hfi:'HFI',vg:'GSD I',galk:'GALK',galt:'GALT'})[col]);if(!isMe)P.chips[c].classList.remove('dead');});}
+  else{mark(ch.chip,COLORS[ch.c],si===1?es(u,0,.35):1,'');
+    if(id==='hfi'&&si>=3)mark('phos',COLORS.hfi,si===3?es(u,.3,.55):1,'sem Pᵢ',1);}
+  // anel de aprisionamento/toxicidade
+  const R=P.ring,RT=P.ringT;let show=0;
+  if(id==='hfi'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',430);R.setAttribute('cy',120);R.setAttribute('rx',84);R.setAttribute('ry',44);RT.setAttribute('x',350);RT.setAttribute('y',86);RT.style.textAnchor='end';RT.textContent='Pᵢ PRESO';}
+  if(id==='galt'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',440);R.setAttribute('cy',120);R.setAttribute('rx',90);R.setAttribute('ry',44);RT.setAttribute('x',500);RT.setAttribute('y',72);RT.style.textAnchor='start';RT.textContent='TÓXICO';}
+  if(id==='galk'&&si>=3&&si<6){show=si===3?es(u,.3,.6):1;R.setAttribute('cx',215);R.setAttribute('cy',235);R.setAttribute('rx',74);R.setAttribute('ry',40);RT.setAttribute('x',262);RT.setAttribute('y',282);RT.style.textAnchor='start';RT.textContent='PRESO';}
+  R.setAttribute('stroke',COLORS[ch.c]);RT.setAttribute('fill',COLORS[ch.c]);
+  const pulse=show*(.75+.25*Math.sin(T*4));R.setAttribute('opacity',pulse.toFixed(2));RT.setAttribute('opacity',show.toFixed(2));
+  // anotações
+  P.anns.forEach(a=>a.g.setAttribute('opacity',es(u,a.at,a.at+.12).toFixed(2)));
+}
+
+/* ======================= ilustrações (canvas, espaço de desenho 400×300) ======================= */
+const FL='"IBM Plex Sans Condensed", "Arial Narrow", sans-serif';
+function mix(a,b,t){const A=parseInt(a.slice(1),16),B=parseInt(b.slice(1),16);const c=i=>Math.round(((A>>i)&255)*(1-t)+((B>>i)&255)*t);return `rgb(${c(16)},${c(8)},${c(0)})`;}
+function bg(g){const gr=g.createRadialGradient(200,130,10,200,150,280);gr.addColorStop(0,'#0e2650');gr.addColorStop(1,'#050e22');g.fillStyle=gr;g.fillRect(0,0,400,300);}
+function lbl(g,x,y,tx,ty,text,col){col=col||'#dfe9f8';g.save();g.strokeStyle=col;g.globalAlpha=.85;g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(tx,ty);g.stroke();
+  g.globalAlpha=1;g.fillStyle=col;g.beginPath();g.arc(x,y,2.2,0,6.283);g.fill();g.font=`500 13px ${FL}`;const w=g.measureText(text).width;const left=tx<x;
+  let bx=left?tx-w-10:tx+2;bx=Math.max(4,Math.min(bx,388-w));g.fillStyle='rgba(5,14,32,.88)';g.fillRect(bx,ty-10,w+8,19);g.fillStyle=col;g.textBaseline='middle';g.fillText(text,bx+4,ty);g.restore();}
+function tag(g,x,y,text,col,dark){g.save();g.font=`700 12px ${FL}`;const w=g.measureText(text).width+14;g.fillStyle=col;g.globalAlpha=.95;
+  g.beginPath();g.roundRect?g.roundRect(x,y,w,20,4):g.rect(x,y,w,20);g.fill();g.globalAlpha=1;g.fillStyle=dark?'#08142c':'#fff';g.textBaseline='middle';g.fillText(text,x+7,y+10.5);g.restore();}
+function poly(g,x,y,r,n,rot){g.beginPath();for(let i=0;i<n;i++){const a=rot+i*6.2832/n;g[i?'lineTo':'moveTo'](x+Math.cos(a)*r,y+Math.sin(a)*r);}g.closePath();}
+function sugar(g,kind,x,y,r,ph){g.save();g.lineWidth=1.6;
+  if(kind==='tol'){g.strokeStyle='#6fdcff';g.lineWidth=2;g.beginPath();for(let i=0;i<6;i++){g[i?'lineTo':'moveTo'](x-r+i*r*.4,y+(i%2?-r*.35:r*.35));}g.stroke();g.restore();return;}
+  const c=kind==='fru'?'#ffc98f':kind==='glc'?'#8fe57c':'#e3eaff';poly(g,x,y,r,kind==='fru'?5:6,kind==='fru'?-1.5708:0);g.fillStyle=hx(c,.22);g.fill();g.strokeStyle=c;g.stroke();
+  if(ph){g.strokeStyle='#ff72b6';g.beginPath();g.moveTo(x+r*.55,y-r*.55);g.lineTo(x+r*1.05,y-r*1.05);g.stroke();g.fillStyle='#ff72b6';poly(g,x+r*1.3,y-r*1.3,r*.62,3,-1.5708);g.fill();}g.restore();}
+function blobP(g,cx,cy,rx,ry,seed,amp,n){const r=rng(seed);const k=[];for(let i=0;i<n;i++)k.push(1+(r()-.5)*amp);g.beginPath();
+  for(let i=0;i<=n;i++){const a=i/n*6.2832,m=k[i%n];const x=cx+Math.cos(a)*rx*m,y=cy+Math.sin(a)*ry*m;if(!i)g.moveTo(x,y);else{const a0=(i-.5)/n*6.2832,m0=(k[i%n]+k[(i-1)%n])/2;g.quadraticCurveTo(cx+Math.cos(a0)*rx*m0*1.04,cy+Math.sin(a0)*ry*m0*1.04,x,y);}}g.closePath();}
+function rbc(g,x,y,r,a){g.save();g.translate(x,y);g.rotate(a||0);const gr=g.createRadialGradient(0,0,r*.15,0,0,r);gr.addColorStop(0,'#b8323f');gr.addColorStop(.45,'#d9485a');gr.addColorStop(1,'#a62337');
+  g.fillStyle=gr;g.beginPath();g.ellipse(0,0,r,r*.82,0,0,6.283);g.fill();g.fillStyle='rgba(255,190,190,.18)';g.beginPath();g.ellipse(0,0,r*.42,r*.34,0,0,6.283);g.fill();g.restore();}
+
+const ORG={};
+ORG.hepatocyte={name:'Hepatócito',draw(g,s,T){bg(g);const inj=s.injury||0,sw=1+inj*.07;
+  // sinusoide
+  const sg=g.createLinearGradient(0,0,0,56);sg.addColorStop(0,'#3a1022');sg.addColorStop(1,'#25091a');g.fillStyle=sg;g.fillRect(0,0,400,54);
+  g.strokeStyle='rgba(255,170,190,.35)';g.lineWidth=1.2;g.beginPath();g.moveTo(0,54);g.bezierCurveTo(120,58,260,50,400,55);g.stroke();
+  for(let i=0;i<6;i++){const x=((i*83+T*22)%470)-35;rbc(g,x,26+Math.sin(i*2)*9,12,i);}
+  // vizinhas
+  g.fillStyle='rgba(180,96,130,.35)';blobP(g,-30,190,80,95,4,.18,9);g.fill();blobP(g,440,180,90,100,8,.18,9);g.fill();
+  // célula principal
+  g.save();g.translate(205,178);g.scale(sw,sw);g.translate(-205,-178);
+  const cg=g.createRadialGradient(190,160,20,205,178,150);cg.addColorStop(0,mix('#e6a6c0','#d8b9a0',inj*.5));cg.addColorStop(1,mix('#a85a80','#8d6a58',inj*.5));
+  blobP(g,205,178,135,104,2,.12,9);g.fillStyle=cg;g.fill();g.lineWidth=2;g.strokeStyle='rgba(255,214,228,.75)';g.stroke();
+  const tr=rng(9);g.fillStyle='rgba(120,40,80,.25)';for(let i=0;i<160;i++){const a=tr()*6.283,d=Math.sqrt(tr());g.fillRect(205+Math.cos(a)*d*118,178+Math.sin(a)*d*88,1.4,1.4);}
+  // canalículo biliar
+  g.strokeStyle=inj>.3?'#b9a23a':'rgba(255,230,160,.5)';g.lineWidth=3;g.beginPath();g.moveTo(336,140);g.quadraticCurveTo(346,175,334,214);g.stroke();
+  // núcleo
+  const ng=g.createRadialGradient(160,165,4,168,170,34);ng.addColorStop(0,'#7a58b8');ng.addColorStop(1,'#3e2a73');blobP(g,168,170,32,29,5,.08,8);g.fillStyle=ng;g.fill();
+  g.fillStyle='rgba(30,14,60,.55)';const nr=rng(6);for(let i=0;i<40;i++)g.fillRect(146+nr()*44,150+nr()*40,2,2);g.fillStyle='#24124a';g.beginPath();g.arc(176,164,5,0,6.283);g.fill();
+  // mitocôndrias
+  const atp=s.atp==null?1:s.atp;[[105,120,.4],[118,232,-.3],[226,236,.2],[268,206,1.2],[250,112,-.6],[96,180,1.5],[300,160,1.4],[205,108,.1]].forEach(([x,y,a],i)=>{g.save();g.translate(x,y);g.rotate(a);
+    g.shadowColor='#ffb35c';g.shadowBlur=12*atp;g.fillStyle=mix('#5e6478','#ffb35c',atp*.9);g.beginPath();g.ellipse(0,0,15,7,0,0,6.283);g.fill();g.shadowBlur=0;
+    g.strokeStyle='rgba(40,20,10,.55)';g.lineWidth=1;for(let k=-9;k<=9;k+=4.5){g.beginPath();g.moveTo(k,-5);g.lineTo(k+1.5,5);g.stroke();}g.restore();});
+  // glicogênio
+  const gl=s.glyc||0,gr=rng(12);for(let c=0;c<Math.round(gl*7);c++){const cx=225+gr()*80,cy=145+gr()*80;for(let i=0;i<7;i++){const a=i*.9+c,d=3+gr()*4;g.fillStyle='#3a2350';g.beginPath();g.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d,2.1,0,6.283);g.fill();}
+    if(s.lock>.2){g.strokeStyle=hx('#ff5a52',s.lock*.8);g.lineWidth=1.4;g.beginPath();g.arc(cx,cy,10,0,6.283);g.stroke();}}
+  // gotículas lipídicas
+  const lr=rng(31);for(let i=0;i<Math.round(inj*9);i++){const x=110+lr()*190,y=120+lr()*120,r=5+lr()*7;g.fillStyle='rgba(255,250,235,.75)';g.beginPath();g.arc(x,y,r,0,6.283);g.fill();g.strokeStyle='rgba(160,110,90,.6)';g.lineWidth=1;g.stroke();}
+  // açúcares livres e fosforilados
+  const mr=rng(17),kind=s.gal!=null?'gal':'fru',free=s.gal!=null?s.gal:(s.fru||0);
+  for(let i=0;i<Math.round(free*9);i++){const bx=110+mr()*200,by=120+mr()*110;let x=bx+Math.sin(T*.9+i)*8,y=by+Math.cos(T*.7+i*1.3)*6;
+    if(s.leak&&i%3===0){const p=((T*.18+i*.13)%1);x=lerp(bx,bx+40,p);y=lerp(by,30,p);}sugar(g,kind,x,y,7,0);}
+  const ph=s.f1p!=null?s.f1p:(s.g1p||0),pk=s.g1p!=null?'gal':'fru';const pr=rng(23);
+  for(let i=0;i<Math.round(ph*22);i++){const x=220+pr()*95+Math.sin(T*2+i)*1.2,y=150+pr()*85;if(s.trap){g.save();g.shadowColor='#ff72b6';g.shadowBlur=8;sugar(g,pk,x,y,6.5,1);g.restore();}else sugar(g,pk,x,y,6.5,1);}
+  g.restore();
+  // rótulos
+  lbl(g,168,140,120,82,'núcleo');lbl(g,300,160,350,84,atp<.5?'mitocôndrias · ATP ↓':'mitocôndrias · ATP',atp<.5?'#ff8c8c':'#ffd9a8');
+  if(ph>.3)lbl(g,262,226,330,268,(pk==='fru'?'F1P':'Gal-1-P')+' · Pᵢ preso','#ffb6d9');else if(gl>.3)lbl(g,250,200,320,268,s.lock>.3?'glicogênio retido':'glicogênio','#e0d2ff');
+  if(inj>.35)lbl(g,140,212,58,258,'esteatose · lesão','#ffe2a8');
+  g.fillStyle='rgba(255,200,215,.7)';g.font=`600 11px ${FL}`;g.fillText('SINUSOIDE',10,14);
+  // mini medidor de ATP
+  g.fillStyle='rgba(5,14,32,.85)';g.fillRect(10,272,118,20);g.fillStyle='#17305a';g.fillRect(44,279,76,6);g.fillStyle=atp<.5?'#ff5a52':'#ffb35c';g.fillRect(44,279,76*atp,6);
+  g.fillStyle='#dfe9f8';g.font=`600 11px ${FL}`;g.textBaseline='middle';g.fillText('ATP',16,282);g.textBaseline='alphabetic';}};
+
+ORG.liver={name:'Fígado',draw(g,s,T){bg(g);const sz=s.size||1,j=s.jaundice||0;
+  if(s.infant){g.strokeStyle='rgba(174,191,218,.25)';g.lineWidth=2;g.beginPath();g.moveTo(30,30);g.bezierCurveTo(10,140,30,260,60,300);g.moveTo(370,30);g.bezierCurveTo(390,140,370,260,340,300);g.stroke();}
+  g.save();g.translate(200,62);g.scale(sz,sz);g.translate(-200,-62);
+  const lg=g.createLinearGradient(80,60,300,200);lg.addColorStop(0,mix('#9a4234','#a98a3a',j));lg.addColorStop(1,mix('#5c211b','#6d5a1e',j));
+  g.beginPath();g.moveTo(60,120);g.bezierCurveTo(70,70,160,58,230,64);g.bezierCurveTo(290,68,345,80,362,98);g.bezierCurveTo(352,112,320,124,280,138);
+  g.bezierCurveTo(250,150,232,160,212,178);g.bezierCurveTo(190,196,160,204,120,198);g.bezierCurveTo(88,192,60,170,60,120);g.closePath();
+  g.shadowColor='rgba(0,0,0,.5)';g.shadowBlur=18;g.fillStyle=lg;g.fill();g.shadowBlur=0;
+  g.save();g.clip();const hr=rng(41);g.strokeStyle='rgba(0,0,0,.12)';g.lineWidth=1;for(let i=0;i<70;i++){poly(g,70+hr()*290,64+hr()*140,7,6,0);g.stroke();}
+  const sp=g.createRadialGradient(140,95,4,140,95,90);sp.addColorStop(0,'rgba(255,230,210,.28)');sp.addColorStop(1,'rgba(255,230,210,0)');g.fillStyle=sp;g.fillRect(0,0,400,300);g.restore();
+  g.strokeStyle='rgba(255,220,200,.35)';g.lineWidth=1.5;g.beginPath();g.moveTo(232,66);g.quadraticCurveTo(226,120,216,172);g.stroke();
+  g.fillStyle='#5f7f34';g.beginPath();g.ellipse(176,198,13,18,.3,0,6.283);g.fill();g.restore();
+  // rebordo costal
+  g.setLineDash([6,5]);g.strokeStyle='#cfe0ff';g.lineWidth=1.6;g.beginPath();g.moveTo(40,150);g.quadraticCurveTo(200,232,370,140);g.stroke();g.setLineDash([]);
+  lbl(g,60,158,30,250,'rebordo costal','#cfe0ff');
+  const edge=62+(198-62)*sz;if(sz>1.06){g.strokeStyle='#ffd3a0';g.lineWidth=1.5;g.beginPath();g.moveTo(130,186);g.lineTo(130,edge-2);g.stroke();
+    [186,edge-2].forEach(y=>{g.beginPath();g.moveTo(124,y);g.lineTo(136,y);g.stroke();});tag(g,142,edge-16,'HEPATOMEGALIA','#ffa53d',1);}
+  if(j>.25)lbl(g,300,110,330,40,'icterícia','#f6d987');
+  lbl(g,176,200,250,262,'vesícula','#b8d68f');}};
+
+ORG.lens={name:'Cristalino',draw(g,s,T){bg(g);const tol=s.tol||0,w=s.water||0,op=s.opac||0;const cx=118,cy=165;
+  // globo
+  const vg=g.createRadialGradient(200,165,20,200,165,110);vg.addColorStop(0,'#14203a');vg.addColorStop(1,'#0b1428');g.fillStyle=vg;g.beginPath();g.arc(196,165,100,0,6.283);g.fill();
+  g.strokeStyle='#d9dde6';g.lineWidth=5;g.beginPath();g.arc(196,165,100,.55,5.73);g.stroke();
+  g.strokeStyle='#bfe0ff';g.lineWidth=2.5;g.beginPath();g.arc(118,165,62,2.62,3.66);g.stroke();
+  g.strokeStyle='#8a2d2d';g.lineWidth=3;g.beginPath();g.arc(196,165,94,-.9,.9);g.stroke();
+  g.fillStyle='#e0b25a';g.beginPath();g.ellipse(296,165,10,12,0,0,6.283);g.fill();
+  // íris e zônulas
+  g.strokeStyle='#6b4a2b';g.lineWidth=6;g.beginPath();g.moveTo(100,96);g.lineTo(104,124);g.moveTo(100,234);g.lineTo(104,206);g.stroke();
+  g.strokeStyle='rgba(220,230,250,.35)';g.lineWidth=1;for(let i=-2;i<=2;i++){g.beginPath();g.moveTo(cx,cy-54);g.lineTo(122+i*3,82);g.moveTo(cx,cy+54);g.lineTo(122+i*3,248);g.stroke();}
+  // cristalino
+  const rx=26*(1+w*.18),ry=54*(1+w*.06);const lg=g.createRadialGradient(cx,cy,4,cx,cy,ry);lg.addColorStop(0,'rgba(210,235,255,.5)');lg.addColorStop(1,'rgba(150,190,240,.22)');
+  g.fillStyle=lg;g.beginPath();g.ellipse(cx,cy,rx,ry,0,0,6.283);g.fill();g.strokeStyle='#e8f2ff';g.lineWidth=1.8;g.stroke();
+  g.strokeStyle=`rgba(200,225,255,${.35-w*.15})`;g.lineWidth=1;for(let k=1;k<5;k++){g.beginPath();if(w>.2){for(let a=0;a<=6.3;a+=.2){const wob=1+Math.sin(a*7+k)*.05*w;const x=cx+Math.cos(a)*rx*k/5*wob,y=cy+Math.sin(a)*ry*k/5*wob;a?g.lineTo(x,y):g.moveTo(x,y);}}else g.ellipse(cx,cy,rx*k/5,ry*k/5,0,0,6.283);g.stroke();}
+  g.fillStyle='#bcd6f5';for(let i=0;i<10;i++){const a=2.1+i*.21;g.beginPath();g.arc(cx+Math.cos(a)*rx*.92,cy+Math.sin(a)*ry*.92,1.6,0,6.283);g.fill();}
+  if(op>0){const og=g.createRadialGradient(cx,cy,2,cx,cy,ry*.8);og.addColorStop(0,`rgba(245,245,240,${.85*op})`);og.addColorStop(.6,`rgba(225,228,232,${.5*op})`);og.addColorStop(1,'rgba(225,228,232,0)');g.fillStyle=og;g.beginPath();g.ellipse(cx,cy,rx,ry,0,0,6.283);g.fill();}
+  const tr=rng(55);for(let i=0;i<Math.round(tol*18);i++){const a=tr()*6.283,d=Math.sqrt(tr())*.8;sugar(g,'tol',cx+Math.cos(a)*rx*d+Math.sin(T+i)*1,cy+Math.sin(a)*ry*d,5.5);}
+  for(let i=0;i<Math.round(w*10);i++){const p=((T*.35+i*.1)%1),a=1.9+(i%5)*.6;const x=lerp(cx+Math.cos(a)*(rx+34),cx+Math.cos(a)*rx*.6,p),y=lerp(cy+Math.sin(a)*(ry+20),cy+Math.sin(a)*ry*.6,p);
+    g.fillStyle=`rgba(74,168,255,${1-p*.6})`;g.beginPath();g.moveTo(x,y-5);g.quadraticCurveTo(x+4,y+1,x,y+3.5);g.quadraticCurveTo(x-4,y+1,x,y-5);g.fill();}
+  // zoom: fibras em corte transversal (hexagonais)
+  const X0=292,Y0=14,W=100,H=96;g.fillStyle='rgba(5,14,32,.92)';g.fillRect(X0,Y0,W,H);g.strokeStyle='#4a72ad';g.strokeRect(X0,Y0,W,H);
+  g.save();g.beginPath();g.rect(X0,Y0,W,H);g.clip();const hs=11*(1+w*.35);const fr=rng(66);
+  for(let r=0;r<8;r++)for(let c=0;c<7;c++){const x=X0+c*hs*1.55+(r%2)*hs*.78,y=Y0+r*hs*.9;const jit=w*3*(fr()-.5);poly(g,x+jit,y-jit,hs*.86+jit*.3,6,0);
+    g.fillStyle=mix('#29466f','#9fb4cc',op*.8);g.fill();g.strokeStyle='rgba(200,225,255,.5)';g.lineWidth=1;g.stroke();
+    if(tol>.3&&(r*7+c)%3===0)sugar(g,'tol',x,y,3.4);}
+  g.restore();g.strokeStyle='rgba(74,114,173,.6)';g.beginPath();g.moveTo(cx+rx,cy-20);g.lineTo(X0,Y0+H);g.stroke();
+  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText('fibras · corte transversal',X0,Y0+H+14);
+  lbl(g,cx,cy-ry+6,58,40,'cristalino','#e8f2ff');if(tol>.2)lbl(g,cx+6,cy+20,205,262,'galactitol (preso)','#6fdcff');if(w>.2)lbl(g,cx-rx-18,cy+40,30,262,'H₂O entra','#7cc0ff');}};
+
+ORG.eye={name:'Olho · reflexo vermelho',draw(g,s,T){bg(g);const c=s.cat||0,j=s.jaundice||0;
+  g.fillStyle=mix('#b98767','#c9a24c',j*.6);g.fillRect(0,40,400,220);
+  g.save();g.beginPath();g.moveTo(40,150);g.bezierCurveTo(120,40,280,40,360,150);g.bezierCurveTo(280,250,120,250,40,150);g.closePath();
+  g.fillStyle=mix('#ebe7de','#e3c54f',j);g.fill();g.clip();
+  const ig=g.createRadialGradient(200,150,10,200,150,62);ig.addColorStop(0,'#3b2414');ig.addColorStop(.7,'#6a4426');ig.addColorStop(1,'#2a170b');g.fillStyle=ig;g.beginPath();g.arc(200,150,62,0,6.283);g.fill();
+  g.strokeStyle='rgba(180,130,80,.35)';g.lineWidth=1;for(let a=0;a<6.28;a+=.14){g.beginPath();g.moveTo(200+Math.cos(a)*28,150+Math.sin(a)*28);g.lineTo(200+Math.cos(a)*58,150+Math.sin(a)*58);g.stroke();}
+  const rg=g.createRadialGradient(200,150,2,200,150,30);rg.addColorStop(0,'#ff9a5a');rg.addColorStop(.7,'#c0392b');rg.addColorStop(1,'#5a120c');g.fillStyle=rg;g.beginPath();g.arc(200,150,28,0,6.283);g.fill();
+  if(c>0){g.fillStyle=`rgba(40,10,6,${.75*c})`;g.beginPath();g.arc(200,150,15,0,6.283);g.fill();const og=g.createRadialGradient(196,146,1,200,150,13);og.addColorStop(0,`rgba(255,240,220,${.7*c})`);og.addColorStop(1,`rgba(255,200,160,${.15*c})`);g.fillStyle=og;g.beginPath();g.arc(200,150,12,0,6.283);g.fill();}
+  g.fillStyle='rgba(255,255,255,.75)';g.beginPath();g.arc(214,136,5,0,6.283);g.fill();g.restore();
+  g.strokeStyle='#3a2416';g.lineWidth=3;g.beginPath();g.moveTo(40,150);g.bezierCurveTo(120,40,280,40,360,150);g.stroke();g.lineWidth=1.6;g.beginPath();g.moveTo(40,150);g.bezierCurveTo(120,250,280,250,360,150);g.stroke();
+  lbl(g,224,160,300,250,'reflexo vermelho','#ffb08a');if(c>.25)lbl(g,200,150,100,262,'opacidade em gota de óleo','#fff2dc');if(j>.25)lbl(g,320,148,330,40,'esclera ictérica','#f6d987');}};
+
+ORG.kidney={name:'Rim',draw(g,s,T){bg(g);const sp=s.spill||0,f=s.fanconi||0,k=s.sug||'fru';
+  const kg=g.createLinearGradient(40,60,170,240);kg.addColorStop(0,'#9b3b3b');kg.addColorStop(1,'#5a1c22');g.fillStyle=kg;
+  g.beginPath();g.moveTo(100,48);g.bezierCurveTo(175,40,190,130,160,150);g.bezierCurveTo(190,170,175,262,100,252);g.bezierCurveTo(30,250,22,52,100,48);g.fill();
+  g.fillStyle='#4a141b';[[95,90,-.5],[80,150,0],[95,210,.5],[125,118,-.2],[125,184,.2]].forEach(([x,y,a])=>{g.save();g.translate(x,y);g.rotate(a);g.beginPath();g.moveTo(-14,-12);g.lineTo(18,0);g.lineTo(-14,12);g.closePath();g.fill();g.restore();});
+  g.strokeStyle='#e6d2a0';g.lineWidth=5;g.beginPath();g.moveTo(150,150);g.quadraticCurveTo(170,190,160,290);g.stroke();
+  g.strokeStyle='rgba(120,160,230,.5)';g.lineWidth=1;g.beginPath();g.moveTo(120,90);g.lineTo(210,40);g.moveTo(120,110);g.lineTo(210,250);g.stroke();
+  // néfron
+  g.fillStyle='rgba(5,14,32,.7)';g.fillRect(210,24,180,250);
+  g.strokeStyle='#cfe0ff';g.lineWidth=1.5;g.beginPath();g.arc(248,74,24,.3,5.98);g.stroke();
+  g.strokeStyle='#d9485a';g.lineWidth=2.2;for(let i=0;i<5;i++){g.beginPath();g.arc(248+Math.cos(i*1.26)*7,74+Math.sin(i*1.26)*7,7,0,6.283);g.stroke();}
+  const tube=[[270,82],[300,70],[330,92],[300,118],[338,140],[350,180],[350,232],[350,262]];
+  g.strokeStyle=f>.2?mix('#d9a0b0','#ff5a52',f):'#d9a0b0';g.lineWidth=11;g.lineJoin='round';g.lineCap='round';g.beginPath();tube.forEach((p,i)=>g[i?'lineTo':'moveTo'](p[0],p[1]));g.stroke();
+  g.strokeStyle='#160c1c';g.lineWidth=5;g.stroke();
+  if(f>.2){g.setLineDash([3,4]);g.strokeStyle=hx('#ff5a52',f);g.lineWidth=13;g.beginPath();tube.slice(0,5).forEach((p,i)=>g[i?'lineTo':'moveTo'](p[0],p[1]));g.stroke();g.setLineDash([]);}
+  const R={p:tube,g:[]};prep(Object.assign(R,{g:tube.map(()=>k)}));
+  for(let i=0;i<Math.round(sp*7);i++){const ph=(T*.12+i/7)%1;const [x,y]=at(R,ph*R.L);sugar(g,k,x,y,5);}
+  g.fillStyle='#d9c35a';g.globalAlpha=.85;g.beginPath();g.moveTo(330,264);g.lineTo(372,264);g.lineTo(366,292);g.lineTo(336,292);g.closePath();g.fill();g.globalAlpha=1;
+  for(let i=0;i<Math.round(sp*4);i++)sugar(g,k,340+i*8,280,4.5);
+  if(f>.3){['Pᵢ','glicose','aminoácidos','HCO₃⁻'].forEach((t,i)=>{g.fillStyle=hx('#ff8c8c',f);g.font=`500 11.5px ${FL}`;g.fillText(t+' →',224,160+i*18);});}
+  lbl(g,248,52,300,36,'glomérulo');lbl(g,318,104,372,120,f>.3?'túbulo · Fanconi':'túbulo proximal',f>.3?'#ff8c8c':'#dfe9f8');
+  lbl(g,350,278,280,288,'urina: '+(k==='fru'?'frutose':'galactose'),'#f6d987');}};
+
+ORG.blood={name:'Sangue · hemácias',draw(g,s,T){bg(g);
+  const pg=g.createLinearGradient(0,60,0,240);pg.addColorStop(0,'#3a2a1c');pg.addColorStop(1,'#2a1d14');g.fillStyle=pg;g.fillRect(0,58,400,184);
+  [[44,58],[242,256]].forEach(([y0,y1])=>{const wg=g.createLinearGradient(0,y0,0,y1);wg.addColorStop(0,'#7a3550');wg.addColorStop(1,'#5a2440');g.fillStyle=wg;g.fillRect(0,Math.min(y0,y1),400,14);
+    g.fillStyle='#3e2a73';for(let x=20;x<400;x+=70){g.beginPath();g.ellipse(x,(y0+y1)/2,12,3,0,0,6.283);g.fill();}});
+  for(let i=0;i<11;i++){const x=((i*47+T*30)%460)-30,y=80+(i*37)%140;rbc(g,x,y,13,i*.7+T*.2);}
+  if(s.sug){for(let i=0;i<Math.round((s.n||0)*12);i++){const x=((i*61+T*24)%440)-20,y=74+(i*29)%150;sugar(g,s.sug,x,y,6.5);}}
+  const ec=s.ecoli||0,er=rng(77);for(let i=0;i<Math.round(ec*16);i++){const x=40+er()*320+Math.sin(T+i)*3,y=78+er()*140,a=er()*3.14;g.save();g.translate(x,y);g.rotate(a);
+    g.fillStyle='#e86a8e';g.beginPath();g.roundRect?g.roundRect(-9,-3.6,18,7.2,3.6):g.rect(-9,-3.6,18,7.2);g.fill();g.strokeStyle='rgba(232,106,142,.55)';g.lineWidth=.8;g.beginPath();g.moveTo(9,0);g.quadraticCurveTo(14,4,18,0);g.stroke();g.restore();}
+  [[120,150],[280,120]].forEach(([x,y],i)=>{const im=s.impair?1:0;g.save();g.globalAlpha=im?.7:1;const ng=g.createRadialGradient(x,y,3,x,y,24);ng.addColorStop(0,'#d9cfe8');ng.addColorStop(1,'#a99cc2');g.fillStyle=ng;g.beginPath();g.arc(x,y,24,0,6.283);g.fill();
+    if(im){g.setLineDash([4,3]);g.strokeStyle='#ff8c8c';g.lineWidth=1.6;g.stroke();g.setLineDash([]);}
+    g.fillStyle='rgba(120,90,150,.35)';const gr2=rng(80+i);for(let k=0;k<30;k++)g.fillRect(x-18+gr2()*36,y-18+gr2()*36,1.5,1.5);
+    g.fillStyle='#4a2f86';[[-8,-4],[3,-9],[7,5]].forEach(([dx,dy])=>{g.beginPath();g.ellipse(x+dx,y+dy,7,5,dx*.1,0,6.283);g.fill();});g.restore();});
+  lbl(g,120,126,60,30,s.impair?'neutrófilo · bactericida ↓':'neutrófilo',s.impair?'#ff8c8c':'#dfe9f8');
+  if(ec>.2)lbl(g,330,190,330,272,'E. coli','#f2a3bd');else lbl(g,200,96,250,30,'hemácias','#ffb0b8');
+  if(s.sug&&!ec)lbl(g,((61*2+T*24)%440)-20,132,90,272,s.sug==='fru'?'frutose livre':'galactose livre',s.sug==='fru'?'#ffc98f':'#e3eaff');}};
+
+ORG.intestine={name:'Intestino delgado',draw(g,s,T){bg(g);const gal=s.mode==='gal';
+  g.fillStyle='rgba(30,45,80,.6)';g.fillRect(0,0,400,96);
+  const xs=[60,160,260,360];xs.forEach((x,i)=>{const vg=g.createLinearGradient(x-34,0,x+34,0);vg.addColorStop(0,'#b56a8a');vg.addColorStop(.5,'#e3a5bd');vg.addColorStop(1,'#b56a8a');
+    g.fillStyle=vg;g.beginPath();g.moveTo(x-38,300);g.lineTo(x-34,120);g.quadraticCurveTo(x,82,x+34,120);g.lineTo(x+38,300);g.closePath();g.fill();
+    g.strokeStyle='rgba(255,230,240,.8)';g.lineWidth=3;g.setLineDash([1.5,2]);g.beginPath();g.moveTo(x-34,124);g.quadraticCurveTo(x,86,x+34,124);g.stroke();g.setLineDash([]);
+    g.fillStyle='#4b2a7a';for(let k=0;k<6;k++){g.beginPath();g.ellipse(x-27,140+k*26,2.5,6,0,0,6.283);g.ellipse(x+27,140+k*26,2.5,6,0,0,6.283);g.fill();}
+    g.strokeStyle='#d9485a';g.lineWidth=2;g.beginPath();g.moveTo(x-12,300);g.bezierCurveTo(x-14,180,x+14,150,x+12,300);g.stroke();
+    g.strokeStyle='rgba(255,250,235,.6)';g.lineWidth=4;g.beginPath();g.moveTo(x,300);g.lineTo(x,150);g.stroke();});
+  for(let i=0;i<8;i++){const ph=(T*.16+i/8)%1,x=xs[i%4]+(i<4?-10:10);let y;
+    if(ph<.35){y=lerp(14,90,ph/.35);if(gal&&ph<.3){sugar(g,'glc',x-6,y,6);sugar(g,'gal',x+6,y,6);g.strokeStyle='#cfe0ff';g.beginPath();g.moveTo(x-1,y);g.lineTo(x+1,y);g.stroke();continue;}}
+    else y=lerp(96,290,(ph-.35)/.65);
+    if(gal){sugar(g,i%2?'gal':'glc',x+(i%2?6:-6)*(ph>.3?1.6:1),y,6);}else sugar(g,'fru',x,y,6.5);}
+  lbl(g,160,96,230,26,gal?'lactase (borda em escova)':'GLUT5 (membrana apical)','#cfe0ff');
+  lbl(g,272,250,330,276,'capilar → veia porta','#ff9aa8');
+  if(gal)lbl(g,60,96,30,26,'lactose','#e3eaff');}};
+
+ORG.brain={name:'Cérebro',draw(g,s,T){bg(g);const glu=s.glu==null?1:s.glu;
+  const bgc=g.createRadialGradient(190,130,20,190,140,150);bgc.addColorStop(0,'#d9b3c2');bgc.addColorStop(1,'#9c6f86');g.fillStyle=bgc;
+  g.beginPath();g.moveTo(60,170);g.bezierCurveTo(40,80,150,30,230,42);g.bezierCurveTo(320,52,360,120,340,180);g.bezierCurveTo(325,210,280,214,250,206);g.bezierCurveTo(200,224,120,226,80,205);g.closePath();g.fill();
+  g.save();g.clip();g.strokeStyle='rgba(90,40,70,.45)';g.lineWidth=2;const gr=rng(91);for(let i=0;i<26;i++){const x=70+gr()*260,y=50+gr()*150;g.beginPath();g.moveTo(x,y);g.bezierCurveTo(x+10,y-14,x+18,y+12,x+30,y-4);g.stroke();}
+  if(glu<.6){const hg=g.createRadialGradient(200,130,10,200,130,170);hg.addColorStop(0,`rgba(255,90,82,${(.6-glu)*.9})`);hg.addColorStop(1,'rgba(255,90,82,0)');g.fillStyle=hg;g.fillRect(0,0,400,300);}g.restore();
+  g.fillStyle='#b88aa0';g.beginPath();g.ellipse(290,222,46,30,.2,0,6.283);g.fill();g.strokeStyle='rgba(90,40,70,.5)';g.lineWidth=1.2;for(let k=-3;k<=3;k++){g.beginPath();g.ellipse(290,222,44,30-Math.abs(k)*3,.2,3.4,6);g.stroke();}
+  g.fillStyle='#a07a90';g.beginPath();g.moveTo(232,205);g.quadraticCurveTo(246,250,238,296);g.lineTo(262,296);g.quadraticCurveTo(262,240,262,206);g.closePath();g.fill();
+  const n=Math.round(16*glu);for(let i=0;i<16;i++){const x=90+((i*53)%230),y=70+((i*37)%120);if(i<n)sugar(g,'glc',x+Math.sin(T+i)*2,y,5);}
+  lbl(g,180,120,120,262,glu<.5?'glicose ↓ · neuroglicopenia':'glicose disponível',glu<.5?'#ff8c8c':'#b5f1a7');}};
+
+ORG.muscle={name:'Músculo esquelético',draw(g,s,T){bg(g);const hk=s.hk||0;
+  [70,140,210].forEach((y,i)=>{const fg=g.createLinearGradient(0,y-28,0,y+28);fg.addColorStop(0,'#8a2f3c');fg.addColorStop(.5,'#c85a68');fg.addColorStop(1,'#8a2f3c');g.fillStyle=fg;
+    g.beginPath();g.roundRect?g.roundRect(-10,y-28,420,56,26):g.rect(-10,y-28,420,56);g.fill();
+    g.strokeStyle='rgba(60,10,20,.45)';g.lineWidth=2;for(let x=6;x<400;x+=9){g.beginPath();g.moveTo(x,y-26);g.lineTo(x,y+26);g.stroke();}
+    g.fillStyle='#4b2a7a';for(let x=40+i*30;x<400;x+=130){g.beginPath();g.ellipse(x,y-24,14,3.6,0,0,6.283);g.fill();}});
+  g.strokeStyle='#d9485a';g.lineWidth=3;g.beginPath();g.moveTo(0,250);g.bezierCurveTo(120,262,260,242,400,256);g.stroke();
+  for(let i=0;i<6;i++){const ph=(T*.14+i/6)%1,x=40+i*60;const y=lerp(262,148,Math.min(1,ph*1.6));const conv=ph>.62&&hk>.2;sugar(g,'fru',x,y,7,conv);}
+  lbl(g,280,148,300,272,'hexokinase: frutose → F6P','#ffc98f');lbl(g,120,48,60,22,'núcleos periféricos','#c9b3ff');}};
+
+ORG.cardio={name:'Cardiomiócito',draw(g,s,T){bg(g);
+  const cells=[[40,90,170,60],[210,80,170,64],[110,170,180,62]];cells.forEach(([x,y,w,h],i)=>{const cg=g.createLinearGradient(0,y,0,y+h);cg.addColorStop(0,'#7e2a3a');cg.addColorStop(.5,'#b9505f');cg.addColorStop(1,'#7e2a3a');g.fillStyle=cg;
+    g.beginPath();g.roundRect?g.roundRect(x,y,w,h,14):g.rect(x,y,w,h);g.fill();g.strokeStyle='rgba(60,10,20,.4)';g.lineWidth=1.6;for(let k=x+6;k<x+w;k+=8){g.beginPath();g.moveTo(k,y+3);g.lineTo(k,y+h-3);g.stroke();}
+    g.fillStyle='#4b2a7a';g.beginPath();g.ellipse(x+w/2,y+h/2,13,6,0,0,6.283);g.fill();});
+  g.strokeStyle='#1d0a14';g.lineWidth=4;[[210,80,144],[210,170,232]].forEach(([x,y0,y1])=>{g.beginPath();g.moveTo(x,y0);for(let y=y0;y<y1;y+=10){g.lineTo(x+(((y-y0)/10)%2?6:0),y+10);}g.stroke();});
+  g.strokeStyle='#b9505f';g.lineWidth=18;g.beginPath();g.moveTo(170,140);g.lineTo(200,180);g.stroke();
+  lbl(g,210,120,290,40,'disco intercalar');lbl(g,125,120,60,262,'núcleo central','#c9b3ff');}};
+
+ORG.urine={name:'Urina · testes',draw(g,s,T){bg(g);const u=s.u==null?1:s.u,q=es(u,.15,.65);
+  g.strokeStyle='#cfe0ff';g.lineWidth=2;g.beginPath();g.moveTo(66,40);g.lineTo(66,214);g.quadraticCurveTo(66,236,90,236);g.quadraticCurveTo(114,236,114,214);g.lineTo(114,40);g.stroke();
+  g.fillStyle=q<.5?mix('#2f6fd6','#3fae6a',q*2):mix('#3fae6a','#e07a2a',(q-.5)*2);g.beginPath();g.moveTo(68,110);g.lineTo(68,214);g.quadraticCurveTo(68,234,90,234);g.quadraticCurveTo(112,234,112,214);g.lineTo(112,110);g.fill();
+  ['#2f6fd6','#3a9a8e','#7aa83e','#c99a2c','#e07a2a'].forEach((c,i)=>{g.fillStyle=c;g.fillRect(36+i*22,246,18,12);});
+  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText('neg',36,272);g.fillText('2%+',124,272);
+  g.fillStyle='#e9eef6';g.fillRect(250,30,22,238);
+  const pads=['#f4f1d0','#d9e6f0','#e8d8c0','#f0e0e8'];pads.forEach((c,i)=>{g.fillStyle=c;g.fillRect(250,60+i*44,22,22);});
+  g.strokeStyle='#ff8c8c';g.lineWidth=2;g.strokeRect(248,58,26,26);
+  ['#bfe3f2','#9ccf9a','#6aa564','#7b6a3a'].forEach((c,i)=>{g.fillStyle=c;g.fillRect(300+i*22,62,18,18);});
+  g.fillStyle='#aebfda';g.fillText('neg',300,96);g.fillText('glicose ↑',336,96);
+  tag(g,130,64,'REDUTOR +','#ffa53d',1);tag(g,298,108,'GLICOSE −','#8fa0bf',1);
+  lbl(g,90,160,128,196,'redução de cobre','#ffd3a0');lbl(g,272,71,292,160,'fita glicose-oxidase','#cfe0ff');
+  g.fillStyle='#f2ead3';g.font=`600 13px ${FL}`;g.fillText('açúcar redutor que não é glicose → frutose',22,296);}};
+
+ORG.growth={name:'Curva de crescimento',draw(g,s,T){bg(g);const u=s.u==null?1:s.u;const X=m=>58+m/6*318,Y=kg=>262-(kg-2)/8*232;
+  g.strokeStyle='rgba(174,191,218,.18)';g.lineWidth=1;g.font=`500 11px ${FL}`;g.fillStyle='#7891b5';
+  for(let m=0;m<=6;m++){g.beginPath();g.moveTo(X(m),Y(2));g.lineTo(X(m),Y(10));g.stroke();g.fillText(m+'m',X(m)-6,278);}
+  for(let k=2;k<=10;k+=2){g.beginPath();g.moveTo(X(0),Y(k));g.lineTo(X(6),Y(k));g.stroke();g.fillText(k+' kg',18,Y(k)+4);}
+  const P={P97:[4.3,5.7,7,7.9,8.6,9.2,9.7],P50:[3.3,4.5,5.6,6.4,7,7.5,7.9],P3:[2.5,3.4,4.4,5.1,5.6,6.1,6.4]};
+  Object.entries(P).forEach(([n,a])=>{g.strokeStyle=n==='P50'?'#aebfda':'rgba(174,191,218,.55)';g.lineWidth=n==='P50'?2:1.4;g.beginPath();a.forEach((v,m)=>g[m?'lineTo':'moveTo'](X(m),Y(v)));g.stroke();g.fillStyle='#aebfda';g.fillText(n,X(6)+4,Y(a[6])+4);});
+  const pts=[[0,3.3],[.25,3.0],[.6,3.15],[1,3.35],[1.5,3.55],[2,3.8]];const n=Math.max(1,Math.round(pts.length*es(u,0,.85)));
+  g.strokeStyle='#ffa53d';g.lineWidth=2.4;g.beginPath();pts.slice(0,n).forEach(([m,k],i)=>g[i?'lineTo':'moveTo'](X(m),Y(k)));g.stroke();
+  pts.slice(0,n).forEach(([m,k])=>{g.fillStyle='#ffa53d';g.beginPath();g.arc(X(m),Y(k),4,0,6.283);g.fill();});
+  if(n>=5)lbl(g,X(2),Y(3.8),X(3.2),Y(2.6),'cruza percentis para baixo','#ffd3a0');
+  g.fillStyle='#7891b5';g.fillText('peso para a idade · curvas aproximadas (OMS)',58,16);}};
+
+ORG.timeline={name:'Linha do tempo',draw(g,s,T){bg(g);const X=m=>40+m/12*330;const f=s.focus;
+  g.strokeStyle='#aebfda';g.lineWidth=1.5;g.beginPath();g.moveTo(X(0),236);g.lineTo(X(12),236);g.stroke();g.font=`500 11px ${FL}`;g.fillStyle='#7891b5';
+  [0,2,4,6,8,10,12].forEach(m=>{g.beginPath();g.moveTo(X(m),232);g.lineTo(X(m),240);g.stroke();g.fillText(m+'m',X(m)-6,254);});
+  [[0,'leite'],[3.5,'mamadas espaçadas'],[5,'desmame: frutas, sacarose']].forEach(([m,t],i)=>{g.strokeStyle='rgba(242,234,211,.35)';g.setLineDash([3,4]);g.beginPath();g.moveTo(X(m),30);g.lineTo(X(m),232);g.stroke();g.setLineDash([]);g.fillStyle='#f2ead3';g.fillText(t,X(m)+4,282-(i===2?0:0)+ (i===1?-14:0));});
+  const bars=[['galt','Galactosemia clássica',.1,12],['vg','Von Gierke (jejum)',3,12],['hfi','HFI (frutose)',5,12],['ef','Frutosúria essencial',null,null]];
+  bars.forEach(([k,t,a,b],i)=>{const y=52+i*42,on=!f||f===k;g.globalAlpha=on?1:.35;g.fillStyle=COLORS[k];g.font=`600 12px ${FL}`;g.fillText(t,X(0),y-6);
+    if(a==null){g.strokeStyle=COLORS[k];g.setLineDash([2,5]);g.lineWidth=2;g.beginPath();g.moveTo(X(0),y+6);g.lineTo(X(12),y+6);g.stroke();g.setLineDash([]);g.fillStyle='#7891b5';g.font=`500 11px ${FL}`;g.fillText('assintomática',X(8),y-6);}
+    else{const p=f===k?es(s.u==null?1:s.u,.1,.7):1;g.fillRect(X(a),y,(X(b)-X(a))*p,12);}g.globalAlpha=1;});}};
+
+/* ======================= controle ======================= */
+const S={ci:0,si:0,t:0,play:!REDUCED,speed:1,figs:[],kind:null};
+const TOTAL=DUR.reduce((a,b)=>a+b,0);
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+const DPR=()=>Math.min(window.devicePixelRatio||1,2);
+
+$('#chaps').innerHTML=CH.map((c,i)=>`<button class="chap" type="button" data-i="${i}" style="--c:${COLORS[c.c]}" aria-pressed="false"><i></i><b>${c.name}</b><small>${c.pt}</small></button>`).join('');
+$('#chaps').addEventListener('click',e=>{const b=e.target.closest('.chap');if(b)setChapter(+b.dataset.i,true);});
+$('#prog').innerHTML=STEPS.map((t,i)=>`<button class="chip" type="button" data-i="${i}" title="${t}"><span class="bar"><i></i></span><span class="nm"><span>${i+1}</span><b>${STEP_SHORT[i]}</b></span></button>`).join('');
+$('#prog').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)goStep(+b.dataset.i);});
+const chipEls=[...document.querySelectorAll('#prog .chip')];
+
+function sizeCanvas(c){const r=c.getBoundingClientRect();const d=DPR();const w=Math.max(1,Math.round(r.width*d)),h=Math.max(1,Math.round(r.height*d));if(c.width!==w||c.height!==h){c.width=w;c.height=h;}}
+const ro=('ResizeObserver' in window)?new ResizeObserver(es=>es.forEach(e=>sizeCanvas(e.target))):null;
+function paint(c,org,st,T){const g=c.getContext('2d');if(!c.width)sizeCanvas(c);const W=c.width,H=c.height;g.setTransform(1,0,0,1,0,0);const lb=g.createRadialGradient(W/2,H*.45,0,W/2,H/2,Math.max(W,H)*.7);lb.addColorStop(0,'#0e2650');lb.addColorStop(1,'#050e22');g.fillStyle=lb;g.fillRect(0,0,W,H);
+  const s=Math.min(W/400,H/300);g.setTransform(s,0,0,s,(W-400*s)/2,(H-300*s)/2);g.save();g.beginPath();g.rect(0,0,400,300);g.clip();try{ORG[org].draw(g,st,T);}catch(err){}g.restore();}
+
+function setChapter(i,user){S.ci=i;const ch=CH[i];document.documentElement.style.setProperty('--cur',COLORS[ch.c]);
+  document.querySelectorAll('.chap').forEach((b,k)=>b.setAttribute('aria-pressed',k===i?'true':'false'));
+  if(S.kind!==ch.path){buildPath(ch.path);S.kind=ch.path;}
+  $('#prof').innerHTML=ch.prof.map(([k,v],n)=>`<span class="pchip${n===2?' k':''}"><b>${k}:</b> ${v}</span>`).join('');
+  $('#meters').innerHTML=ch.meters.map(m=>`<div class="mt"><div class="mt-h"><span>${m.l}</span><em></em></div><div class="tr"><i></i><s style="left:calc(${m.base*100}% - 1px)"></s></div></div>`).join('');
+  try{history.replaceState(null,'','#'+ch.id);}catch(e){}
+  goStep(0);}
+
+function goStep(si){const ch=CH[S.ci];S.si=si;S.t=0;
+  const st=ch.steps[si];setAnns(si<6?st.ann:[]);
+  $('#capNum').textContent=`Etapa ${si+1}/8`;$('#capTitle').textContent=STEPS[si];$('#capLv').textContent=LEVEL_NAME[LEVEL[si]];
+  const others=ch.diff.cols.filter(c=>!c.me).map(c=>c.n).join(', ');
+  $('#capText').innerHTML=si<6?st.cap:si===6?`<b>Como não confundir</b> ${ch.name} com ${others}. ${ch.diff.sub} Na via, cada bloqueio aparece na cor da sua doença.`
+    :`<b>Quadro resumo</b> do capítulo. Mensagem final: <span class="d">“${ch.take}”</span>`;
+  const lv=LEVEL[si],ord=['bio','cli','dif'];document.querySelectorAll('.lv').forEach(e=>{const k=ord.indexOf(e.dataset.l),c=ord.indexOf(lv);e.classList.toggle('on',k===c);e.classList.toggle('done',k<c);});
+  const ps=$('#pwStatus');ps.textContent=si===0?'Via normal':si===6?'Bloqueios comparados':'Bloqueio · '+ch.enzyme;ps.classList.toggle('nrm',si===0);
+  const rs=$('#rtStatus');rs.textContent=si<6?st.rs:si===6?'Diferencial':'Resumo';rs.classList.toggle('nrm',!!(si<6&&st.nrm));
+  $('#rtTitle').textContent=si<6?st.rt:si===6?'Como não confundir':'Quadro resumo';
+  chipEls.forEach((c,k)=>{c.classList.toggle('on',k===si);c.classList.toggle('done',k<si);c.querySelector('i').style.transform=`scaleX(${k<si?1:0})`;});
+  const rt=$('#rt');S.figs.forEach(f=>ro&&ro.unobserve(f.c));S.figs=[];
+  if(si<6){rt.innerHTML=`<div class="figs" data-n="${st.figs.length}">`+st.figs.map(f=>`<figure class="fg"><canvas aria-label="${f.t}" role="img"></canvas><figcaption><b>${f.t}</b>${f.c}</figcaption></figure>`).join('')+'</div>';
+    rt.querySelectorAll('canvas').forEach((c,k)=>{S.figs.push({c,f:st.figs[k]});if(ro)ro.observe(c);sizeCanvas(c);});}
+  else if(si===6){const d=ch.diff;rt.innerHTML=`<p class="dif-sub">${d.sub}</p><div class="dtw"><div class="dt" style="--n:${d.cols.length}"><div class="l"></div>`+
+    d.cols.map(c=>`<div class="h${c.me?' me':''}" style="--c:${COLORS[c.c]}"><small>${c.me?'ESTE CAPÍTULO':c.s}</small><b>${c.n}</b></div>`).join('')+
+    d.rows.map(r=>`<div class="l">${r[0]}</div>`+r.slice(1).map((v,k)=>`<div class="${d.cols[k].me?'me':''}">${v}</div>`).join('')).join('')+
+    `<div class="l last">${d.key[0]}</div>`+d.key.slice(1).map(v=>`<div class="key last">${v}</div>`).join('')+`</div></div><p class="rule">${d.rule}</p>`;}
+  else{const s=ch.sum,nx=CH[(S.ci+1)%CH.length];rt.innerHTML=`<div class="sumcard"><header><b>${ch.name}</b><span>${ch.pt}</span></header><dl>
+    <dt>Doença</dt><dd>${ch.name} · ${ch.pt}</dd><dt>Enzima</dt><dd class="mono">${s.enz}</dd><dt>Acúmulo</dt><dd>${s.acc}</dd><dt>Tecidos</dt><dd>${s.tis}</dd>
+    <dt>Pistas clínicas</dt><dd>${s.cli}</dd><dt>Não confundir com</dt><dd>${s.nc}</dd></dl></div>
+    <div class="take"><span>Take-home message</span><q>${ch.take}</q></div><button class="nextc" type="button" id="nextC">Próximo capítulo: ${nx.name} →</button>`;
+    $('#nextC').onclick=()=>setChapter((S.ci+1)%CH.length,true);}
+  updTime();}
+
+function meterVals(ch,si,u){return ch.meters.map(m=>lerp(si===0?m.v[0]:m.v[si-1],m.v[si],es(u,.1,.8)));}
+function updMeters(ch,mv){document.querySelectorAll('#meters .mt').forEach((e,i)=>{const m=ch.meters[i],v=mv[i],d=v-m.base;let txt='normal',bad=false;
+  if(m.abs&&v<.05){txt='ausente';bad=true;}else if(d>.2){txt='↑ elevado';bad=true;}else if(d<-.2){txt='↓ baixo';bad=true;}
+  e.classList.toggle('bad',bad);const em=e.querySelector('em');if(em.textContent!==txt){em.textContent=txt;em.classList.toggle('bad',bad);}e.querySelector('.tr i').style.width=(clamp(v)*100).toFixed(1)+'%';});}
+function updTime(){const el0=DUR.slice(0,S.si).reduce((a,b)=>a+b,0)+S.t;$('#time').textContent=`${fmt(el0)} / ${fmt(TOTAL)}`;}
+function setPlay(p){S.play=p;$('#icoPause').hidden=!p;$('#icoPlay').hidden=p;$('#bPlay').setAttribute('aria-label',p?'Pausar':'Reproduzir');}
+function next(){if(S.si<7)goStep(S.si+1);else if(S.ci<CH.length-1)setChapter(S.ci+1);else{S.t=DUR[7];setPlay(false);}}
+$('#bPlay').onclick=()=>{if(!S.play&&S.ci===CH.length-1&&S.si===7&&S.t>=DUR[7]-.05){setChapter(0);}setPlay(!S.play);};
+$('#bFwd').onclick=next;
+$('#bBack').onclick=()=>{if(S.t>1.2)goStep(S.si);else if(S.si>0)goStep(S.si-1);else if(S.ci>0){setChapter(S.ci-1);goStep(7);}};
+$('#bRestart').onclick=()=>goStep(0);
+$('#speed').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.speed=+b.dataset.s;$('#speed').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));});
+document.addEventListener('keydown',e=>{if($('#atl').open)return;const tg=e.target.tagName;if(tg==='INPUT'||tg==='SELECT'||tg==='TEXTAREA')return;
+  if(e.code==='Space'&&tg!=='BUTTON'){e.preventDefault();$('#bPlay').click();}else if(e.key==='ArrowRight'){next();}else if(e.key==='ArrowLeft'){$('#bBack').click();}});
+
+/* atlas de tecidos */
+const ATL_DEF={hepatocyte:{fru:.5,f1p:.35,glyc:.6,atp:.85,trap:1},liver:{size:1.15,jaundice:.35,infant:1},lens:{tol:.6,water:.5,opac:.45},eye:{cat:.7,jaundice:.35},
+  kidney:{sug:'fru',spill:.7,fanconi:.6},blood:{ecoli:.6,impair:1},intestine:{mode:'gal'},brain:{glu:.3},muscle:{hk:1},cardio:{},urine:{u:1},growth:{u:1},timeline:{}};
+let ATL=[];
+function openAtlas(){const use={};CH.forEach(c=>c.steps.forEach(st=>st.figs.forEach(f=>{(use[f.o]=use[f.o]||new Set()).add(c);})));
+  $('#atlG').innerHTML=Object.keys(ORG).map(k=>{const u=use[k]?[...use[k]]:[];return `<figure class="fg"><canvas role="img" aria-label="${ORG[k].name}"></canvas><figcaption><b>${ORG[k].name}</b><span class="use">${u.length?u.map(c=>`<i style="--c:${COLORS[c.c]}">${c.name}</i>`).join(''):'<i class="no">pronto para módulos futuros</i>'}</span></figcaption></figure>`;}).join('');
+  ATL=[...$('#atlG').querySelectorAll('canvas')].map((c,i)=>({c,o:Object.keys(ORG)[i]}));$('#atl').showModal();ATL.forEach(a=>sizeCanvas(a.c));}
+$('#atlB').onclick=openAtlas;$('#atlX').onclick=()=>$('#atl').close();
+$('#atl').addEventListener('click',e=>{if(e.target===$('#atl'))$('#atl').close();});
+
+/* laço */
+let last=performance.now(),T=0;
+function frame(now){const dt=Math.min(.1,(now-last)/1000);last=now;T+=dt;
+  const ch=CH[S.ci];if(S.play){S.t+=dt*S.speed;if(S.t>=DUR[S.si]){next();}}
+  const u=clamp(S.t/DUR[S.si]);const mv=meterVals(ch,S.si,u);
+  drawPath(ch,S.si,u,T,mv);updMeters(ch,mv);
+  S.figs.forEach(({c,f})=>paint(c,f.o,f.s(u),T));
+  chipEls[S.si].querySelector('i').style.transform=`scaleX(${u.toFixed(3)})`;updTime();
+  if($('#atl').open)ATL.forEach(a=>paint(a.c,a.o,ATL_DEF[a.o]||{},T));
+  requestAnimationFrame(frame);}
+setPlay(S.play);
+const h=(location.hash||'').slice(1);const hi=CH.findIndex(c=>c.id===h);setChapter(hi>=0?hi:0);
+window.addEventListener('hashchange',()=>{const k=CH.findIndex(c=>c.id===location.hash.slice(1));if(k>=0&&k!==S.ci)setChapter(k);});
+requestAnimationFrame(frame);
+})();
+</script>
+
+</body></html>

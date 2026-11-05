@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rotas metabólicas</title>
+<meta name="description" content="Animações interativas de erros inatos do metabolismo: glicogenoses, frutose e galactose, fenilalanina e tirosina. Do bloqueio enzimático ao quadro clínico.">
+<meta property="og:title" content="Rotas metabólicas">
+<meta property="og:description" content="Animações interativas de erros inatos do metabolismo, do bloqueio enzimático ao quadro clínico.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06122a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%2306122a%27/%3E%3Cpolygon points=%2726,16 21,24.7 11,24.7 6,16 11,7.3 21,7.3%27 fill=%27none%27 stroke=%27%23f2ead3%27 stroke-width=%272.4%27/%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%273%27 fill=%27%23ff72b6%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap">
+<style>
+/* Página inicial das animações. Mesma prancha azul-noite das animações;
+   o mapa do metabolismo é o índice: cada região leva à animação correspondente. */
+:root{
+  color-scheme:dark;
+  --noite:#06122a; --prancha:#0b1c3c; --borda:rgba(96,136,196,.26);
+  --marfim:#f2ead3; --tinta:#eaf0f9; --nevoa:#aebfda; --baixo:#8299bd;
+  --seta:#5d7fb5; --bloqueio:#ff5a52;
+  --glic:#4aa8ff;   /* armazenamento: glicogênio */
+  --acucar:#ffc98f; /* açúcares da dieta */
+  --amino:#b49cff;  /* aminoácidos */
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--noite)}
+body{margin:0;background:
+  radial-gradient(1100px 700px at 78% -10%,#12305f 0%,transparent 60%),
+  var(--noite);color:var(--tinta);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--marfim);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* ---------- abertura ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:24px 56px;align-items:center;padding:56px 0 40px}
+.hero h1{margin:0;font:500 clamp(46px,7.2vw,88px)/.95 var(--serif);letter-spacing:-.025em;color:var(--marfim);font-variation-settings:"opsz" 60}
+.lede{margin:22px 0 0;max-width:34ch;font:400 20px/1.5 var(--serif);color:var(--tinta)}
+.how{margin:18px 0 0;max-width:46ch;font-size:15px;color:var(--nevoa)}
+.how .tick{display:inline-block;width:14px;height:3.5px;border-radius:2px;background:var(--bloqueio);vertical-align:middle;margin:0 2px 2px 1px}
+
+/* ---------- mapa ---------- */
+.map{margin:0}
+.map svg{display:block;width:100%;height:auto;overflow:visible}
+.map figcaption{margin-top:8px;font-size:13px;color:var(--baixo)}
+.n{font:500 16.5px var(--sans);fill:var(--tinta);text-anchor:middle;dominant-baseline:central}
+.n.hub{font-weight:600;fill:var(--marfim)}
+.n.sm{font:italic 400 14px var(--serif);fill:var(--nevoa)}
+.ln{fill:none;stroke:var(--seta);stroke-width:1.8}
+.blk{stroke:var(--bloqueio);stroke-width:4;stroke-linecap:round}
+.ring{fill:none;stroke:var(--marfim);stroke-opacity:.55;stroke-width:1.6;stroke-dasharray:3 5}
+.reg rect{fill:var(--c);fill-opacity:.07;stroke:var(--c);stroke-opacity:.38;stroke-width:1.2;transition:fill-opacity .2s,stroke-opacity .2s}
+.reg .rl{font:italic 500 17px var(--serif);fill:var(--c)}
+.reg:hover rect,.reg:focus-visible rect{fill-opacity:.16;stroke-opacity:.9}
+.reg:focus-visible{outline:none}
+.reg:focus-visible rect{stroke-width:2.4}
+.g{--c:var(--glic)} .s{--c:var(--acucar)} .a{--c:var(--amino)}
+
+/* ---------- lista das animações ---------- */
+.list{padding:24px 0 8px;border-top:1px solid var(--borda)}
+.list h2{margin:0 0 8px;font:500 30px/1.2 var(--serif);color:var(--marfim)}
+.item{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px 40px;align-items:center;padding:36px 0;border-bottom:1px solid var(--borda)}
+.item:last-child{border-bottom:0}
+.shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--borda);background:#071530;aspect-ratio:16/10;position:relative}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.shot:hover img{transform:scale(1.02)}
+.item h3{margin:0;font:500 34px/1.1 var(--serif);letter-spacing:-.01em;color:var(--tinta)}
+.item h3 a{text-decoration:none}
+.item h3::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:var(--c);margin-top:14px}
+.item p{margin:14px 0 0;max-width:52ch;color:var(--tinta)}
+.item .dz{color:var(--nevoa);font-size:15px}
+.item .dz b{font-weight:600;color:var(--tinta)}
+.item .note{font-size:14px;color:var(--baixo)}
+.open{display:inline-flex;align-items:center;margin-top:20px;padding:11px 18px;border-radius:999px;border:1.5px solid var(--c);color:var(--tinta);font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+.open:hover{background:var(--c);color:var(--noite)}
+
+/* ---------- rodapé ---------- */
+footer{padding:36px 0 calc(40px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--borda);margin-top:24px;font-size:14px;color:var(--baixo)}
+footer p{margin:0 0 6px;max-width:70ch}
+footer b{font-weight:500;color:var(--nevoa)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);padding:36px 0 28px}
+  .map{max-width:520px}
+  .item{grid-template-columns:minmax(0,1fr);padding:28px 0}
+  .item h3{font-size:28px}
+}
+@media (max-width:520px){
+  .lede{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <h1>Rotas metabólicas</h1>
+    <p class="lede">Animações interativas de erros inatos do metabolismo, da enzima que falta ao quadro clínico.</p>
+    <p class="how">Cada região do mapa é uma animação: clique para abrir. Os traços <span class="tick" aria-hidden="true"></span> vermelhos marcam os bloqueios enzimáticos estudados.</p>
+  </div>
+
+  <figure class="map">
+    <svg viewBox="0 0 500 600" role="group" aria-label="Mapa do metabolismo: glicogênio, frutose e galactose, fenilalanina e tirosina, convergindo na glicólise e no ciclo de Krebs">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5d7fb5"/></marker>
+      </defs>
+
+      <!-- regiões (links) -->
+      <a class="reg s" href="frutose-galactose/" aria-label="Abrir Frutose e galactose">
+        <rect x="10" y="14" width="158" height="390" rx="16"/>
+        <text class="rl" x="89" y="360" text-anchor="middle">Frutose e</text>
+        <text class="rl" x="89" y="382" text-anchor="middle">galactose</text>
+      </a>
+      <a class="reg g" href="glicogenolise/" aria-label="Abrir Glicogenólise 3D">
+        <rect x="184" y="14" width="306" height="234" rx="16"/>
+        <text class="rl" x="474" y="48" text-anchor="end">Glicogenólise</text>
+      </a>
+      <a class="reg a" href="atlas-metabolico/" aria-label="Abrir Atlas Metabólico 3D">
+        <rect x="346" y="262" width="144" height="268" rx="16"/>
+        <text class="rl" x="418" y="290" text-anchor="middle">Atlas Metabólico</text>
+      </a>
+
+      <!-- espinha central: glicogênio → glicólise → Krebs -->
+      <g pointer-events="none">
+        <text class="n" x="262" y="48">Glicogênio</text>
+        <path class="ln" d="M262 64 V122" marker-end="url(#ar)"/>
+        <line class="blk" x1="254" y1="93" x2="270" y2="93"/>
+        <text class="n" x="262" y="140">Glicose-1-P</text>
+        <path class="ln" d="M262 156 V206" marker-end="url(#ar)"/>
+        <text class="n" x="262" y="224">Glicose-6-P</text>
+        <path class="ln" d="M316 224 H378" marker-end="url(#ar)"/>
+        <line class="blk" x1="347" y1="216" x2="347" y2="232"/>
+        <text class="n" x="420" y="224">Glicose</text>
+        <path class="ln" d="M262 240 V298" marker-end="url(#ar)"/>
+        <text class="n hub" x="262" y="316">Glicólise</text>
+        <path class="ln" d="M262 332 V384" marker-end="url(#ar)"/>
+        <text class="n" x="262" y="402">Piruvato</text>
+        <path class="ln" d="M262 418 V468" marker-end="url(#ar)"/>
+        <circle class="ring" cx="262" cy="520" r="46"/>
+        <text class="n hub" x="262" y="510">Ciclo de</text>
+        <text class="n hub" x="262" y="531">Krebs</text>
+
+        <!-- galactose e frutose -->
+        <text class="n" x="89" y="48">Galactose</text>
+        <path class="ln" d="M89 64 V122" marker-end="url(#ar)"/>
+        <line class="blk" x1="81" y1="93" x2="97" y2="93"/>
+        <text class="n" x="89" y="140">Galactose-1-P</text>
+        <path class="ln" d="M150 140 H206" marker-end="url(#ar)"/>
+        <line class="blk" x1="177" y1="132" x2="177" y2="148"/>
+        <text class="n" x="89" y="224">Frutose</text>
+        <path class="ln" d="M89 240 V298" marker-end="url(#ar)"/>
+        <line class="blk" x1="81" y1="268" x2="97" y2="268"/>
+        <text class="n" x="89" y="316">Frutose-1-P</text>
+        <path class="ln" d="M140 316 H218" marker-end="url(#ar)"/>
+        <line class="blk" x1="178" y1="308" x2="178" y2="324"/>
+        <text class="n sm" x="179" y="296">trioses</text>
+
+        <!-- fenilalanina e tirosina -->
+        <text class="n" x="418" y="326">Fenilalanina</text>
+        <path class="ln" d="M418 342 V386" marker-end="url(#ar)"/>
+        <line class="blk" x1="410" y1="364" x2="426" y2="364"/>
+        <text class="n" x="418" y="404">Tirosina</text>
+        <path class="ln" d="M418 420 V470" marker-end="url(#ar)"/>
+        <line class="blk" x1="410" y1="436" x2="426" y2="436"/>
+        <line class="blk" x1="410" y1="452" x2="426" y2="452"/>
+        <text class="n" x="418" y="488">Fumarato</text>
+        <text class="n sm" x="418" y="510">+ acetoacetato</text>
+        <path class="ln" d="M376 494 C350 505 330 512 312 516" marker-end="url(#ar)"/>
+      </g>
+    </svg>
+    <figcaption>Esquema simplificado: só as etapas ligadas às animações.</figcaption>
+  </figure>
+</header>
+
+<main class="list">
+  <h2>As animações</h2>
+
+  <article class="item g" id="glicogenolise">
+    <a class="shot" href="glicogenolise/" tabindex="-1" aria-hidden="true"><img src="img/glicogenolise.webp" alt="" width="1200" height="750" loading="lazy"></a>
+    <div>
+      <h3><a href="glicogenolise/">Glicogenólise 3D</a></h3>
+      <p>A degradação do glicogênio em 3D, uma enzima por vez: fosforilase, transferase e α-1,6-glicosidase. O mapa da glicólise mostra cada reação animada, com o saldo de ATP.</p>
+      <p class="dz"><b>Doenças:</b> doença de Cori em detalhe, e um atlas das glicogenoses com von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel e Danon.</p>
+      <p class="note">Cena 3D: funciona melhor no computador.</p>
+      <a class="open" href="glicogenolise/">Abrir a animação</a>
+    </div>
+  </article>
+
+  <article class="item s" id="frutose-galactose">
+    <a class="shot" href="frutose-galactose/" tabindex="-1" aria-hidden="true"><img src="img/frutose-galactose.webp" alt="" width="1200" height="750" loading="lazy"></a>
+    <div>
+      <h3><a href="frutose-galactose/">Frutose e galactose</a></h3>
+      <p>Quatro mini-capítulos em oito etapas cada: via normal, bloqueio, acúmulo, tecidos atingidos, quadro clínico e como não confundir com as doenças vizinhas.</p>
+      <p class="dz"><b>Doenças:</b> frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica.</p>
+      <a class="open" href="frutose-galactose/">Abrir a animação</a>
+    </div>
+  </article>
+
+  <article class="item a" id="atlas-metabolico">
+    <a class="shot" href="atlas-metabolico/" tabindex="-1" aria-hidden="true"><img src="img/atlas-metabolico.webp" alt="" width="1200" height="750" loading="lazy"></a>
+    <div>
+      <h3><a href="atlas-metabolico/">Atlas Metabólico 3D</a></h3>
+      <p>Mapa 3D clicável da fenilalanina e da tirosina, com os quatro destinos da tirosina: catabolismo, catecolaminas, melanina e hormônios tireoidianos. Cada doença tem animação própria e um caso clínico.</p>
+      <p class="dz"><b>Doenças:</b> fenilcetonúria, defeitos de BH4, tirosinemias I, II e III, alcaptonúria e albinismo.</p>
+      <p class="note">Cena 3D: funciona melhor no computador.</p>
+      <a class="open" href="atlas-metabolico/">Abrir a animação</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>Feito por <b>Henrique Martins dos Santos Filho</b>, radiologista.</p>
+  <p>Material didático para estudo. Formas e posições das moléculas não são estruturais, e o conteúdo não substitui as fontes de referência.</p>
+</footer>
+
+</div>
+</body>
+</html>
