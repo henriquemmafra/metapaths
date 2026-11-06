@@ -5,7 +5,7 @@ Animações interativas de erros inatos do metabolismo, da enzima que falta ao q
 - **Glicogenólise 3D**: degradação do glicogênio, doença de Cori e atlas das glicogenoses
 - **Frutose e galactose**: frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica
 - **Atlas Metabólico 3D**: fenilalanina e tirosina, com PKU, defeitos de BH4, tirosinemias, alcaptonúria e albinismo
-- **Esfingolipídios 3D**: síntese, ativadores e degradação lisossomal, com atlas das esfingolipidoses (Tay-Sachs, Sandhoff, GM1, Fabry, Gaucher, Niemann-Pick, Krabbe, leucodistrofia metacromática, Farber)
+- **Esfingolipídios 3D**: síntese, ativadores e degradação lisossomal, com atlas das esfingolipidoses (Tay-Sachs, Sandhoff, GM1, Fabry, Gaucher, Niemann-Pick, Krabbe, leucodistrofia metacromática, Farber); em português, inglês e espanhol
 
 Cada animação é uma página HTML independente (`<pasta>/index.html`), servida pelo GitHub Pages. A página inicial é `index.html`.
 
