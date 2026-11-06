@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Rotas metabólicas</title>
-<meta name="description" content="Animações interativas de erros inatos do metabolismo: glicogenoses, frutose e galactose, fenilalanina e tirosina. Do bloqueio enzimático ao quadro clínico.">
+<meta name="description" content="Animações interativas de erros inatos do metabolismo: glicogenoses, frutose e galactose, fenilalanina e tirosina, esfingolipidoses. Do bloqueio enzimático ao quadro clínico.">
 <meta property="og:title" content="Rotas metabólicas">
 <meta property="og:description" content="Animações interativas de erros inatos do metabolismo, do bloqueio enzimático ao quadro clínico.">
 <meta property="og:type" content="website">
@@ -24,6 +24,7 @@
   --glic:#4aa8ff;   /* armazenamento: glicogênio */
   --acucar:#ffc98f; /* açúcares da dieta */
   --amino:#b49cff;  /* aminoácidos */
+  --lipido:#7fe8c9; /* esfingolipídios */
   --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
@@ -58,7 +59,7 @@ a{color:inherit}
 .reg:hover rect,.reg:focus-visible rect{fill-opacity:.16;stroke-opacity:.9}
 .reg:focus-visible{outline:none}
 .reg:focus-visible rect{stroke-width:2.4}
-.g{--c:var(--glic)} .s{--c:var(--acucar)} .a{--c:var(--amino)}
+.g{--c:var(--glic)} .s{--c:var(--acucar)} .a{--c:var(--amino)} .l{--c:var(--lipido)}
 
 /* ---------- lista das animações ---------- */
 .list{padding:24px 0 8px;border-top:1px solid var(--borda)}
@@ -106,7 +107,7 @@ footer b{font-weight:500;color:var(--nevoa)}
   </div>
 
   <figure class="map">
-    <svg viewBox="0 0 500 600" role="group" aria-label="Mapa do metabolismo: glicogênio, frutose e galactose, fenilalanina e tirosina, convergindo na glicólise e no ciclo de Krebs">
+    <svg viewBox="0 0 500 600" role="group" aria-label="Mapa do metabolismo: glicogênio, frutose e galactose, fenilalanina e tirosina, convergindo na glicólise e no ciclo de Krebs; esfingolipídios a partir da serina">
       <defs>
         <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5d7fb5"/></marker>
       </defs>
@@ -124,6 +125,10 @@ footer b{font-weight:500;color:var(--nevoa)}
       <a class="reg a" href="atlas-metabolico/" aria-label="Abrir Atlas Metabólico 3D">
         <rect x="346" y="262" width="144" height="268" rx="16"/>
         <text class="rl" x="418" y="290" text-anchor="middle">Atlas Metabólico</text>
+      </a>
+      <a class="reg l" href="esfingolipidios/" aria-label="Abrir Esfingolipídios 3D">
+        <rect x="10" y="420" width="158" height="166" rx="16"/>
+        <text class="rl" x="89" y="566" text-anchor="middle">Esfingolipídios</text>
       </a>
 
       <!-- espinha central: glicogênio → glicólise → Krebs -->
@@ -172,6 +177,14 @@ footer b{font-weight:500;color:var(--nevoa)}
         <text class="n" x="418" y="488">Fumarato</text>
         <text class="n sm" x="418" y="510">+ acetoacetato</text>
         <path class="ln" d="M376 494 C350 505 330 512 312 516" marker-end="url(#ar)"/>
+
+        <!-- esfingolipídios: síntese a partir da serina; degradação lisossomal até a ceramida -->
+        <path class="ln" d="M236 330 C198 384 184 470 134 512" marker-end="url(#ar)"/>
+        <text class="n sm" x="214" y="446">serina</text>
+        <text class="n" x="89" y="452">Glicolipídios</text>
+        <path class="ln" d="M89 468 V494" marker-end="url(#ar)"/>
+        <line class="blk" x1="81" y1="480" x2="97" y2="480"/>
+        <text class="n" x="89" y="512">Ceramida</text>
       </g>
     </svg>
     <figcaption>Esquema simplificado: só as etapas ligadas às animações.</figcaption>
@@ -210,6 +223,17 @@ footer b{font-weight:500;color:var(--nevoa)}
       <p class="dz"><b>Doenças:</b> fenilcetonúria, defeitos de BH4, tirosinemias I, II e III, alcaptonúria e albinismo.</p>
       <p class="note">Cena 3D: funciona melhor no computador.</p>
       <a class="open" href="atlas-metabolico/">Abrir a animação</a>
+    </div>
+  </article>
+
+  <article class="item l" id="esfingolipidios">
+    <a class="shot" href="esfingolipidios/" tabindex="-1" aria-hidden="true"><img src="img/esfingolipidios.webp" alt="" width="1200" height="750" loading="lazy"></a>
+    <div>
+      <h3><a href="esfingolipidios/">Esfingolipídios 3D</a></h3>
+      <p>Da esfingosina à ceramida e às suas cabeças de açúcar, fosfocolina e sulfato. A síntese no RE e no Golgi, as saposinas levantando o lipídio para a enzima e a degradação no lisossomo, um resíduo por vez. Clique em qualquer seta do atlas para ver a enzima cortando a ligação.</p>
+      <p class="dz"><b>Doenças:</b> Tay-Sachs, Sandhoff, gangliosidose GM1, Fabry, Gaucher 1, 2 e 3, Niemann-Pick A, B e C, Krabbe, leucodistrofia metacromática, Farber e as deficiências de saposina, com sinais de imagem e diferenciais lado a lado.</p>
+      <p class="note">Cena 3D: funciona melhor no computador.</p>
+      <a class="open" href="esfingolipidios/">Abrir a animação</a>
     </div>
   </article>
 </main>
