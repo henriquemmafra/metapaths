@@ -1035,7 +1035,7 @@ const DIS=[
  {id:'FAB',g:'glob',type:'Fabry',hy:1,name:'Doença de Fabry',alias:'doença de Anderson-Fabry',enz:'α-galactosidase A',es:'α-galactosidase A',gene:'GLA',inh:'ligada ao X; mulheres heterozigotas são muitas vezes sintomáticas',edges:['gla'],acc:['lgb3'],
   sub:'Gb3 (globotriaosilceramida) e liso-Gb3 no endotélio, podócitos, cardiomiócitos e nervos',
   age:[['Clássica (homens)','dor na infância (4–10 anos); rim, coração e AVC dos 20 aos 40 anos'],['Tardia (variantes cardíacas ou renais)','4ª a 7ª década'],['Mulheres','variável, em geral mais tarde e mais leve']],
-  find:['Acroparestesias: crises de dor em queimação nas mãos e pés, com calor, febre ou exercício','Angioqueratomas na região do calção; hipo-hidrose e intolerância ao calor','Córnea verticilada (opacidades em redemoinho)','Proteinúria e insuficiência renal','Cardiomiopatia hipertrófica e arritmias','AVC e AIT em jovens'],
+  find:['Acroparestesias: crises de dor em queimação nas mãos e pés, com calor, febre ou exercício','Angioqueratomas do umbigo aos joelhos (distribuição em "calção de banho"); hipo-hidrose e intolerância ao calor','Córnea verticilada (opacidades em redemoinho)','Proteinúria e insuficiência renal','Cardiomiopatia hipertrófica e arritmias','AVC e AIT em jovens'],
   dx:'Homens: atividade de α-Gal A em leucócitos ou sangue seco. Mulheres: genética (GLA), porque a enzima pode ser normal. Liso-Gb3 plasmático como biomarcador.',
   img:'RM cardíaca: HVE concêntrica, T1 nativo BAIXO no septo, realce tardio mesocárdico ínfero-lateral basal (com T1 pseudonormal e T2 alto nessa região), VEC normal. Crânio: sinal do pulvinar (T1 alto), lesões da substância branca, dolicoectasia vertebrobasilar. Rim: cistos parapiélicos.',
   histo:'Inclusões lamelares ("corpos de zebra") nos podócitos à microscopia eletrônica; lipídio birrefringente em "cruz de Malta" no sedimento urinário.',
@@ -1551,7 +1551,7 @@ function vSkin(g,t,o,R){const p=cyc(t,11),k=o.k;
   if(k==='angio'){g.save();g.translate(-56,0);g.beginPath();g.moveTo(110,20);g.lineTo(290,20);g.quadraticCurveTo(300,140,280,200);g.lineTo(240,270);g.lineTo(206,270);g.lineTo(200,200);g.lineTo(194,270);g.lineTo(160,270);g.lineTo(120,200);g.quadraticCurveTo(100,140,110,20);g.closePath();
     g.fillStyle=RC2.skin;g.fill();g.save();g.clip();g.fillStyle='rgba(120,70,60,.12)';g.fillRect(100,110,200,100);
     const n=Math.round(es(p,.5,5)*70);for(let i=0;i<n;i++){const x=115+R[i*2]*170,y=105+R[i*2+1]*115;dot(g,x,y,1.6+R[i+200]*2,i%3?'#7d1022':'#5a0a1a');}g.restore();
-    dot(g,200,64,3,'#a7735e');g.restore();pill(g,'angioqueratomas',262,70,RC.red,es(p,3,4));['pápulas vermelho-escuras','que não somem à','pressão, na região','"do calção"'].forEach((s2,i)=>tx(g,s2,262,98+i*14,{s:10.5,c:RC.ink2}));return;}
+    dot(g,200,64,3,'#a7735e');g.restore();pill(g,'angioqueratomas',262,70,RC.red,es(p,3,4));['pápulas vermelho-escuras','que não somem à','pressão, do umbigo','aos joelhos ("calção','de banho")'].forEach((s2,i)=>tx(g,s2,262,98+i*14,{s:10.5,c:RC.ink2}));return;}
   rr(g,24,24,212,236,18);g.fillStyle=k==='salt'?'#c79a7e':RC2.skin;g.fill();g.save();rr(g,24,24,212,236,18);g.clip();
   if(k==='mongol'){g.globalAlpha=es(p,.5,3);for(let i=0;i<5;i++){g.beginPath();g.ellipse(60+R[i]*140,60+R[i+7]*170,30+R[i+3]*30,20+R[i+4]*20,R[i+9]*3,0,6.28);g.fillStyle='rgba(70,90,140,.55)';g.fill();}}
   else if(k==='ichthy'){g.strokeStyle='rgba(90,70,50,.55)';g.lineWidth=1.2;const f=es(p,.5,3.5);for(let y=30;y<260;y+=14)for(let x=30+(y%28?7:0);x<236;x+=14){if(R[(x*7+y)%600]>f)continue;g.beginPath();g.moveTo(x,y);g.lineTo(x+12,y+2);g.lineTo(x+8,y+12);g.closePath();g.stroke();}}
@@ -1688,9 +1688,15 @@ function vEye(g,t,o,R){const P=6,p=cyc(t,P),vert=o.dir==='vert';
 
 /* ---------- dor neuropática e hipo-hidrose (Fabry) ---------- */
 function vPain(g,t,o,R){const p=cyc(t,10),hot=es(p,1,2.5)*(1-es(p,7.5,9));
-  const hand=(x,y)=>{g.fillStyle=RC2.skin;rr(g,x,y+50,70,60,18);g.fill();for(let i=0;i<4;i++){rr(g,x+4+i*16,y,13,58,6);g.fill();}};
-  hand(40,60);hand(150,60);
-  g.save();g.globalAlpha=hot*(.6+.4*Math.sin(t*12));for(let i=0;i<14;i++){const x=48+(i%7)*24+(i>6?110:0),y=70+R[i]*90;g.beginPath();g.moveTo(x,y+10);g.quadraticCurveTo(x-6,y,x,y-12);g.quadraticCurveTo(x+6,y,x,y+10);g.fillStyle='#ff7a3a';g.fill();}g.restore();
+  /* mãos vistas pelo dorso: m=-1 → mão direita (polegar à esquerda de quem olha); m=1 → mão esquerda */
+  const FL=[6,0,4,15];/* encurtamento: indicador, médio, anular, mínimo */
+  const hand=(x,y,m)=>{g.fillStyle=RC2.skin;
+    g.save();g.translate(m<0?x+9:x+61,y+86);g.rotate(m*.62);rr(g,-8,-44,16,48,8);g.fill();g.restore();
+    rr(g,x,y+50,70,60,18);g.fill();
+    for(let i=0;i<4;i++){const d=FL[m<0?i:3-i];rr(g,x+4+i*16,y+d,13,58-d,6.5);g.fill();}
+    g.strokeStyle='rgba(150,95,75,.4)';g.lineWidth=1;for(let i=0;i<4;i++){const cx=x+10.5+i*16;g.beginPath();g.arc(cx,y+55,3,Math.PI*1.15,Math.PI*1.85);g.stroke();}};
+  hand(40,60,-1);hand(150,60,1);
+  g.save();g.globalAlpha=hot*(.6+.4*Math.sin(t*12));for(let i=0;i<14;i++){const x=(i<7?40:150)+8+(i%7)*9,y=78+R[i]*84;g.beginPath();g.moveTo(x,y+10);g.quadraticCurveTo(x-6,y,x,y-12);g.quadraticCurveTo(x+6,y,x,y+10);g.fillStyle='#ff7a3a';g.fill();}g.restore();
   g.save();g.translate(300,70);rr(g,-5,0,10,90,5);g.fillStyle='#ddd';g.fill();g.fillStyle=RC.red;g.fillRect(-2,90-80*hot,4,80*hot);dot(g,0,96,9,RC.red);g.restore();
   tx(g,'calor, febre, exercício',262,186,{s:10.5,c:RC.ink2});
   pill(g,'crises de dor em queimação',22,226,RC.red,hot>.2?1:.4);tx(g,'mãos e pés · fibras finas lesadas pelo Gb3',22,252,{s:10.5,c:RC.ink2});tx(g,'pouco suor (hipo-hidrose): intolerância ao calor',22,270,{s:10.5,c:RC.ink2});}
@@ -1727,7 +1733,7 @@ const REPO_CFG={
      V('brain',{k:'thal'},'Crânio','TC: tálamos hiperdensos no lactente.'),V('cell',{k:'onion'},'Neurônio','Lisossomos em "casca de cebola" à microscopia eletrônica.')],
  SH:[V('retina',{cherry:1},'Retina','Mancha vermelho-cereja, como na Tay-Sachs.'),V('abd',{liv:1.15,spl:1.2},'Fígado e baço','Hepatoesplenomegalia leve: a diferença para a Tay-Sachs.'),V('brain',{k:'thal'},'Crânio','Tálamos hiperdensos na TC.')],
  AB:[V('dev',{on:5,mx:24,startle:1},'Desenvolvimento','Quadro igual ao da Tay-Sachs infantil.'),V('retina',{cherry:1},'Retina','Mancha vermelho-cereja.')],
- FAB:[V('pain',{},'Dor','Acroparestesias em crises, com calor e febre; hipo-hidrose.'),V('skin',{k:'angio'},'Pele','Angioqueratomas na região do calção.'),HEART_FAB,
+ FAB:[V('pain',{},'Dor','Acroparestesias em crises, com calor e febre; hipo-hidrose.'),V('skin',{k:'angio'},'Pele','Angioqueratomas do umbigo aos joelhos, em "calção de banho".'),HEART_FAB,
       V('brain',{k:'pulvinar'},'Crânio','Sinal do pulvinar em T1; lesões de substância branca.'),V('urine',{},'Rim e urina','Proteinúria e lipídio em "cruz de Malta" no sedimento.'),V('retina',{k:'cornea'},'Olho','Córnea verticilada.')],
  GD1:[V('abd',{liv:1.3,spl:1.9,nod:1},'Baço e fígado','Esplenomegalia que domina, às vezes maciça, com nódulos.'),V('blood',{plt:62,bruise:1},'Sangue','Plaquetopenia e anemia: sangramento fácil.'),
       V('bone',{k:'erlen'},'Fêmur','Frasco de Erlenmeyer.'),V('bone',{k:'marrow'},'Medula óssea','Infiltração medular em T1.'),V('cell',{k:'gaucher'},'Histologia','Célula de Gaucher em "papel amassado".')],
