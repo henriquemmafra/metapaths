@@ -32,9 +32,19 @@ button{font:inherit;color:inherit}
 .eyebrow{font:500 11px/1.2 var(--f-label);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 .brand h1{margin:4px 0 0;font:600 27px/1.05 var(--f-display);letter-spacing:-.01em;text-wrap:balance}
 .brand h1 em{font-style:italic;font-weight:500;color:var(--ink-2)}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.langs{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--panel)}
+.langs button{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;border-radius:999px;padding:5px 9px;cursor:pointer;color:var(--ink-2);font:600 11.5px/1 var(--f-label);letter-spacing:.08em}
+.langs button:hover{color:var(--ink)}
+.langs svg{width:22px;height:15px;border-radius:2px;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.28)}
+.langs button[aria-pressed="true"]{background:rgba(242,234,211,.16);color:var(--ivory)}
+.wrap>.chaps-wrap+.rail{margin-top:12px}
 .tbtn{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 12px;cursor:pointer;color:var(--ink-2);font:500 12.5px/1 var(--f-ui)}
 .tbtn:hover{color:var(--ink);border-color:#3d669f}
-.chaps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.chaps-wrap{margin:14px 0 0}
+.chaps-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:8px}
+.chaps-h span{font:400 12px/1.3 var(--f-ui);color:var(--ink-3)}
+.chaps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 .chap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center;text-align:left;cursor:pointer;
   border:1px solid var(--line-soft);background:var(--panel);border-radius:12px;padding:10px 12px;color:var(--ink-2)}
 .chap i{grid-row:span 2;width:10px;height:28px;border-radius:3px;background:var(--c)}
@@ -95,9 +105,9 @@ figure.fg figcaption b{display:block;font:600 11px/1.3 var(--f-label);letter-spa
 .dif-h{font:600 20px/1.15 var(--f-display);margin:0 0 4px}
 .dif-sub{margin:0 0 10px;font:400 12.5px/1.4 var(--f-ui);color:var(--ink-2)}
 .dtw{overflow-x:auto;border:1px solid var(--line-soft);border-radius:10px}
-.dt{display:grid;grid-template-columns:84px repeat(var(--n),minmax(110px,1fr));min-width:calc(84px + var(--n) * 110px)}
+.dt{display:grid;grid-template-columns:96px repeat(var(--n),minmax(110px,1fr));min-width:calc(96px + var(--n) * 110px)}
 .dt>div{padding:7px 8px;border-bottom:1px solid var(--line-soft);font:400 12px/1.35 var(--f-ui);color:var(--ink-2);min-width:0}
-.dt .l{font:600 10.5px/1.3 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:rgba(255,255,255,.02)}
+.dt .l{overflow-wrap:anywhere;hyphens:auto;font:600 10.5px/1.3 var(--f-label);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:rgba(255,255,255,.02)}
 .dt .h{display:grid;gap:3px;align-content:start;border-top:3px solid var(--c)}
 .dt .h b{font:600 13.5px/1.2 var(--f-display);color:var(--ink)}
 .dt .h small{font:500 10.5px/1.2 var(--f-label);letter-spacing:.06em;color:var(--c)}
@@ -122,20 +132,20 @@ figure.fg figcaption b{display:block;font:600 11px/1.3 var(--f-label);letter-spa
 .nextc:hover{background:rgba(255,255,255,.07)}
 
 /* ---------- doca ---------- */
-.dock{position:sticky;bottom:0;z-index:5;margin-top:14px;padding-block:0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,transparent,var(--bg) 22%)}
-.dock-in{display:grid;gap:10px;background:rgba(10,24,52,.94);border:1px solid var(--line);border-radius:16px;padding:12px 14px 10px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.dock{margin-top:14px;margin-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.dock-in{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;background:rgba(10,24,52,.94);border:1px solid var(--line);border-radius:16px;padding:12px 14px 10px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .cap-meta{display:flex;gap:8px;align-items:baseline;font:600 11px/1.2 var(--f-label);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);min-width:0}
 .cap-meta b{color:var(--ivory);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cap-meta .lvtag{margin-left:auto;font:600 10px/1 var(--f-label);letter-spacing:.14em;padding:4px 7px;border-radius:4px;border:1px solid var(--ivory);color:var(--ivory);white-space:nowrap}
+.caption{min-width:0}
 #capText{margin:5px 0 0;font:400 15px/1.5 var(--f-ui);color:var(--ink);max-width:110ch;min-height:3em;text-wrap:pretty}
 #capText b{color:var(--ivory);font-weight:600}
 #capText .d{color:var(--cur);font-weight:600}
-.prog{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.prog{display:grid;grid-template-columns:repeat(var(--n,8),minmax(0,1fr));gap:6px}
 .chip{display:flex;flex-direction:column;gap:6px;background:none;border:0;padding:4px 0 2px;cursor:pointer;text-align:left;color:var(--ink-3);min-width:0}
 .chip .bar{position:relative;height:4px;border-radius:2px;background:#1a325c;overflow:hidden}
 .chip .bar i{position:absolute;inset:0;transform-origin:0 50%;transform:scaleX(0);background:var(--ink-2)}
-.chip .nm{font:500 11.5px/1.15 var(--f-label);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.chip .nm span{font-family:var(--f-mono);margin-right:4px}
+.chip .nm{font:500 12.5px/1 var(--f-mono);text-align:center;font-variant-numeric:tabular-nums}
 .chip:hover .nm{color:var(--ink-2)}
 .chip.on .nm{color:var(--ivory)}
 .chip.on .bar i,.chip.done .bar i{background:var(--cur)}
@@ -167,9 +177,9 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
 .lane{fill:#1a0e22;stroke:#43213c;stroke-width:1.2}
 .lanetx{fill:#d08aa0;font:600 10.5px var(--f-label);letter-spacing:.16em}
 .lanesm{fill:#a77d92;font:400 10.5px var(--f-label)}
-.cell{fill:#0b1f45;stroke:#3a5f95;stroke-width:2}
-.cell2{fill:none;stroke:#244476;stroke-width:1;stroke-dasharray:2 4}
-.celltx{fill:var(--ink-3);font:600 10.5px var(--f-label);letter-spacing:.16em}
+.cell{stroke:#b07a50;stroke-width:2.2}
+.cell2{fill:none;stroke:#7a5236;stroke-width:1;stroke-dasharray:2 4}
+.celltx{fill:#e0b88f;font:600 10.5px var(--f-label);letter-spacing:.16em}
 .tp rect{fill:#2b4c80;stroke:#6d93cc;stroke-width:1}
 .tp text{fill:var(--ink-3);font:500 9px var(--f-mono)}
 .node rect{fill:#0a1a38;stroke:#3b5b8e;stroke-width:1.3}
@@ -206,12 +216,11 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
 .ring{fill:none;stroke-width:2}
 .pool text{fill:#ffb6d9;font:500 10px var(--f-mono);text-anchor:middle}
 
-@media (max-width:1060px){.stage{grid-template-columns:minmax(0,1fr)}.chaps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1060px){.stage{grid-template-columns:minmax(0,1fr)}.chaps{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){
-  .wrap{display:flex;flex-direction:column}.stage{order:2}.dock{position:static;order:1;margin:0 0 12px;padding-block:0;background:none}
   .brand h1{font-size:22px}.levels{width:100%}.lv{flex:1}.lv span{display:none}
-  .prog{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .chip .nm b{display:none}
+  .chaps{grid-template-columns:repeat(2,minmax(0,1fr))}.chaps-h span{display:none}
+  .cap-meta{flex-wrap:wrap}.cap-meta .lvtag{margin-left:0}
   .note{display:none}
   #capText{font-size:14px}
   .meters{grid-template-columns:minmax(0,1fr)}
@@ -219,6 +228,75 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
   .figs canvas{aspect-ratio:4/3!important}
 }
 @media (max-width:460px){.chaps{grid-template-columns:minmax(0,1fr)}}
+.maps{display:grid;gap:10px}
+.mapc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;text-align:left;cursor:pointer;border:1px solid var(--line-soft);border-left:4px solid var(--c);background:rgba(255,255,255,.03);border-radius:12px;padding:12px 14px;color:var(--ink)}
+.mapc:hover{background:rgba(255,255,255,.07);border-color:var(--c)}
+.mapc .x{grid-row:span 3;width:30px;height:30px;color:var(--c)}
+.mapc b{font:600 16px/1.2 var(--f-display)}
+.mapc small{font:500 11.5px/1.2 var(--f-label);color:var(--c);letter-spacing:.04em}
+.mapc dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 10px;margin:6px 0 0}
+.mapc dt{font:600 10px/1.6 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.mapc dd{margin:0;font:400 12.5px/1.4 var(--f-ui);color:var(--ink-2)}
+.mapc>*:not(.x){grid-column:2}
+.mapc .go{grid-column:2;font:500 12.5px/1.2 var(--f-ui);color:var(--ivory);margin-top:4px}
+
+/* ---------- modo vídeo (1920×1080, só para filmagem) ---------- */
+body.vid{width:1920px;height:1080px;overflow:hidden}
+.vid .wrap{max-width:none;height:1080px;padding:24px 40px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto minmax(0,1fr) auto;column-gap:24px;row-gap:12px}
+.vid .top,.vid .chaps-wrap,.vid .transport{display:none}
+.vid .rail{display:contents}
+.vid .vhead{grid-column:1;grid-row:1;display:flex!important;align-items:center;gap:14px;min-width:0}
+.vid .vhead i{width:10px;height:52px;border-radius:3px;background:var(--cur)}
+.vid .vhead div{display:grid;gap:2px}
+.vid .vhead b{font:600 34px/1.05 var(--f-display)}
+.vid .vhead small{font:500 16px/1.2 var(--f-label);letter-spacing:.04em;color:var(--cur)}
+.vid .levels{grid-column:2;grid-row:1;align-self:center}
+.vid .lv b{font-size:12.5px}.vid .lv span{font-size:13px}
+.vid .prof{grid-column:1/-1;grid-row:2}
+.vid .pchip{font-size:15px;padding:7px 11px}
+.vid .stage{grid-column:1/-1;grid-row:3;min-height:0;grid-template-columns:930px minmax(0,1fr);align-items:stretch}
+.vid .card{display:flex;flex-direction:column;min-height:0}
+.vid .chead .eyebrow{font-size:13px}.vid .status{font-size:13px;padding:6px 10px}
+.vid .pw{overflow:visible}
+.vid .pw svg{width:auto;min-width:0;height:536px;margin:0 auto}
+.vid .meters{margin-top:8px}.vid .mt{padding:7px 10px}.vid .mt-h{font-size:15px}.vid .mt-h em{font-size:14px}
+.vid .glyphs{margin-top:8px;font-size:14px}
+.vid #rt{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.vid .figs canvas{aspect-ratio:auto!important}
+.vid .figs[data-n="1"] canvas{height:590px}
+.vid .figs[data-n="2"] canvas{height:400px}
+.vid .figs[data-n="3"] canvas{height:262px}
+.vid figure.fg figcaption{font-size:16px}
+.vid figure.fg figcaption b{font-size:13.5px}
+.vid .dock{grid-column:1/-1;grid-row:4;margin:0}
+.vid .dock-in{padding:14px 20px 12px;gap:10px}
+.vid .cap-meta{font-size:14px}.vid .cap-meta .lvtag{font-size:12.5px;padding:5px 8px}
+.vid #capText{font-size:24px;line-height:1.42;max-width:none;min-height:4.26em}
+.vid .chip .nm{font-size:15px}
+.vid .dif-sub{font-size:17px}
+.vid .dt{grid-template-columns:120px repeat(var(--n),minmax(0,1fr));min-width:0}
+.vid .dt>div{font-size:15.5px;padding:9px 10px}
+.vid .dt .l{font-size:12.5px}.vid .dt .h b{font-size:18px}.vid .dt .h small{font-size:12.5px}
+.vid .rule{font-size:21px}
+.vid .sumcard header b{font-size:28px}.vid .sumcard header span{font-size:13px}
+.vid .sumcard dt{font-size:13px}.vid .sumcard dd{font-size:19px}.vid .sumcard dd.mono{font-size:18px}
+.vid .take q{font-size:30px}.vid .take span{font-size:13px}
+.vid .nextc{display:none}
+.vid .mapc b{font-size:24px}.vid .mapc small{font-size:15px}.vid .mapc dt{font-size:12.5px}.vid .mapc dd{font-size:17px}.vid .mapc .go{display:none}
+.vcard{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(90% 80% at 50% 40%,#0f2a56,#050e22)}
+.vcard .in{display:grid;gap:16px;justify-items:center;text-align:center;max-width:1300px}
+.vcard .ey{font:600 18px/1 var(--f-label);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+.vcard h2{margin:0;font:600 86px/1.02 var(--f-display);letter-spacing:-.01em;text-wrap:balance}
+.vcard h2 em{font-style:italic;font-weight:500;color:var(--ink-2)}
+.vcard .pt{font:500 28px/1.2 var(--f-label);letter-spacing:.03em;color:var(--cur)}
+.vcard .bar{width:140px;height:8px;border-radius:4px;background:var(--cur)}
+.vcard .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.vcard .chips span{font:500 19px/1 var(--f-label);padding:10px 14px;border-radius:8px;border:1px solid var(--line);color:var(--ink-2)}
+.vcard .chips span b{color:var(--ink)}
+.vcard ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:10px;justify-items:start}
+.vcard ol li{display:flex;gap:14px;align-items:center;font:500 24px/1.2 var(--f-ui);color:var(--ink)}
+.vcard ol li i{width:12px;height:30px;border-radius:3px;background:var(--c)}
+.vcard ol li small{font:500 17px/1 var(--f-label);color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style>
 
@@ -242,27 +320,31 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
 </svg>
 
 <div class="wrap">
+  <div class="vhead" id="vhead" hidden><i></i><div><span class="eyebrow">Frutose e galactose · nível USMLE Step 1</span><b id="vhName"></b><small id="vhPt"></small></div></div>
   <header class="top">
     <div class="brand">
-      <div class="eyebrow">Bioquímica médica · açúcares da dieta · nível USMLE Step 1</div>
-      <h1>Frutose e galactose <em>quatro doenças, quatro bloqueios</em></h1>
+      <div class="eyebrow" data-i18n="eyebrow">Bioquímica médica · açúcares da dieta · nível USMLE Step 1</div>
+      <h1 data-i18n-html="h1">Frutose e galactose <em>quatro doenças, quatro bloqueios</em></h1>
     </div>
-    <button class="tbtn" id="atlB" type="button">Atlas de tecidos</button>
+    <div class="tools"><div class="langs" id="langs" role="group" aria-label="Idioma"></div><button class="tbtn" id="atlB" type="button" data-i18n="atlas">Atlas de tecidos</button></div>
   </header>
-  <nav class="chaps" id="chaps" aria-label="Capítulos"></nav>
+  <section class="chaps-wrap" aria-labelledby="chapsT">
+    <div class="chaps-h"><span class="eyebrow" id="chapsT" data-i18n="chapsT">Capítulos · comece pelo normal, depois escolha a deficiência</span><span data-i18n="chapsS">Cada deficiência: via → bloqueio → acúmulo → consequência → tecidos → clínica → diferencial → resumo</span></div>
+    <nav class="chaps" id="chaps" aria-label="Capítulos"></nav>
+  </section>
 
   <div class="rail">
     <div class="prof" id="prof" aria-label="Perfil da doença"></div>
     <div class="levels" id="levels" aria-label="Níveis de ensino">
-      <div class="lv" data-l="bio"><b>1 · Bioquímico</b><span>enzima · acúmulo · etapa que parou</span></div>
-      <div class="lv" data-l="cli"><b>2 · Clínico</b><span>órgão · achado · por que adoece</span></div>
-      <div class="lv" data-l="dif"><b>3 · Diferencial</b><span>o que parece igual · o que distingue</span></div>
+      <div class="lv" data-l="bio"><b data-i18n="lv1">1 · Bioquímico</b><span data-i18n="lv1s">enzima · acúmulo · etapa que parou</span></div>
+      <div class="lv" data-l="cli"><b data-i18n="lv2">2 · Clínico</b><span data-i18n="lv2s">órgão · achado · por que adoece</span></div>
+      <div class="lv" data-l="dif"><b data-i18n="lv3">3 · Diferencial</b><span data-i18n="lv3s">o que parece igual · o que distingue</span></div>
     </div>
   </div>
 
   <main class="stage">
     <section class="card" aria-labelledby="pwTitle">
-      <div class="chead"><span class="eyebrow" id="pwTitle">Via bioquímica · hepatócito</span><span class="status nrm" id="pwStatus">Via normal</span></div>
+      <div class="chead"><span class="eyebrow" id="pwTitle" data-i18n="pwTitle">Via bioquímica · hepatócito</span><span class="status nrm" id="pwStatus">Via normal</span></div>
       <div class="pw"><svg id="pw" viewBox="0 0 640 440" role="img" aria-labelledby="pwTitle"></svg></div>
       <div class="meters" id="meters"></div>
       <div class="glyphs" id="glyphs"></div>
@@ -276,7 +358,7 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
   <div class="dock">
     <div class="dock-in">
       <div class="caption" aria-live="polite">
-        <div class="cap-meta"><span id="capNum">Etapa 1/8</span><b id="capTitle"></b><span class="lvtag" id="capLv">Bioquímico</span></div>
+        <div class="cap-meta"><span id="capNum">Etapa 1</span><b id="capTitle"></b><span class="lvtag" id="capLv">Bioquímico</span></div>
         <p id="capText"></p>
       </div>
       <div class="prog" id="prog" role="group" aria-label="Etapas do capítulo"></div>
@@ -291,16 +373,18 @@ dialog.atl::backdrop{background:rgba(3,9,22,.72)}
           <button type="button" data-s="1.5" aria-pressed="false">1,5×</button>
         </div>
         <span class="time" id="time">0:00 / 0:00</span>
-        <span class="note">Esquema didático: formas e posições das moléculas não são estruturais. Espaço = play/pausa · ← → = etapas.</span>
+        <span class="note" data-i18n="note">Esquema didático: formas e posições das moléculas não são estruturais. Espaço = play/pausa · ← → = etapas.</span>
       </div>
     </div>
   </div>
+
 </div>
 
+<div class="vcard" id="vcard" hidden></div>
 <dialog class="atl" id="atl" aria-labelledby="atlT">
   <div class="atl-h">
-    <div><div class="eyebrow">Sistema visual</div><h2 id="atlT">Atlas de tecidos</h2>
-      <p>Ilustrações que os mini-capítulos usam. As sem capítulo marcado ficam prontas para módulos futuros.</p></div>
+    <div><div class="eyebrow" data-i18n="atlEy">Sistema visual</div><h2 id="atlT" data-i18n="atlas">Atlas de tecidos</h2>
+      <p data-i18n="atlP">Ilustrações que os mini-capítulos usam. As sem capítulo marcado ficam prontas para módulos futuros.</p></div>
     <button class="ibtn" id="atlX" type="button" aria-label="Fechar atlas"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
   </div>
   <div class="atl-g" id="atlG"></div>
@@ -321,217 +405,448 @@ const SVGNS='http://www.w3.org/2000/svg';
 function el(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);if(attrs)for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
 function hx(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;}
 
-/* ======================= dados dos capítulos ======================= */
-const STEPS=['Via normal','Bloqueio enzimático','Substrato acumulado','Consequência metabólica','Tecidos e órgãos','Quadro clínico','Como não confundir','Quadro resumo'];
-const STEP_SHORT=['Via normal','Bloqueio','Acúmulo','Consequência','Tecidos','Clínica','Diferencial','Resumo'];
-const LEVEL=['bio','bio','bio','bio','cli','cli','dif','dif'];
-const LEVEL_NAME={bio:'Nível 1 · Bioquímico',cli:'Nível 2 · Clínico',dif:'Nível 3 · Diferencial'};
+/* ======================= idiomas ======================= */
+/* idioma: ?lang= na URL, senão a escolha salva para o site inteiro (metapaths-lang) */
+let LANG='pt';try{const q=(new URLSearchParams(location.search).get('lang')||'').toLowerCase();const v=(q==='pt'||q==='en'||q==='es')?q:(localStorage.getItem('metapaths-lang')||localStorage.getItem('fg-lang'));if(v==='en'||v==='es')LANG=v;}catch(e){}
+const L=v=>(v&&typeof v==='object'&&!Array.isArray(v)&&('pt' in v))?(v[LANG]!==undefined?v[LANG]:v.pt):v;
+const COLORS={nrm:'#46d98c',ef:'#45d0b0',hfi:'#ff5a52',galk:'#b28cff',galt:'#ffa53d',vg:'#8fa0bf',hep:'#7d8db0'};
 const DUR=[10,8,9,11,11,12,15,12];
-const COLORS={ef:'#45d0b0',hfi:'#ff5a52',galk:'#b28cff',galt:'#ffa53d',vg:'#8fa0bf',hep:'#7d8db0'};
+const LEVEL=['bio','bio','bio','bio','cli','cli','dif','dif'];
+const STEPS={pt:['Via normal','Bloqueio enzimático','Substrato acumulado','Consequência metabólica','Tecidos e órgãos','Quadro clínico','Como não confundir','Quadro resumo'],
+  en:['Normal pathway','Enzyme block','Accumulated substrate','Metabolic consequence','Tissues and organs','Clinical picture','How not to confuse','Summary panel'],
+  es:['Vía normal','Bloqueo enzimático','Sustrato acumulado','Consecuencia metabólica','Tejidos y órganos','Cuadro clínico','Cómo no confundir','Cuadro resumen']};
+const LEVEL_NAME={bio:{pt:'Nível 1 · Bioquímico',en:'Level 1 · Biochemical',es:'Nivel 1 · Bioquímico'},cli:{pt:'Nível 2 · Clínico',en:'Level 2 · Clinical',es:'Nivel 2 · Clínico'},dif:{pt:'Nível 3 · Diferencial',en:'Level 3 · Differential',es:'Nivel 3 · Diferencial'}};
+const UI={
+  eyebrow:{pt:'Bioquímica médica · açúcares da dieta · nível USMLE Step 1',en:'Medical biochemistry · dietary sugars · USMLE Step 1 level',es:'Bioquímica médica · azúcares de la dieta · nivel USMLE Step 1'},
+  h1:{pt:'Frutose e galactose <em>quatro doenças, quatro bloqueios</em>',en:'Fructose and galactose <em>four diseases, four blocks</em>',es:'Fructosa y galactosa <em>cuatro enfermedades, cuatro bloqueos</em>'},
+  atlas:{pt:'Atlas de tecidos',en:'Tissue atlas',es:'Atlas de tejidos'},
+  chapsT:{pt:'Capítulos · comece pelo normal, depois escolha a deficiência',en:'Chapters · start with normal, then pick a deficiency',es:'Capítulos · empieza por lo normal y luego elige la deficiencia'},
+  chapsS:{pt:'Cada deficiência: via → bloqueio → acúmulo → consequência → tecidos → clínica → diferencial → resumo',en:'Each deficiency: pathway → block → accumulation → consequence → tissues → clinical → differential → summary',es:'Cada deficiencia: vía → bloqueo → acumulación → consecuencia → tejidos → clínica → diferencial → resumen'},
+  lv1:{pt:'1 · Bioquímico',en:'1 · Biochemical',es:'1 · Bioquímico'},lv1s:{pt:'enzima · acúmulo · etapa que parou',en:'enzyme · buildup · step that stopped',es:'enzima · acúmulo · paso que se detuvo'},
+  lv2:{pt:'2 · Clínico',en:'2 · Clinical',es:'2 · Clínico'},lv2s:{pt:'órgão · achado · por que adoece',en:'organ · finding · why it hurts',es:'órgano · hallazgo · por qué enferma'},
+  lv3:{pt:'3 · Diferencial',en:'3 · Differential',es:'3 · Diferencial'},lv3s:{pt:'o que parece igual · o que distingue',en:'what looks alike · what tells them apart',es:'qué se parece · qué los distingue'},
+  pwTitle:{pt:'Via bioquímica · hepatócito',en:'Biochemical pathway · hepatocyte',es:'Vía bioquímica · hepatocito'},
+  note:{pt:'Esquema didático: formas e posições das moléculas não são estruturais. Espaço = play/pausa · ← → = etapas.',en:'Teaching diagram: molecule shapes and positions are not structural. Space = play/pause · ← → = steps.',es:'Esquema didáctico: formas y posiciones de las moléculas no son estructurales. Espacio = play/pausa · ← → = pasos.'},
+  atlEy:{pt:'Sistema visual',en:'Visual system',es:'Sistema visual'},
+  atlP:{pt:'Ilustrações que os mini-capítulos usam. As sem capítulo marcado ficam prontas para módulos futuros.',en:'Illustrations used by the mini-chapters. Those without a chapter are ready for future modules.',es:'Ilustraciones que usan los minicapítulos. Las que no tienen capítulo quedan listas para módulos futuros.'},
+  future:{pt:'pronto para módulos futuros',en:'ready for future modules',es:'listo para módulos futuros'},
+  step:{pt:'Etapa',en:'Step',es:'Paso'},
+  sNormal:{pt:'Via normal',en:'Normal pathway',es:'Vía normal'},sMarks:{pt:'Pontos de bloqueio',en:'Block sites',es:'Puntos de bloqueo'},
+  sCompared:{pt:'Bloqueios comparados',en:'Blocks compared',es:'Bloqueos comparados'},sBlock:{pt:'Bloqueio · ',en:'Block · ',es:'Bloqueo · '},
+  sDiff:{pt:'Diferencial',en:'Differential',es:'Diferencial'},sSum:{pt:'Resumo',en:'Summary',es:'Resumen'},
+  howNot:{pt:'Como não confundir',en:'How not to confuse',es:'Cómo no confundir'},sumT:{pt:'Quadro resumo',en:'Summary panel',es:'Cuadro resumen'},
+  diffCap:{pt:'<b>Como não confundir</b> {a} com {b}. {sub} Na via, cada bloqueio aparece na cor da sua doença.',en:'<b>How not to confuse</b> {a} with {b}. {sub} On the pathway, each block shows in its own disease color.',es:'<b>Cómo no confundir</b> {a} con {b}. {sub} En la vía, cada bloqueo aparece con el color de su enfermedad.'},
+  sumCap:{pt:'<b>Quadro resumo</b> do capítulo. Mensagem final: <span class="d">“{t}”</span>',en:'Chapter <b>summary panel</b>. Take-home: <span class="d">“{t}”</span>',es:'<b>Cuadro resumen</b> del capítulo. Mensaje final: <span class="d">“{t}”</span>'},
+  thisCh:{pt:'ESTE CAPÍTULO',en:'THIS CHAPTER',es:'ESTE CAPÍTULO'},
+  dDis:{pt:'Doença',en:'Disease',es:'Enfermedad'},dEnz:{pt:'Enzima',en:'Enzyme',es:'Enzima'},dAcc:{pt:'Acúmulo',en:'Buildup',es:'Acúmulo'},dTis:{pt:'Tecidos',en:'Tissues',es:'Tejidos'},
+  dCli:{pt:'Pistas clínicas',en:'Clinical clues',es:'Pistas clínicas'},dNc:{pt:'Não confundir com',en:'Do not confuse with',es:'No confundir con'},dDmg:{pt:'Dano',en:'Damage',es:'Daño'},
+  next:{pt:'Próximo capítulo:',en:'Next chapter:',es:'Siguiente capítulo:'},blockAt:{pt:'bloqueio na',en:'block at',es:'bloqueo en la'},openCh:{pt:'Abrir capítulo',en:'Open chapter',es:'Abrir capítulo'},
+  mNormal:{pt:'normal',en:'normal',es:'normal'},mUp:{pt:'↑ elevado',en:'↑ high',es:'↑ elevado'},mDown:{pt:'↓ baixo',en:'↓ low',es:'↓ bajo'},mAbs:{pt:'ausente',en:'absent',es:'ausente'},
+  lang:{pt:'Idioma',en:'Language',es:'Idioma'},
+  g_fru:{pt:'frutose · açúcar livre',en:'fructose · free sugar',es:'fructosa · azúcar libre'},g_frup:{pt:'açúcar-fosfato · Pᵢ preso',en:'sugar phosphate · trapped Pᵢ',es:'azúcar-fosfato · Pᵢ atrapado'},
+  g_tri:{pt:'trioses',en:'trioses',es:'triosas'},g_pi:{pt:'fosfato (Pᵢ)',en:'phosphate (Pᵢ)',es:'fosfato (Pᵢ)'},g_glc:{pt:'glicose',en:'glucose',es:'glucosa'},
+  g_gal:{pt:'galactose · açúcar livre',en:'galactose · free sugar',es:'galactosa · azúcar libre'},g_tol:{pt:'galactitol · álcool de açúcar',en:'galactitol · sugar alcohol',es:'galactitol · alcohol de azúcar'},
+  g_glcp:{pt:'glucose-1-P / G6P',en:'glucose-1-P / G6P',es:'glucose-1-P / G6P'},g_x:{pt:'bloqueio · cor da doença',en:'block · disease color',es:'bloqueo · color de la enfermedad'}
+};
+const U=k=>L(UI[k])||k;
+const fill=(s,o)=>s.replace(/\{(\w+)\}/g,(m,k)=>o[k]!=null?o[k]:m);
+/* rótulos das ilustrações e da via (chave = texto em português) */
+const LBL={
+ 'DIETA':['DIET','DIETA'],'frutas · mel':['fruit · honey','frutas · miel'],'sacarose':['sucrose','sacarosa'],'sorbitol':['sorbitol','sorbitol'],
+ 'leite: lactose':['milk: lactose','leche: lactosa'],'↓ lactase':['↓ lactase','↓ lactasa'],'glicose':['glucose','glucosa'],'+ galactose':['+ galactose','+ galactosa'],
+ 'SANGUE PORTAL':['PORTAL BLOOD','SANGRE PORTAL'],'HEPATÓCITO · CITOSOL':['HEPATOCYTE · CYTOSOL','HEPATOCITO · CITOSOL'],
+ 'frutose':['fructose','fructosa'],'gliceraldeído':['glyceraldehyde','gliceraldehído'],'glicogênio':['glycogen','glucógeno'],'glicólise ⇄ gliconeogênese':['glycolysis ⇄ gluconeogenesis','glucólisis ⇄ gluconeogénesis'],
+ 'galactose':['galactose','galactosa'],'galactitol':['galactitol','galactitol'],'glicólise · glicogênio':['glycolysis · glycogen','glucólisis · glucógeno'],
+ 'pool de Pᵢ':['Pᵢ pool','pool de Pᵢ'],'Pᵢ PRESO':['Pᵢ TRAPPED','Pᵢ ATRAPADO'],'TÓXICO':['TOXIC','TÓXICO'],'PRESO':['TRAPPED','ATRAPADO'],'sem Pᵢ':['no Pᵢ','sin Pᵢ'],
+ 'núcleo':['nucleus','núcleo'],'mitocôndrias · ATP':['mitochondria · ATP','mitocondrias · ATP'],'mitocôndrias · ATP ↓':['mitochondria · ATP ↓','mitocondrias · ATP ↓'],
+ 'F1P · Pᵢ preso':['F1P · trapped Pᵢ','F1P · Pᵢ atrapado'],'Gal-1-P · Pᵢ preso':['Gal-1-P · trapped Pᵢ','Gal-1-P · Pᵢ atrapado'],'glicogênio retido':['glycogen locked','glucógeno retenido'],
+ 'esteatose · lesão':['steatosis · injury','esteatosis · lesión'],'SINUSOIDE':['SINUSOID','SINUSOIDE'],
+ 'rebordo costal':['costal margin','reborde costal'],'HEPATOMEGALIA':['HEPATOMEGALY','HEPATOMEGALIA'],'icterícia':['jaundice','ictericia'],'vesícula':['gallbladder','vesícula'],
+ 'cristalino':['lens','cristalino'],'galactitol (preso)':['galactitol (trapped)','galactitol (atrapado)'],'H₂O entra':['H₂O moves in','entra H₂O'],'fibras · corte transversal':['fibers · cross-section','fibras · corte transversal'],
+ 'reflexo vermelho':['red reflex','reflejo rojo'],'opacidade em gota de óleo':['oil-drop opacity','opacidad en gota de aceite'],'esclera ictérica':['icteric sclera','esclerótica ictérica'],
+ 'glomérulo':['glomerulus','glomérulo'],'túbulo proximal':['proximal tubule','túbulo proximal'],'túbulo · Fanconi':['tubule · Fanconi','túbulo · Fanconi'],
+ 'urina: frutose':['urine: fructose','orina: fructosa'],'urina: galactose':['urine: galactose','orina: galactosa'],'aminoácidos':['amino acids','aminoácidos'],
+ 'neutrófilo':['neutrophil','neutrófilo'],'neutrófilo · bactericida ↓':['neutrophil · killing ↓','neutrófilo · bactericida ↓'],'hemácias':['red cells','hematíes'],
+ 'frutose livre':['free fructose','fructosa libre'],'galactose livre':['free galactose','galactosa libre'],
+ 'lactase (borda em escova)':['lactase (brush border)','lactasa (borde en cepillo)'],'GLUT5 (membrana apical)':['GLUT5 (apical membrane)','GLUT5 (membrana apical)'],
+ 'capilar → veia porta':['capillary → portal vein','capilar → vena porta'],'lactose':['lactose','lactosa'],
+ 'glicose ↓ · neuroglicopenia':['glucose ↓ · neuroglycopenia','glucosa ↓ · neuroglucopenia'],'glicose disponível':['glucose available','glucosa disponible'],
+ 'hexokinase: frutose → F6P':['hexokinase: fructose → F6P','hexokinase: fructosa → F6P'],'núcleos periféricos':['peripheral nuclei','núcleos periféricos'],
+ 'disco intercalar':['intercalated disc','disco intercalar'],'núcleo central':['central nucleus','núcleo central'],
+ 'REDUTOR +':['REDUCING +','REDUCTOR +'],'GLICOSE −':['GLUCOSE −','GLUCOSA −'],'redução de cobre':['copper reduction','reducción de cobre'],'fita glicose-oxidase':['glucose-oxidase strip','tira glucosa-oxidasa'],
+ 'neg':['neg','neg'],'glicose ↑':['glucose ↑','glucosa ↑'],'açúcar redutor que não é glicose → frutose':['reducing sugar that is not glucose → fructose','azúcar reductor que no es glucosa → fructosa'],
+ 'cruza percentis para baixo':['crosses percentiles downward','cruza percentiles hacia abajo'],'peso para a idade · curvas aproximadas (OMS)':['weight for age · approximate curves (WHO)','peso para la edad · curvas aproximadas (OMS)'],'m':['mo','m'],
+ 'leite':['milk','leche'],'mamadas espaçadas':['longer gaps between feeds','tomas más espaciadas'],'desmame: frutas, sacarose':['weaning: fruit, sucrose','destete: frutas, sacarosa'],
+ 'Galactosemia clássica':['Classic galactosemia','Galactosemia clásica'],'Von Gierke (jejum)':['Von Gierke (fasting)','Von Gierke (ayuno)'],'HFI (frutose)':['HFI (fructose)','HFI (fructosa)'],
+ 'Frutosúria essencial':['Essential fructosuria','Fructosuria esencial'],'assintomática':['asymptomatic','asintomática'],
+ 'Hepatócito':['Hepatocyte','Hepatocito'],'Fígado':['Liver','Hígado'],'Cristalino':['Lens','Cristalino'],'Olho · reflexo vermelho':['Eye · red reflex','Ojo · reflejo rojo'],'Rim':['Kidney','Riñón'],
+ 'Sangue · hemácias':['Blood · red cells','Sangre · hematíes'],'Intestino delgado':['Small intestine','Intestino delgado'],'Cérebro':['Brain','Cerebro'],'Músculo esquelético':['Skeletal muscle','Músculo esquelético'],
+ 'Cardiomiócito':['Cardiomyocyte','Cardiomiocito'],'Urina · testes':['Urine · tests','Orina · pruebas'],'Curva de crescimento':['Growth chart','Curva de crecimiento'],'Linha do tempo':['Timeline','Línea de tiempo']
+};
+const T_=s=>{if(LANG==='pt')return s;const e=LBL[s];return e?e[LANG==='en'?0:1]:s;};
+const FLAGS={
+ pt:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#009b3a"/><polygon points="15,2.2 27.5,10 15,17.8 2.5,10" fill="#fedf00"/><circle cx="15" cy="10" r="4.7" fill="#002776"/><path d="M10.5 9.3 Q15 7.7 19.6 10.7" fill="none" stroke="#fff" stroke-width="1"/></svg>',
+ en:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/>'+[0,2,4,6,8,10,12].map(i=>`<rect y="${(i*20/13).toFixed(2)}" width="30" height="1.54" fill="#b22234"/>`).join('')+'<rect width="13" height="10.8" fill="#3c3b6e"/>'+[1.8,4.6,7.4,10.2].map(x=>[1.8,4.5,7.2,9.6].map(y=>`<circle cx="${x+(y>3&&y<6||y>8?1.3:0)}" cy="${y}" r=".55" fill="#fff"/>`).join('')).join('')+'</svg>',
+ es:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/><rect x="7" y="7.6" width="3.6" height="4.8" rx=".8" fill="#ad1519" opacity=".8"/></svg>'
+};
+const CH=[];
 
-const CH=[
-{ id:'ef', c:'ef', path:'fru', name:'Essential fructosuria', pt:'Frutosúria essencial', enzyme:'fructokinase', chip:'fk',
-  prof:[['Enzima','Fructokinase (KHK)'],['Acúmulo','açúcar livre'],['Dano','benigno']],
-  meters:[
-    {l:'Frutose no sangue',base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
-    {l:'ATP hepático',base:1,v:[1,1,1,1,1,1,1,1]},
-    {l:'Glicemia',base:.62,v:[.62,.62,.62,.62,.62,.62,.62,.62]}],
+/* capítulo 0: metabolismo normal */
+const NN=10,flat=v=>Array(NN).fill(v);
+CH.push({ id:'nrm', c:'nrm', path:'fru',
+  name:{pt:'Metabolismo normal',en:'Normal metabolism',es:'Metabolismo normal'},
+  sub:{pt:'Frutose e galactose: via completa',en:'Fructose and galactose: full pathway',es:'Fructosa y galactosa: vía completa'},
+  prof:{pt:[['Órgão','fígado (hepatócito)'],['Vias','frutose · galactose'],['Objetivo','entender o normal antes do bloqueio']],
+        en:[['Organ','liver (hepatocyte)'],['Pathways','fructose · galactose'],['Goal','learn normal before the block']],
+        es:[['Órgano','hígado (hepatocito)'],['Vías','fructosa · galactosa'],['Objetivo','entender lo normal antes del bloqueo']]},
+  meters:[{l:{pt:'Pᵢ livre no hepatócito',en:'Free Pᵢ in hepatocyte',es:'Pᵢ libre en el hepatocito'},base:1,v:flat(1)},
+          {l:{pt:'ATP hepático',en:'Hepatic ATP',es:'ATP hepático'},base:1,v:flat(1)},
+          {l:{pt:'Glicemia',en:'Blood glucose',es:'Glucemia'},base:.62,v:flat(.62)}],
   steps:[
-    {cap:'Frutose da dieta (frutas, mel, <b>sacarose</b> = glicose + frutose, <b>sorbitol</b>) é absorvida pelo GLUT5 e chega ao fígado pela veia porta. No hepatócito, a <b>fructokinase</b> a fosforila em <b>fructose-1-phosphate</b> (gasta ATP) e a prende dentro da célula; a <b>aldolase B</b> a quebra em DHAP + gliceraldeído, que entram na glicólise/gliconeogênese abaixo da PFK-1.',
-      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
-      figs:[{o:'intestine',t:'Intestino delgado',c:'Frutose entra no enterócito pelo GLUT5 e segue para a veia porta.',s:u=>({mode:'fru',u})},
-            {o:'hepatocyte',t:'Hepatócito',c:'Fructokinase fosforila a frutose: o fosfato a “prende” na célula até a aldolase B quebrá-la.',s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
-      ann:[{x:150,y:48,t:['1ª etapa: fructokinase prende a frutose (ATP → ADP)'],at:.25},{x:440,y:150,t:['aldolase B','→ trioses'],at:.55}]},
-    {cap:'Na frutosúria essencial falta a <span class="d">fructokinase</span> (gene <i>KHK</i>, autossômica recessiva). A frutose chega ao hepatócito, mas <b>não é fosforilada</b>: sem o fosfato, nada a mantém dentro da célula.',
-      rt:'Hepatócito', rs:'Fructokinase ausente',
-      figs:[{o:'hepatocyte',t:'Hepatócito sem fructokinase',c:'A frutose entra e sai: sem fosforilação, não há fructose-1-phosphate.',s:u=>({fru:.9,f1p:0,glyc:.7,atp:1,leak:1})}],
-      ann:[{x:150,y:48,t:['sem fructokinase: frutose não é fosforilada'],k:'d',at:.3}]},
-    {cap:'O que acumula é <b>frutose livre</b> — no sangue e na urina. Ela volta para a circulação e é filtrada pelo rim. Repare: <span class="d">não há fructose-1-phosphate</span> se acumulando e nenhum fosfato fica preso.',
-      rt:'Sangue e rim', rs:'Frutose livre ↑',
-      figs:[{o:'blood',t:'Plasma',c:'Frutose livre circulando, sem nenhum dano às células.',s:u=>({sug:'fru',n:.3+.7*u})},
-            {o:'kidney',t:'Rim',c:'O glomérulo filtra a frutose e ela aparece na urina (frutosúria).',s:u=>({sug:'fru',spill:u})}],
-      ann:[{x:150,y:48,t:['acúmulo = AÇÚCAR LIVRE (sem fosfato)'],k:'d',at:.15},{x:140,y:150,t:['frutose sai','da célula →','sangue e urina'],at:.45}]},
-    {cap:'Como nenhum fosfato fica preso, <b>Pᵢ e ATP ficam normais</b>: glicogenólise e gliconeogênese funcionam e a glicemia não cai. Parte da frutose é usada pela <b>hexokinase</b> do músculo e do tecido adiposo, que a converte em fructose-6-phosphate — rota lenta, mas que escoa o excesso.',
-      rt:'Músculo e hepatócito', rs:'Sem toxicidade',
-      figs:[{o:'muscle',t:'Músculo esquelético',c:'Rota de escape: hexokinase converte frutose em fructose-6-phosphate, que entra na glicólise.',s:u=>({hk:u})},
-            {o:'hepatocyte',t:'Hepatócito',c:'Mitocôndrias com ATP normal; glicogênio disponível.',s:u=>({fru:.6,f1p:0,glyc:.7,atp:1,leak:1})}],
-      ann:[{x:470,y:52,t:['pool de Pᵢ intacto','ATP normal'],k:'ok',at:.2},{x:140,y:150,t:['hexokinase','(músculo, adiposo)','frutose → F6P'],at:.5}]},
-    {cap:'O único órgão “envolvido” é o <b>rim</b>, que apenas deixa passar a frutose para a urina — sem lesão tubular. Fígado, cérebro e cristalino ficam intactos, porque não existe metabólito tóxico.',
-      rt:'Órgãos', rs:'Sem lesão',
-      figs:[{o:'kidney',t:'Rim',c:'Filtra frutose; túbulo íntegro.',s:u=>({sug:'fru',spill:1})},
-            {o:'liver',t:'Fígado',c:'Tamanho e cor normais.',s:u=>({size:1})},
-            {o:'brain',t:'Cérebro',c:'Glicemia normal: aporte de glicose preservado.',s:u=>({glu:1})}],
-      ann:[{x:150,y:48,t:['nenhum órgão lesado'],k:'ok',at:.2}]},
-    {cap:'<b>Assintomática</b> — costuma ser achado incidental. Na urina: <b>teste de redução de cobre positivo</b> (há um açúcar redutor) com <b>fita de glicose-oxidase negativa</b> (o açúcar não é glicose). Não precisa de tratamento.',
-      rt:'Exame de urina', rs:'Achado incidental',
-      figs:[{o:'urine',t:'Urina',c:'Pegadinha clássica: redutor positivo, fita de glicose negativa = outro açúcar (frutose).',s:u=>({u})}],
-      ann:[{x:150,y:48,t:['achado incidental · sem tratamento'],k:'ok',at:.2}]}
+    {t:{pt:'Frutose: da dieta ao fígado',en:'Fructose: from diet to liver',es:'Fructosa: de la dieta al hígado'},lv:'bio',dur:10,path:'fru',hotN:['FRU'],
+      cap:{pt:'Frutose vem de frutas, mel, <b>sacarose</b> (glicose + frutose) e <b>sorbitol</b> (convertido em frutose no fígado). No intestino entra pelo <b>GLUT5</b>, sai pelo GLUT2 e chega ao fígado pela veia porta, que capta a maior parte.',
+           en:'Fructose comes from fruit, honey, <b>sucrose</b> (glucose + fructose) and <b>sorbitol</b> (turned into fructose in the liver). It enters the enterocyte through <b>GLUT5</b>, leaves through GLUT2 and reaches the liver by the portal vein, which takes up most of it.',
+           es:'La fructosa viene de frutas, miel, <b>sacarosa</b> (glucosa + fructosa) y <b>sorbitol</b> (convertido en fructosa en el hígado). Entra al enterocito por <b>GLUT5</b>, sale por GLUT2 y llega al hígado por la vena porta, que capta la mayor parte.'},
+      rt:{pt:'Absorção',en:'Absorption',es:'Absorción'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Frutose entra no enterócito pelo GLUT5 e segue para a veia porta.',en:'Fructose enters the enterocyte via GLUT5 and heads to the portal vein.',es:'La fructosa entra al enterocito por GLUT5 y sigue hacia la vena porta.'},s:u=>({mode:'fru',u})}],
+      ann:[{x:150,y:48,t:{pt:['frutose chega pelo sangue portal'],en:['fructose arrives in portal blood'],es:['la fructosa llega por la sangre portal']},at:.2}]},
+    {t:{pt:'Fructokinase prende a frutose',en:'Fructokinase traps fructose',es:'La fructokinase atrapa la fructosa'},lv:'bio',dur:9,path:'fru',hot:['fk'],hotN:['FRU','F1P'],hotE:['e1'],
+      cap:{pt:'1ª etapa: a <b>fructokinase</b> fosforila a frutose no carbono 1, formando <b>fructose-1-phosphate</b> (F1P). Gasta um ATP e, com o fosfato ligado, a molécula fica presa no hepatócito. A mitocôndria regenera o ATP usando Pᵢ do pool.',
+           en:'Step 1: <b>fructokinase</b> phosphorylates fructose at carbon 1, making <b>fructose-1-phosphate</b> (F1P). It spends one ATP, and with the phosphate attached the molecule is trapped in the hepatocyte. Mitochondria rebuild ATP using Pᵢ from the pool.',
+           es:'1.er paso: la <b>fructokinase</b> fosforila la fructosa en el carbono 1 y forma <b>fructose-1-phosphate</b> (F1P). Gasta un ATP y, con el fosfato unido, la molécula queda atrapada en el hepatocito. La mitocondria regenera el ATP con Pᵢ del pool.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'O fosfato “prende” a frutose dentro da célula.',en:'The phosphate “locks” fructose inside the cell.',es:'El fosfato “atrapa” la fructosa dentro de la célula.'},s:u=>({fru:.6,f1p:.15,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:{pt:['fructokinase: frutose + ATP → F1P + ADP'],en:['fructokinase: fructose + ATP → F1P + ADP'],es:['fructokinase: fructosa + ATP → F1P + ADP']},at:.2}]},
+    {t:{pt:'Aldolase B quebra o F1P',en:'Aldolase B splits F1P',es:'La aldolase B rompe el F1P'},lv:'bio',dur:9,path:'fru',hot:['aldo','tk'],hotN:['DHAP','GLA','G3P'],hotE:['e2','e3','e4','e5'],
+      cap:{pt:'2ª etapa: a <b>aldolase B</b> quebra o F1P em <b>DHAP</b> e <b>gliceraldeído</b>; a <b>triose kinase</b> fosforila o gliceraldeído em <b>G3P</b>. Como a via segue adiante, o fosfato volta a circular e o pool de Pᵢ se mantém cheio.',
+           en:'Step 2: <b>aldolase B</b> splits F1P into <b>DHAP</b> and <b>glyceraldehyde</b>; <b>triose kinase</b> phosphorylates glyceraldehyde to <b>G3P</b>. Because the pathway keeps moving, phosphate is recycled and the Pᵢ pool stays full.',
+           es:'2.º paso: la <b>aldolase B</b> rompe el F1P en <b>DHAP</b> y <b>gliceraldehído</b>; la <b>triose kinase</b> fosforila el gliceraldehído a <b>G3P</b>. Como la vía avanza, el fosfato vuelve a circular y el pool de Pᵢ se mantiene lleno.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'F1P é intermediário de passagem: não acumula.',en:'F1P is a passing intermediate: it does not build up.',es:'El F1P es un intermediario de paso: no se acumula.'},s:u=>({fru:.5,f1p:.1,glyc:.7,atp:1})}],
+      ann:[{x:470,y:52,t:{pt:['pool de Pᵢ cheio:','o fosfato volta'],en:['Pᵢ pool full:','phosphate returns'],es:['pool de Pᵢ lleno:','el fosfato vuelve']},k:'ok',at:.45}]},
+    {t:{pt:'Entrada abaixo da PFK-1',en:'Entry below PFK-1',es:'Entrada por debajo de la PFK-1'},lv:'bio',dur:10,path:'fru',hot:['phos','g6p'],hotN:['BOX','GLY'],hotE:['e6','e7','gout','gng'],
+      cap:{pt:'As trioses entram na glicólise <b>abaixo da PFK-1</b>: a frutose pula o principal ponto de controle e é metabolizada rápido. No fígado viram glicose, glicogênio ou triglicerídeos. Glicogênio (a <b>fosforilase</b> usa Pᵢ) e gliconeogênese liberam glicose pela <b>G6Pase</b>. No músculo, a hexokinase faz uma rota menor: frutose em F6P.',
+           en:'The trioses enter glycolysis <b>below PFK-1</b>: fructose skips the main control point and is metabolized fast. In the liver they become glucose, glycogen or triglycerides. Glycogen (<b>phosphorylase</b> uses Pᵢ) and gluconeogenesis release glucose through <b>G6Pase</b>. In muscle, hexokinase runs a minor route: fructose to F6P.',
+           es:'Las triosas entran en la glucólisis <b>por debajo de la PFK-1</b>: la fructosa salta el principal punto de control y se metaboliza rápido. En el hígado se vuelven glucosa, glucógeno o triglicéridos. El glucógeno (la <b>fosforilasa</b> usa Pᵢ) y la gluconeogénesis liberan glucosa por la <b>G6Pase</b>. En el músculo, la hexokinase hace una ruta menor: fructosa a F6P.'},
+      rt:{pt:'Fígado e músculo',en:'Liver and muscle',es:'Hígado y músculo'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Glicogênio e mitocôndrias com ATP normal.',en:'Glycogen and mitochondria with normal ATP.',es:'Glucógeno y mitocondrias con ATP normal.'},s:u=>({fru:.3,glyc:.85,atp:1})},
+        {o:'muscle',t:{pt:'Músculo esquelético',en:'Skeletal muscle',es:'Músculo esquelético'},c:{pt:'Hexokinase: rota menor da frutose.',en:'Hexokinase: minor fructose route.',es:'Hexokinase: ruta menor de la fructosa.'},s:u=>({hk:u})}],
+      ann:[{x:140,y:150,t:{pt:['glicogênio e','gliconeogênese','↓ glicose no sangue'],en:['glycogen and','gluconeogenesis','↓ glucose to blood'],es:['glucógeno y','gluconeogénesis','↓ glucosa a la sangre']},k:'ok',at:.4}]},
+    {t:{pt:'Galactose: da lactose ao fígado',en:'Galactose: from lactose to liver',es:'Galactosa: de la lactosa al hígado'},lv:'bio',dur:10,path:'gal',hotN:['GAL'],
+      cap:{pt:'A galactose vem da <b>lactose</b> do leite. A <b>lactase</b> da borda em escova separa glicose e galactose, absorvidas pelo SGLT1 e liberadas pelo GLUT2 para a veia porta.',
+           en:'Galactose comes from milk <b>lactose</b>. Brush-border <b>lactase</b> splits it into glucose and galactose, absorbed by SGLT1 and released by GLUT2 into the portal vein.',
+           es:'La galactosa viene de la <b>lactosa</b> de la leche. La <b>lactasa</b> del borde en cepillo separa glucosa y galactosa, absorbidas por SGLT1 y liberadas por GLUT2 hacia la vena porta.'},
+      rt:{pt:'Absorção',en:'Absorption',es:'Absorción'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Lactase quebra a lactose na borda em escova.',en:'Lactase splits lactose at the brush border.',es:'La lactasa rompe la lactosa en el borde en cepillo.'},s:u=>({mode:'gal',u})}],
+      ann:[{x:150,y:48,t:{pt:['galactose chega pelo sangue portal'],en:['galactose arrives in portal blood'],es:['la galactosa llega por la sangre portal']},at:.2}]},
+    {t:{pt:'Galactokinase fosforila',en:'Galactokinase phosphorylates',es:'La galactokinase fosforila'},lv:'bio',dur:9,path:'gal',hot:['galk'],hotN:['GAL','G1P'],hotE:['e1'],
+      cap:{pt:'1ª etapa: a <b>galactokinase</b> (GALK) fosforila a galactose, formando <b>galactose-1-phosphate</b>. Gasta um ATP.',
+           en:'Step 1: <b>galactokinase</b> (GALK) phosphorylates galactose, making <b>galactose-1-phosphate</b>. It spends one ATP.',
+           es:'1.er paso: la <b>galactokinase</b> (GALK) fosforila la galactosa y forma <b>galactose-1-phosphate</b>. Gasta un ATP.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Galactose fosforilada e presa na célula.',en:'Galactose phosphorylated and trapped in the cell.',es:'Galactosa fosforilada y atrapada en la célula.'},s:u=>({gal:.6,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:{pt:['galactokinase: galactose + ATP → Gal-1-P + ADP'],en:['galactokinase: galactose + ATP → Gal-1-P + ADP'],es:['galactokinase: galactosa + ATP → Gal-1-P + ADP']},at:.2}]},
+    {t:{pt:'GALT e epimerase',en:'GALT and epimerase',es:'GALT y epimerasa'},lv:'bio',dur:10,path:'gal',hot:['galt','epi'],hotN:['UGLC','UGAL','GC1P'],hotE:['e2','u1','u2','u3'],
+      cap:{pt:'2ª etapa: a <b>GALT</b> troca o nucleotídeo: galactose-1-P + UDP-glicose dão <b>glucose-1-P</b> + UDP-galactose. A <b>epimerase</b> (GALE) converte UDP-galactose de volta em UDP-glicose e o ciclo recomeça.',
+           en:'Step 2: <b>GALT</b> swaps the nucleotide: galactose-1-P + UDP-glucose give <b>glucose-1-P</b> + UDP-galactose. The <b>epimerase</b> (GALE) turns UDP-galactose back into UDP-glucose and the cycle restarts.',
+           es:'2.º paso: la <b>GALT</b> intercambia el nucleótido: galactose-1-P + UDP-glucosa dan <b>glucose-1-P</b> + UDP-galactosa. La <b>epimerasa</b> (GALE) convierte UDP-galactosa de nuevo en UDP-glucosa y el ciclo vuelve a empezar.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Galactose-1-P não acumula: a GALT a consome.',en:'Galactose-1-P does not build up: GALT uses it.',es:'La galactose-1-P no se acumula: la GALT la consume.'},s:u=>({gal:.4,glyc:.7,atp:1})}],
+      ann:[{x:462,y:280,t:{pt:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal'],en:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal'],es:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal']},at:.3}]},
+    {t:{pt:'Glucose-1-P vira G6P',en:'Glucose-1-P becomes G6P',es:'La glucose-1-P pasa a G6P'},lv:'bio',dur:10,path:'gal',hot:['pgm','ar'],hotN:['G6P','BOX'],hotE:['e3','e4'],
+      cap:{pt:'A <b>fosfoglicomutase</b> (PGM) converte glucose-1-P em <b>G6P</b>, que segue para glicólise ou glicogênio. Rota menor: a <b>aldose redutase</b> reduz um pouco de galactose a galactitol, sem importância enquanto a via principal flui.',
+           en:'<b>Phosphoglucomutase</b> (PGM) turns glucose-1-P into <b>G6P</b>, which goes to glycolysis or glycogen. Minor route: <b>aldose reductase</b> reduces a little galactose to galactitol, which does not matter while the main pathway flows.',
+           es:'La <b>fosfoglucomutasa</b> (PGM) convierte glucose-1-P en <b>G6P</b>, que sigue a glucólisis o glucógeno. Ruta menor: la <b>aldosa reductasa</b> reduce un poco de galactosa a galactitol, sin importancia mientras la vía principal fluye.'},
+      rt:{pt:'Hepatócito e cristalino',en:'Hepatocyte and lens',es:'Hepatocito y cristalino'},rs:{pt:'Normal',en:'Normal',es:'Normal'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Galactose vira combustível ou glicogênio.',en:'Galactose becomes fuel or glycogen.',es:'La galactosa se vuelve combustible o glucógeno.'},s:u=>({gal:.3,glyc:.85,atp:1})},
+        {o:'lens',t:{pt:'Cristalino',en:'Lens',es:'Cristalino'},c:{pt:'Transparente: quase nada de galactitol.',en:'Clear: almost no galactitol.',es:'Transparente: casi nada de galactitol.'},s:u=>({tol:.06,water:0,opac:0})}],
+      ann:[{x:140,y:290,t:{pt:['rota menor:','galactitol em traços'],en:['minor route:','trace galactitol'],es:['ruta menor:','galactitol en trazas']},at:.35}]},
+    {t:{pt:'Onde a frutose pode parar',en:'Where fructose can stop',es:'Dónde puede detenerse la fructosa'},lv:'dif',dur:11,path:'fru',marks:[['fk','ef','EF'],['aldo','hfi','HFI']],map:['ef','hfi'],
+      cap:{pt:'Duas deficiências na via da frutose. Sem <b>fructokinase</b> (frutosúria essencial), a frutose nem é presa e o quadro é benigno. Sem <b>aldolase B</b> (HFI), o F1P se forma e trava, prendendo fosfato: é tóxico. Escolha um capítulo no topo para ver cada uma.',
+           en:'Two deficiencies on the fructose pathway. Without <b>fructokinase</b> (essential fructosuria), fructose is never trapped and the picture is benign. Without <b>aldolase B</b> (HFI), F1P forms and gets stuck, trapping phosphate: it is toxic. Pick a chapter at the top to see each one.',
+           es:'Dos deficiencias en la vía de la fructosa. Sin <b>fructokinase</b> (fructosuria esencial), la fructosa ni siquiera queda atrapada y el cuadro es benigno. Sin <b>aldolase B</b> (HFI), el F1P se forma y se traba, atrapando fosfato: es tóxico. Elige un capítulo arriba para ver cada una.'},
+      rt:{pt:'Mapa dos bloqueios',en:'Block map',es:'Mapa de bloqueos'},rs:{pt:'Frutose',en:'Fructose',es:'Fructosa'},figs:[]},
+    {t:{pt:'Onde a galactose pode parar',en:'Where galactose can stop',es:'Dónde puede detenerse la galactosa'},lv:'dif',dur:11,path:'gal',marks:[['galk','galk','GALK'],['galt','galt','GALT']],map:['galk','galt'],
+      cap:{pt:'Duas deficiências na via da galactose. Sem <b>galactokinase</b>, a galactose livre vira galactitol e dá catarata isolada. Sem <b>GALT</b>, a galactose-1-P tóxica causa doença sistêmica no recém-nascido. Escolha um capítulo no topo para ver cada uma.',
+           en:'Two deficiencies on the galactose pathway. Without <b>galactokinase</b>, free galactose becomes galactitol and causes isolated cataracts. Without <b>GALT</b>, toxic galactose-1-P causes systemic disease in the newborn. Pick a chapter at the top to see each one.',
+           es:'Dos deficiencias en la vía de la galactosa. Sin <b>galactokinase</b>, la galactosa libre se vuelve galactitol y da catarata aislada. Sin <b>GALT</b>, la galactose-1-P tóxica causa enfermedad sistémica en el recién nacido. Elige un capítulo arriba para ver cada una.'},
+      rt:{pt:'Mapa dos bloqueios',en:'Block map',es:'Mapa de bloqueos'},rs:{pt:'Galactose',en:'Galactose',es:'Galactosa'},figs:[]}
+  ]});
+
+CH.push({ id:'ef', c:'ef', path:'fru', name:'Essential fructosuria', sub:{pt:'Frutosúria essencial',en:'Fructokinase deficiency',es:'Fructosuria esencial'}, enzyme:'fructokinase', chip:'fk',
+  prof:{pt:[['Enzima','Fructokinase (KHK)'],['Acúmulo','açúcar livre'],['Dano','benigno']],
+        en:[['Enzyme','Fructokinase (KHK)'],['Buildup','free sugar'],['Damage','benign']],
+        es:[['Enzima','Fructokinase (KHK)'],['Acúmulo','azúcar libre'],['Daño','benigno']]},
+  meters:[
+    {l:{pt:'Frutose no sangue',en:'Blood fructose',es:'Fructosa en sangre'},base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
+    {l:{pt:'ATP hepático',en:'Hepatic ATP',es:'ATP hepático'},base:1,v:[1,1,1,1,1,1,1,1]},
+    {l:{pt:'Glicemia',en:'Blood glucose',es:'Glucemia'},base:.62,v:[.62,.62,.62,.62,.62,.62,.62,.62]}],
+  steps:[
+    {cap:{pt:'Frutose da dieta (frutas, mel, <b>sacarose</b> = glicose + frutose, <b>sorbitol</b>) é absorvida pelo GLUT5 e chega ao fígado pela veia porta. No hepatócito, a <b>fructokinase</b> a fosforila em <b>fructose-1-phosphate</b> (gasta ATP) e a prende dentro da célula; a <b>aldolase B</b> a quebra em DHAP + gliceraldeído, que entram na glicólise/gliconeogênese abaixo da PFK-1.',
+          en:'Dietary fructose (fruit, honey, <b>sucrose</b> = glucose + fructose, <b>sorbitol</b>) is absorbed by GLUT5 and reaches the liver through the portal vein. In the hepatocyte, <b>fructokinase</b> phosphorylates it to <b>fructose-1-phosphate</b> (uses ATP) and traps it in the cell; <b>aldolase B</b> splits it into DHAP + glyceraldehyde, which enter glycolysis/gluconeogenesis below PFK-1.',
+          es:'La fructosa de la dieta (frutas, miel, <b>sacarosa</b> = glucosa + fructosa, <b>sorbitol</b>) se absorbe por GLUT5 y llega al hígado por la vena porta. En el hepatocito, la <b>fructokinase</b> la fosforila a <b>fructose-1-phosphate</b> (gasta ATP) y la atrapa en la célula; la <b>aldolase B</b> la rompe en DHAP + gliceraldehído, que entran en la glucólisis/gluconeogénesis por debajo de la PFK-1.'},
+      rt:{pt:'Absorção e hepatócito',en:'Absorption and hepatocyte',es:'Absorción y hepatocito'}, rs:{pt:'Normal',en:'Normal',es:'Normal'}, nrm:1,
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Frutose entra no enterócito pelo GLUT5 e segue para a veia porta.',en:'Fructose enters the enterocyte via GLUT5 and heads to the portal vein.',es:'La fructosa entra al enterocito por GLUT5 y sigue hacia la vena porta.'},s:u=>({mode:'fru',u})},
+            {o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Fructokinase fosforila a frutose: o fosfato a “prende” na célula até a aldolase B quebrá-la.',en:'Fructokinase phosphorylates fructose: the phosphate “locks” it in the cell until aldolase B splits it.',es:'La fructokinase fosforila la fructosa: el fosfato la “atrapa” en la célula hasta que la aldolase B la rompe.'},s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:{pt:['1ª etapa: fructokinase prende a frutose (ATP → ADP)'],en:['step 1: fructokinase traps fructose (ATP → ADP)'],es:['1.er paso: la fructokinase atrapa la fructosa (ATP → ADP)']},at:.25},
+           {x:440,y:150,t:{pt:['aldolase B','↓ trioses'],en:['aldolase B','↓ trioses'],es:['aldolase B','↓ triosas']},at:.55}]},
+    {cap:{pt:'Na frutosúria essencial falta a <span class="d">fructokinase</span> (gene <i>KHK</i>, autossômica recessiva). A frutose chega ao hepatócito, mas <b>não é fosforilada</b>: sem o fosfato, nada a mantém dentro da célula.',
+          en:'In essential fructosuria <span class="d">fructokinase</span> is missing (<i>KHK</i> gene, autosomal recessive). Fructose reaches the hepatocyte but is <b>not phosphorylated</b>: without the phosphate, nothing keeps it inside the cell.',
+          es:'En la fructosuria esencial falta la <span class="d">fructokinase</span> (gen <i>KHK</i>, autosómica recesiva). La fructosa llega al hepatocito, pero <b>no se fosforila</b>: sin el fosfato, nada la retiene dentro de la célula.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'Fructokinase ausente',en:'Fructokinase absent',es:'Fructokinase ausente'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito sem fructokinase',en:'Hepatocyte without fructokinase',es:'Hepatocito sin fructokinase'},c:{pt:'A frutose entra e sai: sem fosforilação, não há fructose-1-phosphate.',en:'Fructose comes in and out: no phosphorylation, no fructose-1-phosphate.',es:'La fructosa entra y sale: sin fosforilación no hay fructose-1-phosphate.'},s:u=>({fru:.9,f1p:0,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:{pt:['sem fructokinase: frutose não é fosforilada'],en:['no fructokinase: fructose is not phosphorylated'],es:['sin fructokinase: la fructosa no se fosforila']},k:'d',at:.3}]},
+    {cap:{pt:'O que acumula é <b>frutose livre</b>, no sangue e na urina. Ela volta para a circulação e é filtrada pelo rim. Repare: <span class="d">não há fructose-1-phosphate</span> se acumulando e nenhum fosfato fica preso.',
+          en:'What builds up is <b>free fructose</b>, in blood and urine. It goes back into the circulation and is filtered by the kidney. Notice: <span class="d">no fructose-1-phosphate</span> accumulates and no phosphate gets trapped.',
+          es:'Lo que se acumula es <b>fructosa libre</b>, en sangre y orina. Vuelve a la circulación y el riñón la filtra. Fíjate: <span class="d">no se acumula fructose-1-phosphate</span> y ningún fosfato queda atrapado.'},
+      rt:{pt:'Sangue e rim',en:'Blood and kidney',es:'Sangre y riñón'}, rs:{pt:'Frutose livre ↑',en:'Free fructose ↑',es:'Fructosa libre ↑'},
+      figs:[{o:'blood',t:{pt:'Plasma',en:'Plasma',es:'Plasma'},c:{pt:'Frutose livre circulando, sem nenhum dano às células.',en:'Free fructose circulating, with no harm to cells.',es:'Fructosa libre circulando, sin daño a las células.'},s:u=>({sug:'fru',n:.3+.7*u})},
+            {o:'kidney',t:{pt:'Rim',en:'Kidney',es:'Riñón'},c:{pt:'O glomérulo filtra a frutose e ela aparece na urina (frutosúria).',en:'The glomerulus filters fructose and it shows up in urine (fructosuria).',es:'El glomérulo filtra la fructosa y aparece en la orina (fructosuria).'},s:u=>({sug:'fru',spill:u})}],
+      ann:[{x:150,y:48,t:{pt:['acúmulo = AÇÚCAR LIVRE (sem fosfato)'],en:['buildup = FREE SUGAR (no phosphate)'],es:['acúmulo = AZÚCAR LIBRE (sin fosfato)']},k:'d',at:.15},
+           {x:140,y:150,t:{pt:['frutose sai da célula','↓ sangue e urina'],en:['fructose leaves the cell','↓ blood and urine'],es:['la fructosa sale','↓ sangre y orina']},at:.45}]},
+    {cap:{pt:'Como nenhum fosfato fica preso, <b>Pᵢ e ATP ficam normais</b>: glicogenólise e gliconeogênese funcionam e a glicemia não cai. Parte da frutose é usada pela <b>hexokinase</b> do músculo e do tecido adiposo, que a converte em fructose-6-phosphate — rota lenta, mas que escoa o excesso.',
+          en:'Because no phosphate gets trapped, <b>Pᵢ and ATP stay normal</b>: glycogenolysis and gluconeogenesis work and blood glucose does not fall. Some fructose is used by <b>hexokinase</b> in muscle and fat, which turns it into fructose-6-phosphate — a slow route, but it drains the excess.',
+          es:'Como ningún fosfato queda atrapado, <b>Pᵢ y ATP se mantienen normales</b>: glucogenólisis y gluconeogénesis funcionan y la glucemia no baja. Parte de la fructosa la usa la <b>hexokinase</b> del músculo y del tejido adiposo, que la convierte en fructose-6-phosphate — ruta lenta, pero que drena el exceso.'},
+      rt:{pt:'Músculo e hepatócito',en:'Muscle and hepatocyte',es:'Músculo y hepatocito'}, rs:{pt:'Sem toxicidade',en:'No toxicity',es:'Sin toxicidad'},
+      figs:[{o:'muscle',t:{pt:'Músculo esquelético',en:'Skeletal muscle',es:'Músculo esquelético'},c:{pt:'Rota de escape: hexokinase converte frutose em fructose-6-phosphate, que entra na glicólise.',en:'Escape route: hexokinase turns fructose into fructose-6-phosphate, which enters glycolysis.',es:'Ruta de escape: la hexokinase convierte fructosa en fructose-6-phosphate, que entra en la glucólisis.'},s:u=>({hk:u})},
+            {o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Mitocôndrias com ATP normal; glicogênio disponível.',en:'Mitochondria with normal ATP; glycogen available.',es:'Mitocondrias con ATP normal; glucógeno disponible.'},s:u=>({fru:.6,f1p:0,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:470,y:52,t:{pt:['pool de Pᵢ intacto','ATP normal'],en:['Pᵢ pool intact','ATP normal'],es:['pool de Pᵢ intacto','ATP normal']},k:'ok',at:.2},
+           {x:140,y:150,t:{pt:['hexokinase','(músculo, adiposo)','frutose → F6P'],en:['hexokinase','(muscle, fat)','fructose → F6P'],es:['hexokinase','(músculo, adiposo)','fructosa → F6P']},at:.5}]},
+    {cap:{pt:'O único órgão “envolvido” é o <b>rim</b>, que apenas deixa passar a frutose para a urina — sem lesão tubular. Fígado, cérebro e cristalino ficam intactos, porque não existe metabólito tóxico.',
+          en:'The only organ “involved” is the <b>kidney</b>, which simply lets fructose pass into urine — no tubular injury. Liver, brain and lens stay intact, because there is no toxic metabolite.',
+          es:'El único órgano “involucrado” es el <b>riñón</b>, que solo deja pasar la fructosa a la orina — sin lesión tubular. Hígado, cerebro y cristalino quedan intactos, porque no hay metabolito tóxico.'},
+      rt:{pt:'Órgãos',en:'Organs',es:'Órganos'}, rs:{pt:'Sem lesão',en:'No injury',es:'Sin lesión'},
+      figs:[{o:'kidney',t:{pt:'Rim',en:'Kidney',es:'Riñón'},c:{pt:'Filtra frutose; túbulo íntegro.',en:'Filters fructose; tubule intact.',es:'Filtra fructosa; túbulo íntegro.'},s:u=>({sug:'fru',spill:1})},
+            {o:'liver',t:{pt:'Fígado',en:'Liver',es:'Hígado'},c:{pt:'Tamanho e cor normais.',en:'Normal size and color.',es:'Tamaño y color normales.'},s:u=>({size:1})},
+            {o:'brain',t:{pt:'Cérebro',en:'Brain',es:'Cerebro'},c:{pt:'Glicemia normal: aporte de glicose preservado.',en:'Normal blood glucose: supply preserved.',es:'Glucemia normal: aporte de glucosa preservado.'},s:u=>({glu:1})}],
+      ann:[{x:150,y:48,t:{pt:['nenhum órgão lesado'],en:['no organ injured'],es:['ningún órgano lesionado']},k:'ok',at:.2}]},
+    {cap:{pt:'<b>Assintomática</b> — costuma ser achado incidental. Na urina: <b>teste de redução de cobre positivo</b> (há um açúcar redutor) com <b>fita de glicose-oxidase negativa</b> (o açúcar não é glicose). Não precisa de tratamento.',
+          en:'<b>Asymptomatic</b> — usually an incidental finding. In urine: <b>copper reduction test positive</b> (a reducing sugar is present) with a <b>negative glucose-oxidase dipstick</b> (the sugar is not glucose). No treatment needed.',
+          es:'<b>Asintomática</b> — suele ser un hallazgo incidental. En la orina: <b>prueba de reducción de cobre positiva</b> (hay un azúcar reductor) con <b>tira de glucosa-oxidasa negativa</b> (el azúcar no es glucosa). No necesita tratamiento.'},
+      rt:{pt:'Exame de urina',en:'Urinalysis',es:'Examen de orina'}, rs:{pt:'Achado incidental',en:'Incidental finding',es:'Hallazgo incidental'},
+      figs:[{o:'urine',t:{pt:'Urina',en:'Urine',es:'Orina'},c:{pt:'Pegadinha clássica: redutor positivo, fita de glicose negativa = outro açúcar (frutose).',en:'Classic trap: reducing test positive, glucose strip negative = another sugar (fructose).',es:'Trampa clásica: reductor positivo, tira de glucosa negativa = otro azúcar (fructosa).'},s:u=>({u})}],
+      ann:[{x:150,y:48,t:{pt:['achado incidental · sem tratamento'],en:['incidental finding · no treatment'],es:['hallazgo incidental · sin tratamiento']},k:'ok',at:.2}]}
   ],
-  diff:{sub:'As duas doenças da frutose “param” em etapas vizinhas. A diferença está no que fica preso dentro da célula.',
-    cols:[{n:'Essential fructosuria',s:'Frutosúria essencial',c:'ef',me:1},{n:'Hereditary fructose intolerance',s:'HFI',c:'hfi'}],
-    rows:[['Enzima','Fructokinase','Aldolase B'],
-      ['Acúmulo','Frutose livre (sangue, urina)','Fructose-1-phosphate dentro do hepatócito'],
-      ['Fosfato e ATP','Preservados','Pᵢ preso → ATP ↓'],
-      ['Glicemia','Normal','Hipoglicemia após frutose'],
-      ['Fígado','Normal','Hepatomegalia, icterícia, lesão'],
-      ['Gravidade','Benigna, sem tratamento','Tóxica: excluir frutose, sacarose e sorbitol']],
-    key:['O que decide','Nem fosforila: a frutose escapa','Fosforila e trava: F1P tóxico'],
-    rule:'Fructokinase deficiency = benigna. Aldolase B deficiency = toxicidade importante. As duas podem ter frutose na urina.',
-    blocks:[['fk','ef'],['aldo','hfi']]},
-  sum:{enz:'Fructokinase (KHK)',acc:'Frutose livre no sangue e na urina',tis:'Rim (só filtra; sem lesão)',cli:'Assintomática; urina com redutor positivo e fita de glicose negativa; sem tratamento',nc:'Hereditary fructose intolerance — aldolase B, F1P preso, ATP ↓, hipoglicemia'},
+  diff:{cols:[{n:'Essential fructosuria',c:'ef',me:1},{n:'Hereditary fructose intolerance',c:'hfi'}],blocks:[['fk','ef'],['aldo','hfi']],
+    pt:{sub:'As duas doenças da frutose “param” em etapas vizinhas. A diferença está no que fica preso dentro da célula.',s:['Frutosúria essencial','HFI'],
+      rows:[['Enzima','Fructokinase','Aldolase B'],['Acúmulo','Frutose livre (sangue, urina)','Fructose-1-phosphate dentro do hepatócito'],['Fosfato e ATP','Preservados','Pᵢ preso → ATP ↓'],['Glicemia','Normal','Hipoglicemia após frutose'],['Fígado','Normal','Hepatomegalia, icterícia, lesão'],['Gravidade','Benigna, sem tratamento','Tóxica: excluir frutose, sacarose e sorbitol']],
+      key:['O que decide','Nem fosforila: a frutose escapa','Fosforila e trava: F1P tóxico'],rule:'Fructokinase deficiency = benigna. Aldolase B deficiency = toxicidade importante. As duas podem ter frutose na urina.'},
+    en:{sub:'Both fructose diseases “stop” at neighboring steps. The difference is what gets trapped inside the cell.',s:['Fructokinase deficiency','HFI'],
+      rows:[['Enzyme','Fructokinase','Aldolase B'],['Buildup','Free fructose (blood, urine)','Fructose-1-phosphate inside the hepatocyte'],['Phosphate and ATP','Preserved','Pᵢ trapped → ATP ↓'],['Blood glucose','Normal','Hypoglycemia after fructose'],['Liver','Normal','Hepatomegaly, jaundice, injury'],['Severity','Benign, no treatment','Toxic: remove fructose, sucrose and sorbitol']],
+      key:['What decides','Never phosphorylated: fructose escapes','Phosphorylated and stuck: toxic F1P'],rule:'Fructokinase deficiency = benign. Aldolase B deficiency = major toxicity. Both can have fructose in the urine.'},
+    es:{sub:'Las dos enfermedades de la fructosa “se detienen” en pasos vecinos. La diferencia está en lo que queda atrapado dentro de la célula.',s:['Fructosuria esencial','HFI'],
+      rows:[['Enzima','Fructokinase','Aldolase B'],['Acúmulo','Fructosa libre (sangre, orina)','Fructose-1-phosphate dentro del hepatocito'],['Fosfato y ATP','Preservados','Pᵢ atrapado → ATP ↓'],['Glucemia','Normal','Hipoglucemia tras la fructosa'],['Hígado','Normal','Hepatomegalia, ictericia, lesión'],['Gravedad','Benigna, sin tratamiento','Tóxica: excluir fructosa, sacarosa y sorbitol']],
+      key:['Lo que decide','Ni se fosforila: la fructosa escapa','Se fosforila y se traba: F1P tóxico'],rule:'Fructokinase deficiency = benigna. Aldolase B deficiency = toxicidad importante. Ambas pueden tener fructosa en la orina.'}},
+  sum:{pt:{enz:'Fructokinase (KHK)',acc:'Frutose livre no sangue e na urina',tis:'Rim (só filtra; sem lesão)',cli:'Assintomática; urina com redutor positivo e fita de glicose negativa; sem tratamento',nc:'Hereditary fructose intolerance — aldolase B, F1P preso, ATP ↓, hipoglicemia'},
+       en:{enz:'Fructokinase (KHK)',acc:'Free fructose in blood and urine',tis:'Kidney (filters only; no injury)',cli:'Asymptomatic; urine reducing test positive, glucose strip negative; no treatment',nc:'Hereditary fructose intolerance — aldolase B, trapped F1P, ATP ↓, hypoglycemia'},
+       es:{enz:'Fructokinase (KHK)',acc:'Fructosa libre en sangre y orina',tis:'Riñón (solo filtra; sin lesión)',cli:'Asintomática; orina con reductor positivo y tira de glucosa negativa; sin tratamiento',nc:'Hereditary fructose intolerance — aldolase B, F1P atrapado, ATP ↓, hipoglucemia'}},
   take:'Fructokinase deficiency is usually benign.'
-},
-{ id:'hfi', c:'hfi', path:'fru', name:'Hereditary fructose intolerance', pt:'Intolerância hereditária à frutose', enzyme:'aldolase B', chip:'aldo',
-  prof:[['Enzima','Aldolase B (ALDOB)'],['Acúmulo','fosfato preso (F1P)'],['Dano','fígado, rim, hipoglicemia']],
+});
+
+CH.push({ id:'hfi', c:'hfi', path:'fru', name:'Hereditary fructose intolerance', sub:{pt:'Intolerância hereditária à frutose',en:'Aldolase B deficiency',es:'Intolerancia hereditaria a la fructosa'}, enzyme:'aldolase B', chip:'aldo',
+  prof:{pt:[['Enzima','Aldolase B (ALDOB)'],['Acúmulo','fosfato preso (F1P)'],['Dano','fígado, rim, hipoglicemia']],
+        en:[['Enzyme','Aldolase B (ALDOB)'],['Buildup','trapped phosphate (F1P)'],['Damage','liver, kidney, hypoglycemia']],
+        es:[['Enzima','Aldolase B (ALDOB)'],['Acúmulo','fosfato atrapado (F1P)'],['Daño','hígado, riñón, hipoglucemia']]},
   meters:[
-    {l:'Pᵢ livre no hepatócito',base:1,v:[1,1,.55,.15,.15,.15,.15,.15]},
-    {l:'ATP hepático',base:1,v:[1,1,.8,.22,.22,.22,.22,.22]},
-    {l:'Glicemia',base:.62,v:[.62,.62,.6,.18,.18,.18,.18,.18]}],
+    {l:{pt:'Pᵢ livre no hepatócito',en:'Free Pᵢ in hepatocyte',es:'Pᵢ libre en el hepatocito'},base:1,v:[1,1,.55,.15,.15,.15,.15,.15]},
+    {l:{pt:'ATP hepático',en:'Hepatic ATP',es:'ATP hepático'},base:1,v:[1,1,.8,.22,.22,.22,.22,.22]},
+    {l:{pt:'Glicemia',en:'Blood glucose',es:'Glucemia'},base:.62,v:[.62,.62,.6,.18,.18,.18,.18,.18]}],
   steps:[
-    {cap:'Via normal, com foco na segunda etapa: a <b>fructokinase</b> fosforila a frutose em <b>fructose-1-phosphate</b> (F1P) e a <b>aldolase B</b> quebra o F1P em DHAP + gliceraldeído. Note o <b>pool de fosfato (Pᵢ)</b> do hepatócito: cada F1P formado “empresta” um fosfato, devolvido quando a via segue.',
-      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
-      figs:[{o:'intestine',t:'Intestino delgado',c:'Frutose, sacarose e sorbitol da dieta viram frutose que chega ao fígado.',s:u=>({mode:'fru',u})},
-            {o:'hepatocyte',t:'Hepatócito',c:'F1P é intermediário de passagem: não se acumula quando a aldolase B funciona.',s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
-      ann:[{x:440,y:150,t:['aldolase B','F1P → DHAP + gliceraldeído'],at:.4},{x:470,y:52,t:['pool de Pᵢ: fosfato','circula e volta'],at:.65}]},
-    {cap:'Na intolerância hereditária à frutose falta a <span class="d">aldolase B</span> (gene <i>ALDOB</i>, autossômica recessiva). A fructokinase continua funcionando: a frutose entra, é fosforilada — e para no meio do caminho.',
-      rt:'Hepatócito', rs:'Aldolase B ausente',
-      figs:[{o:'hepatocyte',t:'Hepatócito sem aldolase B',c:'A frutose continua sendo fosforilada; o F1P começa a se acumular.',s:u=>({fru:.6,f1p:.15+.3*u,glyc:.7,atp:1})}],
-      ann:[{x:440,y:150,t:['sem aldolase B:','F1P não é quebrado'],k:'d',at:.3}]},
-    {cap:'Acúmulo: <span class="d">fructose-1-phosphate</span> dentro do hepatócito (também no rim e no intestino). Cada molécula carrega um fosfato que não consegue liberar — o <b>phosphate trapping</b>. O pool de Pᵢ começa a esvaziar.',
-      rt:'Hepatócito', rs:'F1P ↑ · Pᵢ preso',
-      figs:[{o:'hepatocyte',t:'Phosphate trapping',c:'Aglomerados de F1P (fosfato em rosa) ocupam o citosol; o Pᵢ livre some.',s:u=>({fru:.6,f1p:.45+.55*u,glyc:.7,atp:1-.2*u,trap:1})}],
-      ann:[{x:150,y:48,t:['acúmulo = FOSFATO PRESO em F1P'],k:'d',at:.15}]},
-    {cap:'Sem Pᵢ, a mitocôndria não regenera ATP: <b>ATP cai</b>, o AMP é degradado e o <b>ácido úrico sobe</b>. A glicogênio fosforilase precisa de Pᵢ → <b>glicogenólise para</b>; a gliconeogênese também falha (falta ATP e o F1P inibe a etapa de aldolase) → <span class="d">hipoglicemia</span> logo após a ingestão, com acidose lática.',
-      rt:'Hepatócito', rs:'ATP ↓ · glicose ↓',
-      figs:[{o:'hepatocyte',t:'Crise energética',c:'Mitocôndrias apagando (ATP ↓); glicogênio retido, sem liberar glicose.',s:u=>({fru:.6,f1p:1,glyc:.85,atp:.8-.6*u,trap:1,injury:.4*u,lock:u})}],
-      ann:[{x:470,y:52,t:['Pᵢ esgotado → ATP ↓','AMP → ácido úrico ↑'],k:'d',at:.15},{x:140,y:150,t:['fosforilase sem Pᵢ:','glicogenólise para'],k:'d',at:.45},{x:12,y:300,t:['↓ glicose','hipoglicemia'],k:'d',at:.7}]},
-    {cap:'Repercussão: <b>fígado</b> (hepatomegalia, esteatose, lesão hepatocelular, icterícia, risco de insuficiência hepática), <b>rim</b> (disfunção do túbulo proximal, tipo Fanconi: perde fosfato, glicose, aminoácidos e bicarbonato) e <b>cérebro</b> (neuroglicopenia: letargia, convulsões).',
-      rt:'Órgãos', rs:'Lesão sistêmica',
-      figs:[{o:'liver',t:'Fígado',c:'Hepatomegalia: a borda ultrapassa o rebordo costal; icterícia.',s:u=>({size:1+.22*u,jaundice:.45*u,infant:1})},
-            {o:'kidney',t:'Túbulo proximal',c:'Disfunção tipo Fanconi.',s:u=>({sug:'fru',spill:.5,fanconi:u})},
-            {o:'brain',t:'Cérebro',c:'Hipoglicemia → neuroglicopenia.',s:u=>({glu:1-.8*u})}],
-      ann:[{x:150,y:48,t:['F1P tóxico + hipoglicemia'],k:'d',at:.2}]},
-    {cap:'Começa quando frutose, <b>sacarose</b> ou <b>sorbitol</b> entram na dieta — classicamente no <b>desmame</b> (frutas, sucos, papinhas adoçadas). Vômitos, hipoglicemia, letargia, icterícia, hepatomegalia, déficit de crescimento. Crianças maiores criam <b>aversão a doces</b> (e têm poucas cáries). Tratamento: excluir frutose, sacarose e sorbitol.',
-      rt:'Quadro clínico', rs:'Sintomas após frutose',
-      figs:[{o:'timeline',t:'Quando aparece',c:'O gatilho é a frutose: os sintomas começam junto com frutas e açúcar no desmame.',s:u=>({focus:'hfi',u})},
-            {o:'liver',t:'Exame físico',c:'Fígado palpável abaixo do rebordo costal, pele ictérica.',s:u=>({size:1.22,jaundice:.45,infant:1})}],
-      ann:[{x:150,y:48,t:['gatilho: frutose · sacarose · sorbitol'],k:'d',at:.2}]}
+    {cap:{pt:'Via normal, com foco na segunda etapa: a <b>fructokinase</b> fosforila a frutose em <b>fructose-1-phosphate</b> (F1P) e a <b>aldolase B</b> quebra o F1P em DHAP + gliceraldeído. Note o <b>pool de fosfato (Pᵢ)</b> do hepatócito: cada F1P formado “empresta” um fosfato, devolvido quando a via segue.',
+          en:'Normal pathway, focused on the second step: <b>fructokinase</b> phosphorylates fructose to <b>fructose-1-phosphate</b> (F1P) and <b>aldolase B</b> splits F1P into DHAP + glyceraldehyde. Note the hepatocyte <b>phosphate (Pᵢ) pool</b>: each F1P “borrows” a phosphate that is returned when the pathway moves on.',
+          es:'Vía normal, con foco en el segundo paso: la <b>fructokinase</b> fosforila la fructosa a <b>fructose-1-phosphate</b> (F1P) y la <b>aldolase B</b> rompe el F1P en DHAP + gliceraldehído. Observa el <b>pool de fosfato (Pᵢ)</b> del hepatocito: cada F1P “toma prestado” un fosfato que se devuelve cuando la vía sigue.'},
+      rt:{pt:'Absorção e hepatócito',en:'Absorption and hepatocyte',es:'Absorción y hepatocito'}, rs:{pt:'Normal',en:'Normal',es:'Normal'}, nrm:1,
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Frutose, sacarose e sorbitol da dieta viram frutose que chega ao fígado.',en:'Dietary fructose, sucrose and sorbitol all end up as fructose in the liver.',es:'Fructosa, sacarosa y sorbitol de la dieta terminan como fructosa en el hígado.'},s:u=>({mode:'fru',u})},
+            {o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'F1P é intermediário de passagem: não se acumula quando a aldolase B funciona.',en:'F1P is a passing intermediate: it does not build up while aldolase B works.',es:'El F1P es un intermediario de paso: no se acumula si la aldolase B funciona.'},s:u=>({fru:.5,f1p:.15,glyc:.7,atp:1})}],
+      ann:[{x:440,y:150,t:{pt:['aldolase B','F1P → DHAP + gliceraldeído'],en:['aldolase B','F1P → DHAP + glyceraldehyde'],es:['aldolase B','F1P → DHAP + gliceraldehído']},at:.4},
+           {x:470,y:52,t:{pt:['pool de Pᵢ: fosfato','circula e volta'],en:['Pᵢ pool: phosphate','cycles and returns'],es:['pool de Pᵢ: el fosfato','circula y vuelve']},at:.65}]},
+    {cap:{pt:'Na intolerância hereditária à frutose falta a <span class="d">aldolase B</span> (gene <i>ALDOB</i>, autossômica recessiva). A fructokinase continua funcionando: a frutose entra, é fosforilada — e para no meio do caminho.',
+          en:'In hereditary fructose intolerance <span class="d">aldolase B</span> is missing (<i>ALDOB</i> gene, autosomal recessive). Fructokinase still works: fructose comes in, gets phosphorylated — and stops halfway.',
+          es:'En la intolerancia hereditaria a la fructosa falta la <span class="d">aldolase B</span> (gen <i>ALDOB</i>, autosómica recesiva). La fructokinase sigue funcionando: la fructosa entra, se fosforila — y se detiene a mitad de camino.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'Aldolase B ausente',en:'Aldolase B absent',es:'Aldolase B ausente'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito sem aldolase B',en:'Hepatocyte without aldolase B',es:'Hepatocito sin aldolase B'},c:{pt:'A frutose continua sendo fosforilada; o F1P começa a se acumular.',en:'Fructose is still phosphorylated; F1P starts to build up.',es:'La fructosa se sigue fosforilando; el F1P empieza a acumularse.'},s:u=>({fru:.6,f1p:.15+.3*u,glyc:.7,atp:1})}],
+      ann:[{x:440,y:150,t:{pt:['sem aldolase B:','F1P não é quebrado'],en:['no aldolase B:','F1P is not split'],es:['sin aldolase B:','el F1P no se rompe']},k:'d',at:.3}]},
+    {cap:{pt:'Acúmulo: <span class="d">fructose-1-phosphate</span> dentro do hepatócito (também no rim e no intestino). Cada molécula carrega um fosfato que não consegue liberar — o <b>phosphate trapping</b>. O pool de Pᵢ começa a esvaziar.',
+          en:'Buildup: <span class="d">fructose-1-phosphate</span> inside the hepatocyte (also kidney and intestine). Each molecule carries a phosphate it cannot release — <b>phosphate trapping</b>. The Pᵢ pool starts to drain.',
+          es:'Acúmulo: <span class="d">fructose-1-phosphate</span> dentro del hepatocito (también en riñón e intestino). Cada molécula lleva un fosfato que no puede liberar — el <b>phosphate trapping</b>. El pool de Pᵢ empieza a vaciarse.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'F1P ↑ · Pᵢ preso',en:'F1P ↑ · Pᵢ trapped',es:'F1P ↑ · Pᵢ atrapado'},
+      figs:[{o:'hepatocyte',t:{pt:'Phosphate trapping',en:'Phosphate trapping',es:'Phosphate trapping'},c:{pt:'Aglomerados de F1P (fosfato em rosa) ocupam o citosol; o Pᵢ livre some.',en:'Clusters of F1P (phosphate in pink) fill the cytosol; free Pᵢ disappears.',es:'Cúmulos de F1P (fosfato en rosa) ocupan el citosol; el Pᵢ libre desaparece.'},s:u=>({fru:.6,f1p:.45+.55*u,glyc:.7,atp:1-.2*u,trap:1})}],
+      ann:[{x:150,y:48,t:{pt:['acúmulo = FOSFATO PRESO em F1P'],en:['buildup = PHOSPHATE TRAPPED in F1P'],es:['acúmulo = FOSFATO ATRAPADO en F1P']},k:'d',at:.15}]},
+    {cap:{pt:'Sem Pᵢ, a mitocôndria não regenera ATP: <b>ATP cai</b>, o AMP é degradado e o <b>ácido úrico sobe</b>. A glicogênio fosforilase precisa de Pᵢ → <b>glicogenólise para</b>; a gliconeogênese também falha (falta ATP e o F1P inibe a etapa de aldolase) → <span class="d">hipoglicemia</span> logo após a ingestão, com acidose lática.',
+          en:'Without Pᵢ, mitochondria cannot rebuild ATP: <b>ATP falls</b>, AMP is degraded and <b>uric acid rises</b>. Glycogen phosphorylase needs Pᵢ → <b>glycogenolysis stops</b>; gluconeogenesis also fails (no ATP, and F1P inhibits the aldolase step) → <span class="d">hypoglycemia</span> right after the meal, with lactic acidosis.',
+          es:'Sin Pᵢ, la mitocondria no regenera ATP: <b>el ATP cae</b>, el AMP se degrada y <b>sube el ácido úrico</b>. La glucógeno fosforilasa necesita Pᵢ → <b>la glucogenólisis se detiene</b>; la gluconeogénesis también falla (falta ATP y el F1P inhibe el paso de aldolasa) → <span class="d">hipoglucemia</span> justo después de la ingesta, con acidosis láctica.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'ATP ↓ · glicose ↓',en:'ATP ↓ · glucose ↓',es:'ATP ↓ · glucosa ↓'},
+      figs:[{o:'hepatocyte',t:{pt:'Crise energética',en:'Energy crisis',es:'Crisis energética'},c:{pt:'Mitocôndrias apagando (ATP ↓); glicogênio retido, sem liberar glicose.',en:'Mitochondria dimming (ATP ↓); glycogen locked, no glucose released.',es:'Mitocondrias apagándose (ATP ↓); glucógeno retenido, sin liberar glucosa.'},s:u=>({fru:.6,f1p:1,glyc:.85,atp:.8-.6*u,trap:1,injury:.4*u,lock:u})}],
+      ann:[{x:470,y:52,t:{pt:['Pᵢ esgotado → ATP ↓','AMP → ácido úrico ↑'],en:['Pᵢ depleted → ATP ↓','AMP → uric acid ↑'],es:['Pᵢ agotado → ATP ↓','AMP → ácido úrico ↑']},k:'d',at:.15},
+           {x:140,y:150,t:{pt:['fosforilase sem Pᵢ:','glicogenólise para'],en:['phosphorylase lacks Pᵢ:','glycogenolysis stops'],es:['fosforilasa sin Pᵢ:','la glucogenólisis se detiene']},k:'d',at:.45},
+           {x:12,y:300,t:{pt:['↓ glicose','hipoglicemia'],en:['↓ glucose','hypoglycemia'],es:['↓ glucosa','hipoglucemia']},k:'d',at:.7}]},
+    {cap:{pt:'Repercussão: <b>fígado</b> (hepatomegalia, esteatose, lesão hepatocelular, icterícia, risco de insuficiência hepática), <b>rim</b> (disfunção do túbulo proximal, tipo Fanconi: perde fosfato, glicose, aminoácidos e bicarbonato) e <b>cérebro</b> (neuroglicopenia: letargia, convulsões).',
+          en:'Consequences: <b>liver</b> (hepatomegaly, steatosis, hepatocellular injury, jaundice, risk of liver failure), <b>kidney</b> (proximal tubule dysfunction, Fanconi-like: loses phosphate, glucose, amino acids and bicarbonate) and <b>brain</b> (neuroglycopenia: lethargy, seizures).',
+          es:'Repercusión: <b>hígado</b> (hepatomegalia, esteatosis, lesión hepatocelular, ictericia, riesgo de insuficiencia hepática), <b>riñón</b> (disfunción del túbulo proximal, tipo Fanconi: pierde fosfato, glucosa, aminoácidos y bicarbonato) y <b>cerebro</b> (neuroglucopenia: letargia, convulsiones).'},
+      rt:{pt:'Órgãos',en:'Organs',es:'Órganos'}, rs:{pt:'Lesão sistêmica',en:'Systemic injury',es:'Lesión sistémica'},
+      figs:[{o:'liver',t:{pt:'Fígado',en:'Liver',es:'Hígado'},c:{pt:'Hepatomegalia: a borda ultrapassa o rebordo costal; icterícia.',en:'Hepatomegaly: the edge passes the costal margin; jaundice.',es:'Hepatomegalia: el borde supera el reborde costal; ictericia.'},s:u=>({size:1+.22*u,jaundice:.45*u,infant:1})},
+            {o:'kidney',t:{pt:'Túbulo proximal',en:'Proximal tubule',es:'Túbulo proximal'},c:{pt:'Disfunção tipo Fanconi.',en:'Fanconi-like dysfunction.',es:'Disfunción tipo Fanconi.'},s:u=>({sug:'fru',spill:.5,fanconi:u})},
+            {o:'brain',t:{pt:'Cérebro',en:'Brain',es:'Cerebro'},c:{pt:'Hipoglicemia → neuroglicopenia.',en:'Hypoglycemia → neuroglycopenia.',es:'Hipoglucemia → neuroglucopenia.'},s:u=>({glu:1-.8*u})}],
+      ann:[{x:150,y:48,t:{pt:['F1P tóxico + hipoglicemia'],en:['toxic F1P + hypoglycemia'],es:['F1P tóxico + hipoglucemia']},k:'d',at:.2}]},
+    {cap:{pt:'Começa quando frutose, <b>sacarose</b> ou <b>sorbitol</b> entram na dieta — classicamente no <b>desmame</b> (frutas, sucos, papinhas adoçadas). Vômitos, hipoglicemia, letargia, icterícia, hepatomegalia, déficit de crescimento. Crianças maiores criam <b>aversão a doces</b> (e têm poucas cáries). Tratamento: excluir frutose, sacarose e sorbitol.',
+          en:'It starts when fructose, <b>sucrose</b> or <b>sorbitol</b> enter the diet — classically at <b>weaning</b> (fruit, juice, sweetened baby food). Vomiting, hypoglycemia, lethargy, jaundice, hepatomegaly, failure to thrive. Older children develop an <b>aversion to sweets</b> (and few cavities). Treatment: remove fructose, sucrose and sorbitol.',
+          es:'Empieza cuando la fructosa, la <b>sacarosa</b> o el <b>sorbitol</b> entran en la dieta — clásicamente en el <b>destete</b> (frutas, jugos, papillas endulzadas). Vómitos, hipoglucemia, letargia, ictericia, hepatomegalia, retraso del crecimiento. Los niños mayores desarrollan <b>aversión a los dulces</b> (y pocas caries). Tratamiento: excluir fructosa, sacarosa y sorbitol.'},
+      rt:{pt:'Quadro clínico',en:'Clinical picture',es:'Cuadro clínico'}, rs:{pt:'Sintomas após frutose',en:'Symptoms after fructose',es:'Síntomas tras la fructosa'},
+      figs:[{o:'timeline',t:{pt:'Quando aparece',en:'When it shows up',es:'Cuándo aparece'},c:{pt:'O gatilho é a frutose: os sintomas começam junto com frutas e açúcar no desmame.',en:'The trigger is fructose: symptoms start with fruit and sugar at weaning.',es:'El desencadenante es la fructosa: los síntomas empiezan con frutas y azúcar en el destete.'},s:u=>({focus:'hfi',u})},
+            {o:'liver',t:{pt:'Exame físico',en:'Physical exam',es:'Examen físico'},c:{pt:'Fígado palpável abaixo do rebordo costal, pele ictérica.',en:'Liver palpable below the costal margin, jaundiced skin.',es:'Hígado palpable bajo el reborde costal, piel ictérica.'},s:u=>({size:1.22,jaundice:.45,infant:1})}],
+      ann:[{x:150,y:48,t:{pt:['gatilho: frutose · sacarose · sorbitol'],en:['trigger: fructose · sucrose · sorbitol'],es:['desencadenante: fructosa · sacarosa · sorbitol']},k:'d',at:.2}]}
   ],
-  diff:{sub:'Três doenças da infância que também dão hipoglicemia ou lesão hepática. Pergunte sempre o que a criança comeu antes de piorar.',
-    cols:[{n:'Hereditary fructose intolerance',s:'HFI',c:'hfi',me:1},{n:'Essential fructosuria',s:'frutose, benigna',c:'ef'},{n:'Von Gierke (GSD I)',s:'diferencial de hipoglicemia',c:'vg'},{n:'Classic galactosemia',s:'diferencial de hepatotoxicidade',c:'galt'}],
-    rows:[['Enzima','Aldolase B','Fructokinase','Glucose-6-phosphatase','GALT'],
-      ['Gatilho','Frutose, sacarose, sorbitol','Frutose (sem sintomas)','Jejum','Leite (lactose/galactose)'],
-      ['Início típico','Desmame (~4–6 meses)','Achado incidental','~3–4 meses, quando as mamadas se espaçam','Primeiros dias de vida'],
-      ['Defeito','Via da frutose','Via da frutose','Glicogenólise e gliconeogênese — não é frutose','Via da galactose — não é frutose'],
-      ['Fígado','Hepatomegalia, lesão, icterícia','Normal','Hepatomegalia (glicogênio + gordura)','Hepatotoxicidade, icterícia']],
-    key:['O que decide','Piora após frutose; aversão a doces','Redutor + na urina, criança bem','Hipoglicemia de jejum; lactato, ácido úrico e TG ↑','Catarata + sepse por E. coli após o leite'],
-    rule:'Frutose → HFI. Leite → galactosemia clássica. Só jejum → von Gierke.',
-    blocks:[['aldo','hfi'],['fk','ef'],['g6p','vg']]},
-  sum:{enz:'Aldolase B (ALDOB)',acc:'Fructose-1-phosphate (phosphate trapping)',tis:'Fígado, rim (túbulo proximal), cérebro (hipoglicemia)',cli:'Após frutose/sacarose/sorbitol (desmame): vômitos, hipoglicemia, icterícia, hepatomegalia; aversão a doces',nc:'Frutosúria essencial (benigna) · von Gierke (jejum, G6Pase) · galactosemia clássica (leite)'},
+  diff:{cols:[{n:'Hereditary fructose intolerance',c:'hfi',me:1},{n:'Essential fructosuria',c:'ef'},{n:'Von Gierke (GSD I)',c:'vg'},{n:'Classic galactosemia',c:'galt'}],blocks:[['aldo','hfi'],['fk','ef'],['g6p','vg']],
+    pt:{sub:'Três doenças da infância que também dão hipoglicemia ou lesão hepática. Pergunte sempre o que a criança comeu antes de piorar.',s:['HFI','frutose, benigna','diferencial de hipoglicemia','diferencial de hepatotoxicidade'],
+      rows:[['Enzima','Aldolase B','Fructokinase','Glucose-6-phosphatase','GALT'],['Gatilho','Frutose, sacarose, sorbitol','Frutose (sem sintomas)','Jejum','Leite (lactose/galactose)'],['Início típico','Desmame (~4–6 meses)','Achado incidental','~3–4 meses, quando as mamadas se espaçam','Primeiros dias de vida'],['Defeito','Via da frutose','Via da frutose','Glicogenólise e gliconeogênese — não é frutose','Via da galactose — não é frutose'],['Fígado','Hepatomegalia, lesão, icterícia','Normal','Hepatomegalia (glicogênio + gordura)','Hepatotoxicidade, icterícia']],
+      key:['O que decide','Piora após frutose; aversão a doces','Redutor + na urina, criança bem','Hipoglicemia de jejum; lactato, ácido úrico e TG ↑','Catarata + sepse por E. coli após o leite'],rule:'Frutose → HFI. Leite → galactosemia clássica. Só jejum → von Gierke.'},
+    en:{sub:'Three childhood diseases that also cause hypoglycemia or liver injury. Always ask what the child ate before getting worse.',s:['HFI','fructose, benign','hypoglycemia differential','hepatotoxicity differential'],
+      rows:[['Enzyme','Aldolase B','Fructokinase','Glucose-6-phosphatase','GALT'],['Trigger','Fructose, sucrose, sorbitol','Fructose (no symptoms)','Fasting','Milk (lactose/galactose)'],['Typical onset','Weaning (~4–6 months)','Incidental finding','~3–4 months, as feeds space out','First days of life'],['Defect','Fructose pathway','Fructose pathway','Glycogenolysis and gluconeogenesis — not fructose','Galactose pathway — not fructose'],['Liver','Hepatomegaly, injury, jaundice','Normal','Hepatomegaly (glycogen + fat)','Hepatotoxicity, jaundice']],
+      key:['What decides','Worse after fructose; aversion to sweets','Reducing test + in urine, child well','Fasting hypoglycemia; lactate, uric acid and TG ↑','Cataracts + E. coli sepsis after milk'],rule:'Fructose → HFI. Milk → classic galactosemia. Fasting only → von Gierke.'},
+    es:{sub:'Tres enfermedades de la infancia que también dan hipoglucemia o lesión hepática. Pregunta siempre qué comió el niño antes de empeorar.',s:['HFI','fructosa, benigna','diferencial de hipoglucemia','diferencial de hepatotoxicidad'],
+      rows:[['Enzima','Aldolase B','Fructokinase','Glucose-6-phosphatase','GALT'],['Desencadenante','Fructosa, sacarosa, sorbitol','Fructosa (sin síntomas)','Ayuno','Leche (lactosa/galactosa)'],['Inicio típico','Destete (~4–6 meses)','Hallazgo incidental','~3–4 meses, cuando se espacian las tomas','Primeros días de vida'],['Defecto','Vía de la fructosa','Vía de la fructosa','Glucogenólisis y gluconeogénesis — no es fructosa','Vía de la galactosa — no es fructosa'],['Hígado','Hepatomegalia, lesión, ictericia','Normal','Hepatomegalia (glucógeno + grasa)','Hepatotoxicidad, ictericia']],
+      key:['Lo que decide','Empeora tras la fructosa; aversión a los dulces','Reductor + en orina, niño sano','Hipoglucemia de ayuno; lactato, ácido úrico y TG ↑','Catarata + sepsis por E. coli tras la leche'],rule:'Fructosa → HFI. Leche → galactosemia clásica. Solo ayuno → von Gierke.'}},
+  sum:{pt:{enz:'Aldolase B (ALDOB)',acc:'Fructose-1-phosphate (phosphate trapping)',tis:'Fígado, rim (túbulo proximal), cérebro (hipoglicemia)',cli:'Após frutose/sacarose/sorbitol (desmame): vômitos, hipoglicemia, icterícia, hepatomegalia; aversão a doces',nc:'Frutosúria essencial (benigna) · von Gierke (jejum, G6Pase) · galactosemia clássica (leite)'},
+       en:{enz:'Aldolase B (ALDOB)',acc:'Fructose-1-phosphate (phosphate trapping)',tis:'Liver, kidney (proximal tubule), brain (hypoglycemia)',cli:'After fructose/sucrose/sorbitol (weaning): vomiting, hypoglycemia, jaundice, hepatomegaly; aversion to sweets',nc:'Essential fructosuria (benign) · von Gierke (fasting, G6Pase) · classic galactosemia (milk)'},
+       es:{enz:'Aldolase B (ALDOB)',acc:'Fructose-1-phosphate (phosphate trapping)',tis:'Hígado, riñón (túbulo proximal), cerebro (hipoglucemia)',cli:'Tras fructosa/sacarosa/sorbitol (destete): vómitos, hipoglucemia, ictericia, hepatomegalia; aversión a los dulces',nc:'Fructosuria esencial (benigna) · von Gierke (ayuno, G6Pase) · galactosemia clásica (leche)'}},
   take:'Aldolase B deficiency causes toxic fructose-1-phosphate accumulation.'
-},
-{ id:'galk', c:'galk', path:'gal', name:'Galactokinase deficiency', pt:'Deficiência de galactoquinase', enzyme:'galactokinase', chip:'galk',
-  prof:[['Enzima','Galactokinase (GALK1)'],['Acúmulo','galactose → galactitol'],['Dano','catarata isolada']],
+});
+
+CH.push({ id:'galk', c:'galk', path:'gal', name:'Galactokinase deficiency', sub:{pt:'Deficiência de galactoquinase',en:'GALK1 deficiency',es:'Deficiencia de galactocinasa'}, enzyme:'galactokinase', chip:'galk',
+  prof:{pt:[['Enzima','Galactokinase (GALK1)'],['Acúmulo','galactose → galactitol'],['Dano','catarata isolada']],
+        en:[['Enzyme','Galactokinase (GALK1)'],['Buildup','galactose → galactitol'],['Damage','isolated cataract']],
+        es:[['Enzima','Galactokinase (GALK1)'],['Acúmulo','galactosa → galactitol'],['Daño','catarata aislada']]},
   meters:[
-    {l:'Galactose no sangue',base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
-    {l:'Galactitol no cristalino',base:0,v:[0,0,.1,.75,.95,.95,.95,.95]},
-    {l:'Galactose-1-P',base:.1,v:[.1,.03,0,0,0,0,0,0],abs:1}],
+    {l:{pt:'Galactose no sangue',en:'Blood galactose',es:'Galactosa en sangre'},base:.15,v:[.15,.2,.85,.85,.85,.85,.85,.85]},
+    {l:{pt:'Galactitol no cristalino',en:'Galactitol in the lens',es:'Galactitol en el cristalino'},base:0,v:[0,0,.1,.75,.95,.95,.95,.95]},
+    {l:{pt:'Galactose-1-P',en:'Galactose-1-P',es:'Galactose-1-P'},base:.1,v:[.1,.03,0,0,0,0,0,0],abs:1}],
   steps:[
-    {cap:'Lactose do leite → <b>lactase</b> (borda em escova) → glicose + galactose. No fígado: <b>galactokinase</b> (GALK) fosforila a galactose; a <b>GALT</b> troca galactose-1-phosphate + UDP-glicose por <b>glucose-1-phosphate</b> + UDP-galactose; a <b>epimerase</b> regenera UDP-glicose. Glucose-1-P → G6P → glicólise ou glicogênio.',
-      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
-      figs:[{o:'intestine',t:'Intestino delgado',c:'Lactase quebra a lactose; a galactose é absorvida junto com a glicose.',s:u=>({mode:'gal',u})},
-            {o:'hepatocyte',t:'Hepatócito',c:'Galactose fosforilada e convertida em glicose-1-fosfato.',s:u=>({gal:.5,glyc:.7,atp:1})}],
-      ann:[{x:150,y:48,t:['1ª etapa: galactokinase (ATP → ADP)'],at:.25}]},
-    {cap:'Na deficiência de galactoquinase falta a <span class="d">galactokinase</span> (gene <i>GALK1</i>, autossômica recessiva). A galactose não é fosforilada e permanece livre.',
-      rt:'Hepatócito', rs:'GALK ausente',
-      figs:[{o:'hepatocyte',t:'Hepatócito sem GALK',c:'Galactose entra e não é fosforilada; o fígado não sofre.',s:u=>({gal:.9,glyc:.7,atp:1,leak:1})}],
-      ann:[{x:150,y:48,t:['sem galactokinase: galactose não é fosforilada'],k:'d',at:.3}]},
-    {cap:'Acúmulo: <b>galactose livre</b> no sangue e na urina (galactosemia e galactosúria). Atenção: <span class="d">não há galactose-1-phosphate</span> — por isso não há toxicidade hepática.',
-      rt:'Sangue e rim', rs:'Galactose livre ↑',
-      figs:[{o:'blood',t:'Plasma',c:'Galactose livre circulando.',s:u=>({sug:'gal',n:.3+.7*u})},
-            {o:'kidney',t:'Rim',c:'Galactosúria, sem lesão tubular.',s:u=>({sug:'gal',spill:u})}],
-      ann:[{x:150,y:48,t:['acúmulo = AÇÚCAR LIVRE (galactose)'],k:'d',at:.15}]},
-    {cap:'Desviada, a galactose é reduzida pela <b>aldose redutase</b> (gasta NADPH) a <span class="d">galactitol</span>. Galactitol é um álcool de açúcar: não é metabolizado e não atravessa a membrana — fica preso na célula e puxa água.',
-      rt:'Cristalino', rs:'Galactitol ↑',
-      figs:[{o:'lens',t:'Cristalino',c:'Aldose redutase das fibras do cristalino forma galactitol, que não consegue sair.',s:u=>({tol:u,water:0,opac:0})}],
-      ann:[{x:140,y:290,t:['galactitol = álcool','de açúcar: não sai','da célula'],k:'d',at:.4}]},
-    {cap:'No <b>cristalino</b>, o galactitol preso cria um gradiente osmótico: <b>a água entra</b>, as fibras incham e perdem o arranjo regular → <span class="d">opacidade</span>. O fígado, o rim e o sistema imune ficam poupados.',
-      rt:'Cristalino', rs:'Catarata',
-      figs:[{o:'lens',t:'Influxo osmótico',c:'Água entra seguindo o galactitol; fibras incham e opacificam.',s:u=>({tol:1,water:u,opac:u})},
-            {o:'eye',t:'Reflexo vermelho',c:'Opacidade central no reflexo vermelho.',s:u=>({cat:u})}],
-      ann:[{x:140,y:290,t:['galactitol → água entra','→ fibras incham'],k:'d',at:.2}]},
-    {cap:'<b>Catarata infantil</b> — pode aparecer como falha em fixar e seguir objetos ou ausência de sorriso social. A criança está bem: <b>sem icterícia, sem hepatopatia, sem sepse</b>. Tratamento: restringir galactose; catarata precoce pode regredir.',
-      rt:'Quadro clínico', rs:'Catarata isolada',
-      figs:[{o:'eye',t:'Catarata',c:'Leucocoria/opacidade bilateral em lactente que não segue objetos.',s:u=>({cat:1})},
-            {o:'hepatocyte',t:'Fígado poupado',c:'Sem galactose-1-phosphate, não há lesão hepatocelular.',s:u=>({gal:.7,glyc:.7,atp:1,leak:1})}],
-      ann:[{x:150,y:48,t:['catarata isolada · criança bem'],k:'d',at:.2}]}
+    {cap:{pt:'Lactose do leite → <b>lactase</b> (borda em escova) → glicose + galactose. No fígado: <b>galactokinase</b> (GALK) fosforila a galactose; a <b>GALT</b> troca galactose-1-phosphate + UDP-glicose por <b>glucose-1-phosphate</b> + UDP-galactose; a <b>epimerase</b> regenera UDP-glicose. Glucose-1-P → G6P → glicólise ou glicogênio.',
+          en:'Milk lactose → <b>lactase</b> (brush border) → glucose + galactose. In the liver: <b>galactokinase</b> (GALK) phosphorylates galactose; <b>GALT</b> swaps galactose-1-phosphate + UDP-glucose for <b>glucose-1-phosphate</b> + UDP-galactose; the <b>epimerase</b> regenerates UDP-glucose. Glucose-1-P → G6P → glycolysis or glycogen.',
+          es:'Lactosa de la leche → <b>lactasa</b> (borde en cepillo) → glucosa + galactosa. En el hígado: la <b>galactokinase</b> (GALK) fosforila la galactosa; la <b>GALT</b> intercambia galactose-1-phosphate + UDP-glucosa por <b>glucose-1-phosphate</b> + UDP-galactosa; la <b>epimerasa</b> regenera UDP-glucosa. Glucose-1-P → G6P → glucólisis o glucógeno.'},
+      rt:{pt:'Absorção e hepatócito',en:'Absorption and hepatocyte',es:'Absorción y hepatocito'}, rs:{pt:'Normal',en:'Normal',es:'Normal'}, nrm:1,
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Lactase quebra a lactose; a galactose é absorvida junto com a glicose.',en:'Lactase splits lactose; galactose is absorbed along with glucose.',es:'La lactasa rompe la lactosa; la galactosa se absorbe junto con la glucosa.'},s:u=>({mode:'gal',u})},
+            {o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Galactose fosforilada e convertida em glicose-1-fosfato.',en:'Galactose phosphorylated and converted to glucose-1-phosphate.',es:'Galactosa fosforilada y convertida en glucosa-1-fosfato.'},s:u=>({gal:.5,glyc:.7,atp:1})}],
+      ann:[{x:150,y:48,t:{pt:['1ª etapa: galactokinase (ATP → ADP)'],en:['step 1: galactokinase (ATP → ADP)'],es:['1.er paso: galactokinase (ATP → ADP)']},at:.25}]},
+    {cap:{pt:'Na deficiência de galactoquinase falta a <span class="d">galactokinase</span> (gene <i>GALK1</i>, autossômica recessiva). A galactose não é fosforilada e permanece livre.',
+          en:'In galactokinase deficiency <span class="d">galactokinase</span> is missing (<i>GALK1</i> gene, autosomal recessive). Galactose is not phosphorylated and stays free.',
+          es:'En la deficiencia de galactocinasa falta la <span class="d">galactokinase</span> (gen <i>GALK1</i>, autosómica recesiva). La galactosa no se fosforila y queda libre.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'GALK ausente',en:'GALK absent',es:'GALK ausente'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito sem GALK',en:'Hepatocyte without GALK',es:'Hepatocito sin GALK'},c:{pt:'Galactose entra e não é fosforilada; o fígado não sofre.',en:'Galactose comes in and is not phosphorylated; the liver is spared.',es:'La galactosa entra y no se fosforila; el hígado no sufre.'},s:u=>({gal:.9,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:{pt:['sem galactokinase: galactose não é fosforilada'],en:['no galactokinase: galactose is not phosphorylated'],es:['sin galactokinase: la galactosa no se fosforila']},k:'d',at:.3}]},
+    {cap:{pt:'Acúmulo: <b>galactose livre</b> no sangue e na urina (galactosemia e galactosúria). Atenção: <span class="d">não há galactose-1-phosphate</span> — por isso não há toxicidade hepática.',
+          en:'Buildup: <b>free galactose</b> in blood and urine (galactosemia and galactosuria). Careful: <span class="d">there is no galactose-1-phosphate</span> — which is why there is no liver toxicity.',
+          es:'Acúmulo: <b>galactosa libre</b> en sangre y orina (galactosemia y galactosuria). Atención: <span class="d">no hay galactose-1-phosphate</span> — por eso no hay toxicidad hepática.'},
+      rt:{pt:'Sangue e rim',en:'Blood and kidney',es:'Sangre y riñón'}, rs:{pt:'Galactose livre ↑',en:'Free galactose ↑',es:'Galactosa libre ↑'},
+      figs:[{o:'blood',t:{pt:'Plasma',en:'Plasma',es:'Plasma'},c:{pt:'Galactose livre circulando.',en:'Free galactose circulating.',es:'Galactosa libre circulando.'},s:u=>({sug:'gal',n:.3+.7*u})},
+            {o:'kidney',t:{pt:'Rim',en:'Kidney',es:'Riñón'},c:{pt:'Galactosúria, sem lesão tubular.',en:'Galactosuria, no tubular injury.',es:'Galactosuria, sin lesión tubular.'},s:u=>({sug:'gal',spill:u})}],
+      ann:[{x:150,y:48,t:{pt:['acúmulo = AÇÚCAR LIVRE (galactose)'],en:['buildup = FREE SUGAR (galactose)'],es:['acúmulo = AZÚCAR LIBRE (galactosa)']},k:'d',at:.15}]},
+    {cap:{pt:'Desviada, a galactose é reduzida pela <b>aldose redutase</b> (gasta NADPH) a <span class="d">galactitol</span>. Galactitol é um álcool de açúcar: não é metabolizado e não atravessa a membrana — fica preso na célula e puxa água.',
+          en:'Diverted, galactose is reduced by <b>aldose reductase</b> (uses NADPH) to <span class="d">galactitol</span>. Galactitol is a sugar alcohol: it is not metabolized and does not cross the membrane — it stays trapped in the cell and pulls in water.',
+          es:'Desviada, la galactosa se reduce por la <b>aldosa reductasa</b> (gasta NADPH) a <span class="d">galactitol</span>. El galactitol es un alcohol de azúcar: no se metaboliza ni atraviesa la membrana — queda atrapado en la célula y atrae agua.'},
+      rt:{pt:'Cristalino',en:'Lens',es:'Cristalino'}, rs:{pt:'Galactitol ↑',en:'Galactitol ↑',es:'Galactitol ↑'},
+      figs:[{o:'lens',t:{pt:'Cristalino',en:'Lens',es:'Cristalino'},c:{pt:'Aldose redutase das fibras do cristalino forma galactitol, que não consegue sair.',en:'Aldose reductase in lens fibers makes galactitol, which cannot get out.',es:'La aldosa reductasa de las fibras del cristalino forma galactitol, que no puede salir.'},s:u=>({tol:u,water:0,opac:0})}],
+      ann:[{x:140,y:290,t:{pt:['galactitol = álcool','de açúcar: não sai','da célula'],en:['galactitol = sugar','alcohol: cannot','leave the cell'],es:['galactitol = alcohol','de azúcar: no sale','de la célula']},k:'d',at:.4}]},
+    {cap:{pt:'No <b>cristalino</b>, o galactitol preso cria um gradiente osmótico: <b>a água entra</b>, as fibras incham e perdem o arranjo regular → <span class="d">opacidade</span>. O fígado, o rim e o sistema imune ficam poupados.',
+          en:'In the <b>lens</b>, trapped galactitol creates an osmotic gradient: <b>water moves in</b>, fibers swell and lose their regular packing → <span class="d">opacity</span>. Liver, kidney and immune system are spared.',
+          es:'En el <b>cristalino</b>, el galactitol atrapado crea un gradiente osmótico: <b>entra agua</b>, las fibras se hinchan y pierden su disposición regular → <span class="d">opacidad</span>. Hígado, riñón y sistema inmune quedan a salvo.'},
+      rt:{pt:'Cristalino',en:'Lens',es:'Cristalino'}, rs:{pt:'Catarata',en:'Cataract',es:'Catarata'},
+      figs:[{o:'lens',t:{pt:'Influxo osmótico',en:'Osmotic influx',es:'Influjo osmótico'},c:{pt:'Água entra seguindo o galactitol; fibras incham e opacificam.',en:'Water follows galactitol in; fibers swell and turn opaque.',es:'El agua entra siguiendo al galactitol; las fibras se hinchan y se opacan.'},s:u=>({tol:1,water:u,opac:u})},
+            {o:'eye',t:{pt:'Reflexo vermelho',en:'Red reflex',es:'Reflejo rojo'},c:{pt:'Opacidade central no reflexo vermelho.',en:'Central opacity in the red reflex.',es:'Opacidad central en el reflejo rojo.'},s:u=>({cat:u})}],
+      ann:[{x:140,y:290,t:{pt:['galactitol puxa água','↓ fibras incham'],en:['galactitol pulls water','↓ fibers swell'],es:['el galactitol atrae agua','↓ las fibras se hinchan']},k:'d',at:.2}]},
+    {cap:{pt:'<b>Catarata infantil</b> — pode aparecer como falha em fixar e seguir objetos ou ausência de sorriso social. A criança está bem: <b>sem icterícia, sem hepatopatia, sem sepse</b>. Tratamento: restringir galactose; catarata precoce pode regredir.',
+          en:'<b>Infantile cataract</b> — may show up as failure to fix and follow objects or no social smile. The child is otherwise well: <b>no jaundice, no liver disease, no sepsis</b>. Treatment: restrict galactose; early cataracts can regress.',
+          es:'<b>Catarata infantil</b> — puede aparecer como falta de fijación y seguimiento de objetos o ausencia de sonrisa social. El niño está bien: <b>sin ictericia, sin hepatopatía, sin sepsis</b>. Tratamiento: restringir galactosa; la catarata precoz puede regresar.'},
+      rt:{pt:'Quadro clínico',en:'Clinical picture',es:'Cuadro clínico'}, rs:{pt:'Catarata isolada',en:'Isolated cataract',es:'Catarata aislada'},
+      figs:[{o:'eye',t:{pt:'Catarata',en:'Cataract',es:'Catarata'},c:{pt:'Leucocoria/opacidade bilateral em lactente que não segue objetos.',en:'Leukocoria/bilateral opacity in an infant who does not follow objects.',es:'Leucocoria/opacidad bilateral en un lactante que no sigue objetos.'},s:u=>({cat:1})},
+            {o:'hepatocyte',t:{pt:'Fígado poupado',en:'Liver spared',es:'Hígado a salvo'},c:{pt:'Sem galactose-1-phosphate, não há lesão hepatocelular.',en:'Without galactose-1-phosphate there is no hepatocellular injury.',es:'Sin galactose-1-phosphate no hay lesión hepatocelular.'},s:u=>({gal:.7,glyc:.7,atp:1,leak:1})}],
+      ann:[{x:150,y:48,t:{pt:['catarata isolada · criança bem'],en:['isolated cataract · child well'],es:['catarata aislada · niño sano']},k:'d',at:.2}]}
   ],
-  diff:{sub:'As duas formam galactitol e podem dar catarata. Só uma acumula galactose-1-phosphate e adoece o recém-nascido.',
-    cols:[{n:'Galactokinase deficiency',s:'GALK',c:'galk',me:1},{n:'Classic galactosemia',s:'GALT',c:'galt'}],
-    rows:[['Enzima','Galactokinase','GALT'],
-      ['Acúmulo','Galactose → galactitol','Galactose-1-phosphate (+ galactitol)'],
-      ['Catarata','Sim — achado principal','Sim'],
-      ['Fígado','Poupado','Hepatotoxicidade, icterícia'],
-      ['Sepse por E. coli','Não','Risco marcado'],
-      ['Quadro','Catarata isolada, criança bem','Doença sistêmica grave após o leite']],
-    key:['O que decide','Catarata em criança saudável','Catarata + criança doente'],
-    rule:'Ambas podem gerar galactitol. Só a galactosemia clássica tem toxicidade sistêmica e risco de sepse neonatal.',
-    blocks:[['galk','galk'],['galt','galt']]},
-  sum:{enz:'Galactokinase (GALK1)',acc:'Galactose livre → galactitol',tis:'Cristalino',cli:'Catarata infantil; criança sem icterícia, sem hepatopatia e sem sepse',nc:'Galactosemia clássica — GALT, Gal-1-P, doença sistêmica neonatal'},
+  diff:{cols:[{n:'Galactokinase deficiency',c:'galk',me:1},{n:'Classic galactosemia',c:'galt'}],blocks:[['galk','galk'],['galt','galt']],
+    pt:{sub:'As duas formam galactitol e podem dar catarata. Só uma acumula galactose-1-phosphate e adoece o recém-nascido.',s:['GALK','GALT'],
+      rows:[['Enzima','Galactokinase','GALT'],['Acúmulo','Galactose → galactitol','Galactose-1-phosphate (+ galactitol)'],['Catarata','Sim — achado principal','Sim'],['Fígado','Poupado','Hepatotoxicidade, icterícia'],['Sepse por E. coli','Não','Risco marcado'],['Quadro','Catarata isolada, criança bem','Doença sistêmica grave após o leite']],
+      key:['O que decide','Catarata em criança saudável','Catarata + criança doente'],rule:'Ambas podem gerar galactitol. Só a galactosemia clássica tem toxicidade sistêmica e risco de sepse neonatal.'},
+    en:{sub:'Both make galactitol and can cause cataracts. Only one builds up galactose-1-phosphate and makes the newborn sick.',s:['GALK','GALT'],
+      rows:[['Enzyme','Galactokinase','GALT'],['Buildup','Galactose → galactitol','Galactose-1-phosphate (+ galactitol)'],['Cataract','Yes — main finding','Yes'],['Liver','Spared','Hepatotoxicity, jaundice'],['E. coli sepsis','No','Marked risk'],['Picture','Isolated cataract, child well','Severe systemic disease after milk']],
+      key:['What decides','Cataract in a healthy child','Cataract + sick child'],rule:'Both can make galactitol. Only classic galactosemia has systemic toxicity and neonatal sepsis risk.'},
+    es:{sub:'Ambas forman galactitol y pueden dar catarata. Solo una acumula galactose-1-phosphate y enferma al recién nacido.',s:['GALK','GALT'],
+      rows:[['Enzima','Galactokinase','GALT'],['Acúmulo','Galactosa → galactitol','Galactose-1-phosphate (+ galactitol)'],['Catarata','Sí — hallazgo principal','Sí'],['Hígado','A salvo','Hepatotoxicidad, ictericia'],['Sepsis por E. coli','No','Riesgo marcado'],['Cuadro','Catarata aislada, niño sano','Enfermedad sistémica grave tras la leche']],
+      key:['Lo que decide','Catarata en un niño sano','Catarata + niño enfermo'],rule:'Ambas pueden generar galactitol. Solo la galactosemia clásica tiene toxicidad sistémica y riesgo de sepsis neonatal.'}},
+  sum:{pt:{enz:'Galactokinase (GALK1)',acc:'Galactose livre → galactitol',tis:'Cristalino',cli:'Catarata infantil; criança sem icterícia, sem hepatopatia e sem sepse',nc:'Galactosemia clássica — GALT, Gal-1-P, doença sistêmica neonatal'},
+       en:{enz:'Galactokinase (GALK1)',acc:'Free galactose → galactitol',tis:'Lens',cli:'Infantile cataract; child without jaundice, liver disease or sepsis',nc:'Classic galactosemia — GALT, Gal-1-P, systemic neonatal disease'},
+       es:{enz:'Galactokinase (GALK1)',acc:'Galactosa libre → galactitol',tis:'Cristalino',cli:'Catarata infantil; niño sin ictericia, sin hepatopatía y sin sepsis',nc:'Galactosemia clásica — GALT, Gal-1-P, enfermedad sistémica neonatal'}},
   take:'Galactitol in the lens drives infantile cataracts.'
-},
-{ id:'galt', c:'galt', path:'gal', name:'Classic galactosemia', pt:'Galactosemia clássica', enzyme:'GALT', chip:'galt',
-  prof:[['Enzima','GALT'],['Acúmulo','Gal-1-P (fosfato preso) + galactitol'],['Dano','sistêmico neonatal']],
+});
+
+CH.push({ id:'galt', c:'galt', path:'gal', name:'Classic galactosemia', sub:{pt:'Galactosemia clássica',en:'GALT deficiency',es:'Galactosemia clásica'}, enzyme:'GALT', chip:'galt',
+  prof:{pt:[['Enzima','GALT'],['Acúmulo','Gal-1-P (fosfato preso) + galactitol'],['Dano','sistêmico neonatal']],
+        en:[['Enzyme','GALT'],['Buildup','Gal-1-P (trapped phosphate) + galactitol'],['Damage','systemic, neonatal']],
+        es:[['Enzima','GALT'],['Acúmulo','Gal-1-P (fosfato atrapado) + galactitol'],['Daño','sistémico neonatal']]},
   meters:[
-    {l:'Galactose-1-P intracelular',base:.1,v:[.1,.3,.95,.95,.95,.95,.95,.95]},
-    {l:'Galactose no sangue',base:.15,v:[.15,.2,.7,.7,.7,.7,.7,.7]},
-    {l:'Galactitol no cristalino',base:0,v:[0,0,.1,.7,.85,.85,.85,.85]}],
+    {l:{pt:'Galactose-1-P intracelular',en:'Intracellular galactose-1-P',es:'Galactose-1-P intracelular'},base:.1,v:[.1,.3,.95,.95,.95,.95,.95,.95]},
+    {l:{pt:'Galactose no sangue',en:'Blood galactose',es:'Galactosa en sangre'},base:.15,v:[.15,.2,.7,.7,.7,.7,.7,.7]},
+    {l:{pt:'Galactitol no cristalino',en:'Galactitol in the lens',es:'Galactitol en el cristalino'},base:0,v:[0,0,.1,.7,.85,.85,.85,.85]}],
   steps:[
-    {cap:'Mesma via, foco na segunda etapa: a <b>GALT</b> (galactose-1-phosphate uridyltransferase) pega a galactose-1-phosphate e a troca com UDP-glicose, liberando <b>glucose-1-phosphate</b>. A <b>epimerase</b> fecha o ciclo regenerando UDP-glicose.',
-      rt:'Absorção e hepatócito', rs:'Normal', nrm:1,
-      figs:[{o:'intestine',t:'Intestino delgado',c:'Leite materno ou fórmula: lactose → glicose + galactose.',s:u=>({mode:'gal',u})},
-            {o:'hepatocyte',t:'Hepatócito',c:'Galactose-1-phosphate é intermediário de passagem.',s:u=>({gal:.5,glyc:.7,atp:1})}],
-      ann:[{x:470,y:280,t:['GALT: Gal-1-P + UDP-Glc','→ Glc-1-P + UDP-Gal'],at:.35}]},
-    {cap:'Na galactosemia clássica falta a <span class="d">GALT</span> (autossômica recessiva). A galactokinase funciona: a galactose é fosforilada e <b>trava como galactose-1-phosphate</b>.',
-      rt:'Hepatócito', rs:'GALT ausente',
-      figs:[{o:'hepatocyte',t:'Hepatócito sem GALT',c:'Galactose-1-phosphate começa a se acumular.',s:u=>({gal:.6,g1p:.3*u,glyc:.7,atp:1})}],
-      ann:[{x:470,y:280,t:['sem GALT: Gal-1-P','não segue adiante'],k:'d',at:.3}]},
-    {cap:'Acúmulo principal: <span class="d">galactose-1-phosphate</span> — tóxica — em hepatócitos, túbulo renal, cérebro e hemácias. A galactose a montante também sobe no sangue.',
-      rt:'Hepatócito', rs:'Gal-1-P ↑ (tóxico)',
-      figs:[{o:'hepatocyte',t:'Galactose-1-phosphate',c:'Gal-1-P (fosfato em rosa) acumula no citosol.',s:u=>({gal:.6,g1p:.3+.7*u,glyc:.7,atp:1-.15*u,trap:1})}],
-      ann:[{x:150,y:48,t:['acúmulo = FOSFATO PRESO em Gal-1-P · tóxico'],k:'d',at:.15}]},
-    {cap:'O excesso de galactose também vira <b>galactitol</b> (aldose redutase) → catarata. A <span class="d">Gal-1-P</span> lesa hepatócitos e túbulos e inibe a liberação de glicose (fosfoglicomutase, glicose-6-fosfatase) → hipoglicemia. Neutrófilos com menor atividade bactericida → risco de <b>sepse por <i>E. coli</i></b>.',
-      rt:'Célula, cristalino e sangue', rs:'Toxicidade sistêmica',
-      figs:[{o:'hepatocyte',t:'Hepatócito',c:'Gal-1-P tóxica: célula inchada, esteatose.',s:u=>({gal:.6,g1p:1,glyc:.6,atp:.85-.3*u,trap:1,injury:.7*u})},
-            {o:'lens',t:'Cristalino',c:'Galactitol se forma também aqui.',s:u=>({tol:u,water:.3*u,opac:.2*u})},
-            {o:'blood',t:'Sangue',c:'Neutrófilos com baixa atividade bactericida; E. coli proliferando.',s:u=>({ecoli:u,impair:1})}],
-      ann:[{x:140,y:290,t:['galactose → galactitol','(aldose redutase)'],k:'d',at:.25},{x:150,y:48,t:['Gal-1-P tóxica: fígado, rim, cérebro, neutrófilos'],k:'d',at:.5}]},
-    {cap:'Repercussão no recém-nascido: <b>fígado</b> (icterícia, hepatomegalia, coagulopatia, pode evoluir para insuficiência), <b>cristalino</b> (catarata), <b>sangue</b> (sepse por <i>E. coli</i>), <b>rim</b> (disfunção tubular) e <b>cérebro</b> (letargia; déficit cognitivo a longo prazo).',
-      rt:'Órgãos', rs:'Doença sistêmica',
-      figs:[{o:'liver',t:'Fígado neonatal',c:'Hepatomegalia e icterícia nos primeiros dias.',s:u=>({size:1+.2*u,jaundice:.85*u,infant:1})},
-            {o:'lens',t:'Cristalino',c:'Opacidade por galactitol.',s:u=>({tol:1,water:.8,opac:.4+.6*u})},
-            {o:'blood',t:'Sangue',c:'Sepse por E. coli.',s:u=>({ecoli:1,impair:1})}],
-      ann:[{x:150,y:48,t:['início após o leite · primeiros dias'],k:'d',at:.2}]},
-    {cap:'Primeiros dias de vida, logo após o início do <b>leite materno ou da fórmula</b>: vômitos, recusa alimentar, icterícia, hepatomegalia, letargia, <b>déficit de crescimento</b>, catarata e <b>sepse por <i>E. coli</i></b>. Triagem neonatal; atividade de GALT ↓ em hemácias; substâncias redutoras na urina. Tratamento: suspender lactose/galactose (fórmula de soja). Mesmo tratada: risco de déficit cognitivo e insuficiência ovariana prematura.',
-      rt:'Quadro clínico', rs:'Recém-nascido grave',
-      figs:[{o:'growth',t:'Curva de crescimento',c:'Peso cai e cruza percentis: déficit de crescimento.',s:u=>({u})},
-            {o:'eye',t:'Olho',c:'Esclera ictérica e catarata em gota de óleo.',s:u=>({cat:.9,jaundice:.9})},
-            {o:'blood',t:'Hemocultura',c:'E. coli: a sepse neonatal é pista diagnóstica.',s:u=>({ecoli:1,impair:1})}],
-      ann:[{x:150,y:48,t:['gatilho: LEITE · triagem neonatal'],k:'d',at:.2}]}
+    {cap:{pt:'Mesma via, foco na segunda etapa: a <b>GALT</b> (galactose-1-phosphate uridyltransferase) pega a galactose-1-phosphate e a troca com UDP-glicose, liberando <b>glucose-1-phosphate</b>. A <b>epimerase</b> fecha o ciclo regenerando UDP-glicose.',
+          en:'Same pathway, focused on the second step: <b>GALT</b> (galactose-1-phosphate uridyltransferase) takes galactose-1-phosphate and swaps it with UDP-glucose, releasing <b>glucose-1-phosphate</b>. The <b>epimerase</b> closes the cycle by regenerating UDP-glucose.',
+          es:'Misma vía, con foco en el segundo paso: la <b>GALT</b> (galactose-1-phosphate uridyltransferase) toma la galactose-1-phosphate y la intercambia con UDP-glucosa, liberando <b>glucose-1-phosphate</b>. La <b>epimerasa</b> cierra el ciclo regenerando UDP-glucosa.'},
+      rt:{pt:'Absorção e hepatócito',en:'Absorption and hepatocyte',es:'Absorción y hepatocito'}, rs:{pt:'Normal',en:'Normal',es:'Normal'}, nrm:1,
+      figs:[{o:'intestine',t:{pt:'Intestino delgado',en:'Small intestine',es:'Intestino delgado'},c:{pt:'Leite materno ou fórmula: lactose → glicose + galactose.',en:'Breast milk or formula: lactose → glucose + galactose.',es:'Leche materna o fórmula: lactosa → glucosa + galactosa.'},s:u=>({mode:'gal',u})},
+            {o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Galactose-1-phosphate é intermediário de passagem.',en:'Galactose-1-phosphate is a passing intermediate.',es:'La galactose-1-phosphate es un intermediario de paso.'},s:u=>({gal:.5,glyc:.7,atp:1})}],
+      ann:[{x:462,y:280,t:{pt:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal'],en:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal'],es:['GALT: Gal-1-P + UDP-Glc','↓ Glc-1-P + UDP-Gal']},at:.35}]},
+    {cap:{pt:'Na galactosemia clássica falta a <span class="d">GALT</span> (autossômica recessiva). A galactokinase funciona: a galactose é fosforilada e <b>trava como galactose-1-phosphate</b>.',
+          en:'In classic galactosemia <span class="d">GALT</span> is missing (autosomal recessive). Galactokinase works: galactose is phosphorylated and <b>gets stuck as galactose-1-phosphate</b>.',
+          es:'En la galactosemia clásica falta la <span class="d">GALT</span> (autosómica recesiva). La galactokinase funciona: la galactosa se fosforila y <b>se traba como galactose-1-phosphate</b>.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'GALT ausente',en:'GALT absent',es:'GALT ausente'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito sem GALT',en:'Hepatocyte without GALT',es:'Hepatocito sin GALT'},c:{pt:'Galactose-1-phosphate começa a se acumular.',en:'Galactose-1-phosphate starts to build up.',es:'La galactose-1-phosphate empieza a acumularse.'},s:u=>({gal:.6,g1p:.3*u,glyc:.7,atp:1})}],
+      ann:[{x:462,y:280,t:{pt:['sem GALT: Gal-1-P','não segue adiante'],en:['no GALT: Gal-1-P','goes no further'],es:['sin GALT: la Gal-1-P','no sigue adelante']},k:'d',at:.3}]},
+    {cap:{pt:'Acúmulo principal: <span class="d">galactose-1-phosphate</span> — tóxica — em hepatócitos, túbulo renal, cérebro e hemácias. A galactose a montante também sobe no sangue.',
+          en:'Main buildup: <span class="d">galactose-1-phosphate</span> — toxic — in hepatocytes, renal tubule, brain and red cells. Upstream galactose also rises in the blood.',
+          es:'Acúmulo principal: <span class="d">galactose-1-phosphate</span> — tóxica — en hepatocitos, túbulo renal, cerebro y hematíes. La galactosa río arriba también sube en la sangre.'},
+      rt:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'}, rs:{pt:'Gal-1-P ↑ (tóxico)',en:'Gal-1-P ↑ (toxic)',es:'Gal-1-P ↑ (tóxico)'},
+      figs:[{o:'hepatocyte',t:{pt:'Galactose-1-phosphate',en:'Galactose-1-phosphate',es:'Galactose-1-phosphate'},c:{pt:'Gal-1-P (fosfato em rosa) acumula no citosol.',en:'Gal-1-P (phosphate in pink) builds up in the cytosol.',es:'La Gal-1-P (fosfato en rosa) se acumula en el citosol.'},s:u=>({gal:.6,g1p:.3+.7*u,glyc:.7,atp:1-.15*u,trap:1})}],
+      ann:[{x:150,y:48,t:{pt:['acúmulo = FOSFATO PRESO em Gal-1-P · tóxico'],en:['buildup = PHOSPHATE TRAPPED in Gal-1-P · toxic'],es:['acúmulo = FOSFATO ATRAPADO en Gal-1-P · tóxico']},k:'d',at:.15}]},
+    {cap:{pt:'O excesso de galactose também vira <b>galactitol</b> (aldose redutase) → catarata. A <span class="d">Gal-1-P</span> lesa hepatócitos e túbulos e inibe a liberação de glicose (fosfoglicomutase, glicose-6-fosfatase) → hipoglicemia. Neutrófilos com menor atividade bactericida → risco de <b>sepse por <i>E. coli</i></b>.',
+          en:'Excess galactose also becomes <b>galactitol</b> (aldose reductase) → cataract. <span class="d">Gal-1-P</span> injures hepatocytes and tubules and inhibits glucose release (phosphoglucomutase, glucose-6-phosphatase) → hypoglycemia. Neutrophils with weaker killing → risk of <b><i>E. coli</i> sepsis</b>.',
+          es:'El exceso de galactosa también se vuelve <b>galactitol</b> (aldosa reductasa) → catarata. La <span class="d">Gal-1-P</span> lesiona hepatocitos y túbulos e inhibe la liberación de glucosa (fosfoglucomutasa, glucosa-6-fosfatasa) → hipoglucemia. Neutrófilos con menor actividad bactericida → riesgo de <b>sepsis por <i>E. coli</i></b>.'},
+      rt:{pt:'Célula, cristalino e sangue',en:'Cell, lens and blood',es:'Célula, cristalino y sangre'}, rs:{pt:'Toxicidade sistêmica',en:'Systemic toxicity',es:'Toxicidad sistémica'},
+      figs:[{o:'hepatocyte',t:{pt:'Hepatócito',en:'Hepatocyte',es:'Hepatocito'},c:{pt:'Gal-1-P tóxica: célula inchada, esteatose.',en:'Toxic Gal-1-P: swollen cell, steatosis.',es:'Gal-1-P tóxica: célula hinchada, esteatosis.'},s:u=>({gal:.6,g1p:1,glyc:.6,atp:.85-.3*u,trap:1,injury:.7*u})},
+            {o:'lens',t:{pt:'Cristalino',en:'Lens',es:'Cristalino'},c:{pt:'Galactitol se forma também aqui.',en:'Galactitol forms here too.',es:'El galactitol también se forma aquí.'},s:u=>({tol:u,water:.3*u,opac:.2*u})},
+            {o:'blood',t:{pt:'Sangue',en:'Blood',es:'Sangre'},c:{pt:'Neutrófilos com baixa atividade bactericida; E. coli proliferando.',en:'Neutrophils with weak killing; E. coli multiplying.',es:'Neutrófilos con baja actividad bactericida; E. coli proliferando.'},s:u=>({ecoli:u,impair:1})}],
+      ann:[{x:140,y:290,t:{pt:['galactose → galactitol','(aldose redutase)'],en:['galactose → galactitol','(aldose reductase)'],es:['galactosa → galactitol','(aldosa reductasa)']},k:'d',at:.25},
+           {x:150,y:48,t:{pt:['Gal-1-P tóxica: fígado, rim, cérebro, neutrófilos'],en:['toxic Gal-1-P: liver, kidney, brain, neutrophils'],es:['Gal-1-P tóxica: hígado, riñón, cerebro, neutrófilos']},k:'d',at:.5}]},
+    {cap:{pt:'Repercussão no recém-nascido: <b>fígado</b> (icterícia, hepatomegalia, coagulopatia, pode evoluir para insuficiência), <b>cristalino</b> (catarata), <b>sangue</b> (sepse por <i>E. coli</i>), <b>rim</b> (disfunção tubular) e <b>cérebro</b> (letargia; déficit cognitivo a longo prazo).',
+          en:'Impact on the newborn: <b>liver</b> (jaundice, hepatomegaly, coagulopathy, may progress to failure), <b>lens</b> (cataract), <b>blood</b> (<i>E. coli</i> sepsis), <b>kidney</b> (tubular dysfunction) and <b>brain</b> (lethargy; long-term cognitive deficit).',
+          es:'Repercusión en el recién nacido: <b>hígado</b> (ictericia, hepatomegalia, coagulopatía, puede evolucionar a insuficiencia), <b>cristalino</b> (catarata), <b>sangre</b> (sepsis por <i>E. coli</i>), <b>riñón</b> (disfunción tubular) y <b>cerebro</b> (letargia; déficit cognitivo a largo plazo).'},
+      rt:{pt:'Órgãos',en:'Organs',es:'Órganos'}, rs:{pt:'Doença sistêmica',en:'Systemic disease',es:'Enfermedad sistémica'},
+      figs:[{o:'liver',t:{pt:'Fígado neonatal',en:'Neonatal liver',es:'Hígado neonatal'},c:{pt:'Hepatomegalia e icterícia nos primeiros dias.',en:'Hepatomegaly and jaundice in the first days.',es:'Hepatomegalia e ictericia en los primeros días.'},s:u=>({size:1+.2*u,jaundice:.85*u,infant:1})},
+            {o:'lens',t:{pt:'Cristalino',en:'Lens',es:'Cristalino'},c:{pt:'Opacidade por galactitol.',en:'Galactitol opacity.',es:'Opacidad por galactitol.'},s:u=>({tol:1,water:.8,opac:.4+.6*u})},
+            {o:'blood',t:{pt:'Sangue',en:'Blood',es:'Sangre'},c:{pt:'Sepse por E. coli.',en:'E. coli sepsis.',es:'Sepsis por E. coli.'},s:u=>({ecoli:1,impair:1})}],
+      ann:[{x:150,y:48,t:{pt:['início após o leite · primeiros dias'],en:['onset after milk · first days'],es:['inicio tras la leche · primeros días']},k:'d',at:.2}]},
+    {cap:{pt:'Primeiros dias de vida, logo após o início do <b>leite materno ou da fórmula</b>: vômitos, recusa alimentar, icterícia, hepatomegalia, letargia, <b>déficit de crescimento</b>, catarata e <b>sepse por <i>E. coli</i></b>. Triagem neonatal; atividade de GALT ↓ em hemácias; substâncias redutoras na urina. Tratamento: suspender lactose/galactose (fórmula de soja). Mesmo tratada: risco de déficit cognitivo e insuficiência ovariana prematura.',
+          en:'First days of life, right after <b>breast milk or formula</b> starts: vomiting, poor feeding, jaundice, hepatomegaly, lethargy, <b>failure to thrive</b>, cataracts and <b><i>E. coli</i> sepsis</b>. Newborn screening; GALT activity ↓ in red cells; reducing substances in urine. Treatment: stop lactose/galactose (soy formula). Even treated: risk of cognitive deficit and premature ovarian insufficiency.',
+          es:'Primeros días de vida, justo tras el inicio de la <b>leche materna o la fórmula</b>: vómitos, rechazo del alimento, ictericia, hepatomegalia, letargia, <b>retraso del crecimiento</b>, catarata y <b>sepsis por <i>E. coli</i></b>. Cribado neonatal; actividad de GALT ↓ en hematíes; sustancias reductoras en orina. Tratamiento: suspender lactosa/galactosa (fórmula de soja). Aun tratada: riesgo de déficit cognitivo e insuficiencia ovárica prematura.'},
+      rt:{pt:'Quadro clínico',en:'Clinical picture',es:'Cuadro clínico'}, rs:{pt:'Recém-nascido grave',en:'Severely ill newborn',es:'Recién nacido grave'},
+      figs:[{o:'growth',t:{pt:'Curva de crescimento',en:'Growth chart',es:'Curva de crecimiento'},c:{pt:'Peso cai e cruza percentis: déficit de crescimento.',en:'Weight falls and crosses percentiles: failure to thrive.',es:'El peso cae y cruza percentiles: retraso del crecimiento.'},s:u=>({u})},
+            {o:'eye',t:{pt:'Olho',en:'Eye',es:'Ojo'},c:{pt:'Esclera ictérica e catarata em gota de óleo.',en:'Icteric sclera and oil-drop cataract.',es:'Esclerótica ictérica y catarata en gota de aceite.'},s:u=>({cat:.9,jaundice:.9})},
+            {o:'blood',t:{pt:'Hemocultura',en:'Blood culture',es:'Hemocultivo'},c:{pt:'E. coli: a sepse neonatal é pista diagnóstica.',en:'E. coli: neonatal sepsis is a diagnostic clue.',es:'E. coli: la sepsis neonatal es pista diagnóstica.'},s:u=>({ecoli:1,impair:1})}],
+      ann:[{x:150,y:48,t:{pt:['gatilho: LEITE · triagem neonatal'],en:['trigger: MILK · newborn screening'],es:['desencadenante: LECHE · cribado neonatal']},k:'d',at:.2}]}
   ],
-  diff:{sub:'Icterícia e hepatomegalia no lactente têm várias causas. O gatilho alimentar e a idade de início separam a maioria.',
-    cols:[{n:'Classic galactosemia',s:'GALT',c:'galt',me:1},{n:'Galactokinase deficiency',s:'GALK',c:'galk'},{n:'Hereditary fructose intolerance',s:'aldolase B',c:'hfi'},{n:'Hepatite neonatal',s:'outras causas',c:'hep'}],
-    rows:[['Causa','Deficiência de GALT','Deficiência de galactokinase','Deficiência de aldolase B','Infecções congênitas, deficiência de alfa-1-antitripsina, colestases'],
-      ['Acúmulo','Galactose-1-phosphate','Galactitol (sem Gal-1-P)','Fructose-1-phosphate','—'],
-      ['Gatilho','Leite, primeiros dias','Leite (só o cristalino sofre)','Frutose/sacarose no desmame','Sem relação com a dieta'],
-      ['Catarata','Sim','Sim — achado principal','Não','Não é a regra'],
-      ['Sepse por E. coli','Risco marcado','Não','Não','Depende da causa']],
-    key:['O que decide','GALT ↓ em hemácias; melhora sem lactose','Criança bem, só catarata','Sintomas só depois da frutose','GALT normal; não melhora tirando o leite'],
-    rule:'Leite + icterícia nos primeiros dias + catarata + E. coli = GALT.',
-    blocks:[['galt','galt'],['galk','galk']]},
-  sum:{enz:'GALT (galactose-1-phosphate uridyltransferase)',acc:'Galactose-1-phosphate (+ galactitol no cristalino)',tis:'Fígado, cristalino, rim, cérebro, neutrófilos',cli:'Após o leite nos primeiros dias: vômitos, icterícia, hepatomegalia, déficit de crescimento, catarata, sepse por E. coli',nc:'Deficiência de GALK (só catarata) · HFI (gatilho frutose) · hepatite neonatal (GALT normal)'},
+  diff:{cols:[{n:'Classic galactosemia',c:'galt',me:1},{n:'Galactokinase deficiency',c:'galk'},{n:'Hereditary fructose intolerance',c:'hfi'},{n:{pt:'Hepatite neonatal',en:'Neonatal hepatitis',es:'Hepatitis neonatal'},c:'hep'}],blocks:[['galt','galt'],['galk','galk']],
+    pt:{sub:'Icterícia e hepatomegalia no lactente têm várias causas. O gatilho alimentar e a idade de início separam a maioria.',s:['GALT','GALK','aldolase B','outras causas'],
+      rows:[['Causa','Deficiência de GALT','Deficiência de galactokinase','Deficiência de aldolase B','Infecções congênitas, deficiência de alfa-1-antitripsina, colestases'],['Acúmulo','Galactose-1-phosphate','Galactitol (sem Gal-1-P)','Fructose-1-phosphate','—'],['Gatilho','Leite, primeiros dias','Leite (só o cristalino sofre)','Frutose/sacarose no desmame','Sem relação com a dieta'],['Catarata','Sim','Sim — achado principal','Não','Não é a regra'],['Sepse por E. coli','Risco marcado','Não','Não','Depende da causa']],
+      key:['O que decide','GALT ↓ em hemácias; melhora sem lactose','Criança bem, só catarata','Sintomas só depois da frutose','GALT normal; não melhora tirando o leite'],rule:'Leite + icterícia nos primeiros dias + catarata + E. coli = GALT.'},
+    en:{sub:'Jaundice and hepatomegaly in an infant have many causes. The food trigger and the age of onset separate most of them.',s:['GALT','GALK','aldolase B','other causes'],
+      rows:[['Cause','GALT deficiency','Galactokinase deficiency','Aldolase B deficiency','Congenital infections, alpha-1 antitrypsin deficiency, cholestasis'],['Buildup','Galactose-1-phosphate','Galactitol (no Gal-1-P)','Fructose-1-phosphate','—'],['Trigger','Milk, first days','Milk (only the lens suffers)','Fructose/sucrose at weaning','Unrelated to diet'],['Cataract','Yes','Yes — main finding','No','Not the rule'],['E. coli sepsis','Marked risk','No','No','Depends on the cause']],
+      key:['What decides','GALT ↓ in red cells; improves off lactose','Child well, cataract only','Symptoms only after fructose','GALT normal; no better off milk'],rule:'Milk + jaundice in the first days + cataract + E. coli = GALT.'},
+    es:{sub:'La ictericia y la hepatomegalia en el lactante tienen muchas causas. El desencadenante alimentario y la edad de inicio separan la mayoría.',s:['GALT','GALK','aldolase B','otras causas'],
+      rows:[['Causa','Deficiencia de GALT','Deficiencia de galactokinase','Deficiencia de aldolase B','Infecciones congénitas, déficit de alfa-1-antitripsina, colestasis'],['Acúmulo','Galactose-1-phosphate','Galactitol (sin Gal-1-P)','Fructose-1-phosphate','—'],['Desencadenante','Leche, primeros días','Leche (solo sufre el cristalino)','Fructosa/sacarosa en el destete','Sin relación con la dieta'],['Catarata','Sí','Sí — hallazgo principal','No','No es la regla'],['Sepsis por E. coli','Riesgo marcado','No','No','Depende de la causa']],
+      key:['Lo que decide','GALT ↓ en hematíes; mejora sin lactosa','Niño sano, solo catarata','Síntomas solo tras la fructosa','GALT normal; no mejora al retirar la leche'],rule:'Leche + ictericia en los primeros días + catarata + E. coli = GALT.'}},
+  sum:{pt:{enz:'GALT (galactose-1-phosphate uridyltransferase)',acc:'Galactose-1-phosphate (+ galactitol no cristalino)',tis:'Fígado, cristalino, rim, cérebro, neutrófilos',cli:'Após o leite nos primeiros dias: vômitos, icterícia, hepatomegalia, déficit de crescimento, catarata, sepse por E. coli',nc:'Deficiência de GALK (só catarata) · HFI (gatilho frutose) · hepatite neonatal (GALT normal)'},
+       en:{enz:'GALT (galactose-1-phosphate uridyltransferase)',acc:'Galactose-1-phosphate (+ galactitol in the lens)',tis:'Liver, lens, kidney, brain, neutrophils',cli:'After milk in the first days: vomiting, jaundice, hepatomegaly, failure to thrive, cataract, E. coli sepsis',nc:'GALK deficiency (cataract only) · HFI (fructose trigger) · neonatal hepatitis (normal GALT)'},
+       es:{enz:'GALT (galactose-1-phosphate uridyltransferase)',acc:'Galactose-1-phosphate (+ galactitol en el cristalino)',tis:'Hígado, cristalino, riñón, cerebro, neutrófilos',cli:'Tras la leche en los primeros días: vómitos, ictericia, hepatomegalia, retraso del crecimiento, catarata, sepsis por E. coli',nc:'Deficiencia de GALK (solo catarata) · HFI (desencadenante fructosa) · hepatitis neonatal (GALT normal)'}},
   take:'GALT deficiency causes systemic neonatal toxicity after milk exposure.'
-}];
+});
 
 /* ======================= via bioquímica (SVG) ======================= */
 const svg=$('#pw');
@@ -551,7 +866,7 @@ const LAY={
      GO:{p:[[215,282],[215,372],[118,372],[60,372],[60,430]],g:['glc','glc','glc','glc']}},
    piles:{F1P:{c:[430,120],hw:52,hh:14,g:'frup',n:14},FRU:{c:[215,120],hw:42,hh:14,g:'fru',n:8}}
  },
- gal:{ sugar:'gal', diet:['DIETA','leite','lactose →','glicose +','galactose'],
+ gal:{ sugar:'gal', diet:['DIETA','leite: lactose','↓ lactase','glicose','+ galactose'],
    nodes:{GAL:[215,120,'galactose'],G1P:[440,120,'galactose-1-P'],GC1P:[440,245,'glucose-1-P'],G6P:[440,330,'G6P'],
      UGLC:[560,160,'UDP-Glc'],UGAL:[560,230,'UDP-Gal'],TOL:[215,235,'galactitol'],BOX:[400,400,'glicólise · glicogênio','box']},
    chips:{galk:[318,120,'galactokinase','ATP → ADP'],galt:[440,182,'GALT'],pgm:[440,288,'PGM'],ar:[215,178,'aldose reductase','NADPH'],epi:[612,195,'epimerase',null,1]},
@@ -577,22 +892,23 @@ for(const k in LAY)for(const r in LAY[k].routes)prep(LAY[k].routes[r]);
 let PW=null; // estado do SVG construído
 function buildPath(kind){
   const L=LAY[kind];svg.textContent='';
+  const df=el('defs',null,svg),cg=el('radialGradient',{id:'cellg',cx:'48%',cy:'42%',r:'70%'},df);el('stop',{offset:'0%','stop-color':'#55351f'},cg);el('stop',{offset:'100%','stop-color':'#2c1a0f'},cg);
   const g0=el('g',null,svg);
   el('rect',{class:'lane',x:8,y:8,width:104,height:424,rx:18},g0);
   const r=rng(11);for(let i=0;i<14;i++){const x=20+r()*80,y=200+r()*210;el('ellipse',{cx:x,cy:y,rx:6,ry:3.6,fill:'#5a1f2e',opacity:.55,transform:`rotate(${r()*180} ${x} ${y})`},g0);}
-  L.diet.forEach((t,i)=>{const e=el('text',{x:60,y:28+i*14,'text-anchor':'middle',class:i?'lanesm':'lanetx'},g0);e.textContent=t;});
-  const sb=el('text',{x:60,y:424,'text-anchor':'middle',class:'lanesm'},g0);sb.textContent='SANGUE PORTAL';
-  el('rect',{class:'cell',x:128,y:8,width:504,height:424,rx:22},g0);
+  L.diet.forEach((t,i)=>{const e=el('text',{x:60,y:28+i*14,'text-anchor':'middle',class:i?'lanesm':'lanetx'},g0);e.textContent=T_(t);});
+  const sb=el('text',{x:60,y:424,'text-anchor':'middle',class:'lanesm'},g0);sb.textContent=T_('SANGUE PORTAL');
+  el('rect',{class:'cell',x:128,y:8,width:504,height:424,rx:22,fill:'url(#cellg)'},g0);
   el('rect',{class:'cell2',x:136,y:16,width:488,height:408,rx:16},g0);
-  const ct=el('text',{x:150,y:32,class:'celltx'},g0);ct.textContent='HEPATÓCITO · CITOSOL';
+  const ct=el('text',{x:150,y:32,class:'celltx'},g0);ct.textContent=T_('HEPATÓCITO · CITOSOL');
   [[128,120],[128,372]].forEach(([x,y],i)=>{if(kind==='gal'&&i)return;const t=el('g',{class:'tp'},g0);el('rect',{x:x-5,y:y-13,width:10,height:10,rx:2},t);el('rect',{x:x-5,y:y+3,width:10,height:10,rx:2},t);
     const tx=el('text',{x:x+9,y:y-16},t);tx.textContent='GLUT2';});
   const gE=el('g',null,svg),gPool=el('g',{class:'pool'},svg),gPart=el('g',null,svg),gN=el('g',null,svg),gC=el('g',null,svg),gRing=el('g',null,svg),gB=el('g',null,svg),gA=el('g',null,svg);
   const edges={};for(const k in L.edges){const pts=L.edges[k];const e=el('path',{class:'edge'+(L.dashed.includes(k)?' dash':''),d:'M'+pts.map(p=>p.join(',')).join(' L'),'marker-end':(k==='e2'&&kind==='fru')?'':'url(#ar)'},gE);edges[k]=e;}
   const nodes={};for(const k in L.nodes){const [x,y,t,ty]=L.nodes[k];const g=el('g',{class:'node'},gN);
-    if(ty==='glyc'){const rr=rng(5);for(let i=0;i<26;i++){const a=rr()*6.283,d=Math.sqrt(rr())*17;el('circle',{cx:x+Math.cos(a)*d,cy:y+Math.sin(a)*d*.8,r:2.4+rr()*1.6,fill:'#c9b78a',opacity:.85},g);}
-      const tx=el('text',{x,y:y-30},g);tx.textContent=t;tx.style.font='500 11.5px var(--f-label)';tx.style.fill='var(--ink-2)';}
-    else{const w=nodeW(t,ty),h=ty==='box'?34:28;el('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:ty==='box'?8:7},g);const tx=el('text',{x,y,class:ty==='box'?'boxt':''},g);tx.textContent=t;}
+    if(ty==='glyc'){const rr=rng(5);for(let i=0;i<26;i++){const a=rr()*6.283,d=Math.sqrt(rr())*17;el('circle',{cx:x+Math.cos(a)*d,cy:y+Math.sin(a)*d*.8,r:2.4+rr()*1.6,fill:'#f0dcaa',opacity:.9},g);}
+      const tx=el('text',{x,y:y-30},g);tx.textContent=T_(t);tx.style.font='500 11.5px var(--f-label)';tx.style.fill='var(--ink-2)';}
+    else{const w=nodeW(t,ty),h=ty==='box'?34:28;el('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:ty==='box'?8:7},g);const tx=el('text',{x,y,class:ty==='box'?'boxt':''},g);tx.textContent=T_(t);}
     nodes[k]=g;}
   const chips={},blocks={};for(const k in L.chips){const [x,y,t,cof,vert]=L.chips[k];const w=chipW(t);const g=el('g',{class:'enz',transform:vert?`translate(${x} ${y}) rotate(-90)`:`translate(${x} ${y})`},gC);
     el('rect',{x:-w/2,y:-10,width:w,height:20,rx:10},g);const tx=el('text',{x:0,y:0},g);tx.textContent=t;
@@ -603,20 +919,20 @@ function buildPath(kind){
     el('line',{x1:-9,y1:-9,x2:9,y2:9,stroke:'currentColor'},s);el('line',{x1:9,y1:-9,x2:-9,y2:9,stroke:'currentColor'},s);
     const bt=el('text',{y:-23,fill:'currentColor'},s);blocks[k]={g:b,s,t:bt};}
   const pool=[];if(kind==='fru'){const rr=rng(3);for(let i=0;i<12;i++){const a=i*2.4,d=6+ (i%4)*6;pool.push(el('use',{href:'#gl-pi',x:580+Math.cos(a)*d*1.3,y:180+Math.sin(a)*d},gPool));}
-    const pt=el('text',{x:580,y:214},gPool);pt.textContent='pool de Pᵢ';}
+    const pt=el('text',{x:580,y:214},gPool);pt.textContent=T_('pool de Pᵢ');}
   const parts=[];for(let i=0;i<72;i++){const u=el('use',{href:'#gl-fru',opacity:0},gPart);u._g='fru';parts.push(u);}
   const ring=el('ellipse',{class:'ring','stroke-dasharray':'5 5',opacity:0},gRing);const ringT=el('text',{opacity:0,style:'font:700 10.5px var(--f-label);letter-spacing:.12em'},gRing);
   PW={kind,L,edges,nodes,chips,blocks,pool,parts,ring,ringT,gA,anns:[]};
   // legenda de glifos
-  const gl=kind==='fru'?[['gl-fru','frutose · açúcar livre'],['gl-frup','açúcar-fosfato · Pᵢ preso'],['gl-tri','trioses'],['gl-pi','fosfato (Pᵢ)'],['gl-glc','glicose']]
-    :[['gl-gal','galactose · açúcar livre'],['gl-galp','açúcar-fosfato · Pᵢ preso'],['gl-tol','galactitol · álcool de açúcar'],['gl-glcp','glucose-1-P / G6P']];
+  const gl=kind==='fru'?[['gl-fru',U('g_fru')],['gl-frup',U('g_frup')],['gl-tri',U('g_tri')],['gl-pi',U('g_pi')],['gl-glc',U('g_glc')]]
+    :[['gl-gal',U('g_gal')],['gl-galp',U('g_frup')],['gl-tol',U('g_tol')],['gl-glcp',U('g_glcp')]];
   $('#glyphs').innerHTML=gl.map(([id,t])=>`<span><svg viewBox="-13 -17 30 30" aria-hidden="true"><use href="#${id}"/></svg>${t}</span>`).join('')+
-    `<span><svg viewBox="-12 -12 24 24" aria-hidden="true" style="color:var(--cur)"><use href="#gl-x"/></svg>bloqueio · cor da doença</span>`;
+    `<span><svg viewBox="-12 -12 24 24" aria-hidden="true" style="color:var(--cur)"><use href="#gl-x"/></svg>${U('g_x')}</span>`;
 }
 
-function setAnns(list){PW.gA.textContent='';PW.anns=(list||[]).map(a=>{const g=el('g',{class:'ann'+(a.k?' '+a.k:''),opacity:0},PW.gA);
-  const w=Math.max(...a.t.map(s=>s.length))*6.25+18,h=a.t.length*15+10;const x=Math.min(a.x,636-w);
-  el('rect',{x,y:a.y,width:w,height:h,rx:6},g);a.t.forEach((s,i)=>{const t=el('text',{x:x+9,y:a.y+18+i*15},g);t.textContent=s;});return {g,at:a.at||0};});}
+function setAnns(list){PW.gA.textContent='';PW.anns=(list||[]).map(a=>{const tl=L(a.t);const g=el('g',{class:'ann'+(a.k?' '+a.k:''),opacity:0},PW.gA);
+  const w=Math.max(...tl.map(s=>s.length*(s===s.toUpperCase()?6.2:6.25)+(s.replace(/[^A-ZÁÉÍÓÚÂÊÔÃÕÇ]/g,'').length*1.6)))+18,h=tl.length*15+10;const x=Math.min(a.x,636-w);
+  el('rect',{x,y:a.y,width:w,height:h,rx:6},g);tl.forEach((s,i)=>{const t=el('text',{x:x+9,y:a.y+18+i*15},g);t.textContent=s;});return {g,at:a.at||0};});}
 
 function pileXY(p,i,T){const half=Math.ceil(p.n/2),col=Math.floor(i/2),top=i%2===0;const span=2*p.hw-14;
   const x=p.c[0]-p.hw+7+(half>1?col*span/(half-1):span/2);const y=p.c[1]+(top?-1:1)*(p.hh+10+(col%2)*7);
@@ -631,7 +947,7 @@ function drawPath(ch,si,u,T,mv){
     for(let i=0;i<n;i++){const ph=((T*rate*sp/r.L*70)+i/n)%1;const [x,y,g]=at(r,ph*r.L);let op=Math.min(1,ph*8);if(fadeEnd)op*=1-seg(ph,.82,1);put(g,x,y,op);}};
   const pile=(pk,lev)=>{const p=L.piles[pk];const n=Math.round(p.n*clamp(lev));for(let i=0;i<n;i++){const [x,y]=pileXY(p,i,T);put(p.g,x,y,1,i===n-1?1+.15*Math.sin(T*6):1);}};
   const blood=(g,lev)=>{const r=rng(21);const n=Math.round(16*clamp(lev));for(let i=0;i<16;i++){const x=22+r()*76,y=190+r()*160;if(i<n)put(g,x+Math.sin(T+i)*3,y+Math.cos(T*.8+i)*3,.9,.9);}};
-  const B=si>=1, pre=si===0;
+  const nrm=ch.id==='nrm',st=nrm?ch.steps[si]:null;const B=!nrm&&si>=1, pre=nrm||si===0;
   // fluxos e acúmulos
   if(pre){flow('A',4,1);flow('B',4,1);if(L.routes.GO)flow('GO',4,.8,1);}
   else if(id==='ef'){flow('ESC',8,1,1);blood('fru',(mv[0]-.15)/.7);flow('GO',4,.8,1);}
@@ -645,7 +961,7 @@ function drawPath(ch,si,u,T,mv){
   const E=P.edges,N=P.nodes;for(const e in E)E[e].setAttribute('class','edge'+(L.dashed.includes(e)?' dash':''));for(const n in N)N[n].setAttribute('class','node');
   const off=a=>a.forEach(e=>E[e]&&E[e].classList.add('off')),dim=a=>a.forEach(n=>N[n]&&N[n].classList.add('dim')),acc=a=>a.forEach(n=>N[n]&&N[n].classList.add('acc'));
   if(P.kind==='fru'){E.esc.style.opacity=id==='ef'&&B?1:0;}
-  else{E.esc.style.opacity=id==='galk'&&B?1:0;E.ar.style.opacity=(si>=3&&B)?1:.35;if(si>=3&&B)E.ar.classList.add('hot');}
+  else{E.esc.style.opacity=id==='galk'&&B?1:0;E.ar.style.opacity=(si>=3&&B)?1:.35;if(si>=3&&B)E.ar.classList.add('hot');if(nrm&&(st.hot||[]).includes('ar')){E.ar.style.opacity=1;E.ar.classList.add('hot');}}
   if(B){
     if(id==='ef'){off(['e1','e2','e3','e4','e5','e6','e7']);dim(['F1P','DHAP','GLA','G3P']);if(si>=2)acc(['FRU']);}
     if(id==='hfi'){off(['e2','e3','e4','e5','e6','e7']);dim(['DHAP','GLA','G3P']);if(si>=2)acc(['F1P']);if(si>=3){const q=si===3?seg(u,.3,.7):1;E.gout.style.strokeOpacity=1-.8*q;E.gng.style.strokeOpacity=1-.8*q;}}
@@ -658,15 +974,17 @@ function drawPath(ch,si,u,T,mv){
   const mark=(c,color,pop,label,dashed)=>{const b=P.blocks[c];if(!b)return;b.g.style.color=color;b.g.setAttribute('opacity',1);
     b.s.setAttribute('transform',`scale(${(.2+.8*pop).toFixed(3)})`);b.t.textContent=label||'';b.s.querySelector('circle').setAttribute('stroke-dasharray',dashed?'4 3':'');
     P.chips[c].classList.add('dead');};
-  if(pre){P.chips[ch.chip].classList.add('hot');}
+  if(nrm){(st.hot||[]).forEach(c=>P.chips[c]&&P.chips[c].classList.add('hot'));(st.hotN||[]).forEach(n=>N[n]&&N[n].classList.add('hot'));(st.hotE||[]).forEach(e=>E[e]&&E[e].classList.add('hot'));
+    (st.marks||[]).forEach(([c,col,lab])=>mark(c,COLORS[col],es(u,.05,.3),lab));}
+  else if(pre){P.chips[ch.chip].classList.add('hot');}
   else if(si===6){ch.diff.blocks.forEach(([c,col])=>{const isMe=col===ch.c;mark(c,COLORS[col],1,isMe?'':({ef:'EF',hfi:'HFI',vg:'GSD I',galk:'GALK',galt:'GALT'})[col]);if(!isMe)P.chips[c].classList.remove('dead');});}
   else{mark(ch.chip,COLORS[ch.c],si===1?es(u,0,.35):1,'');
-    if(id==='hfi'&&si>=3)mark('phos',COLORS.hfi,si===3?es(u,.3,.55):1,'sem Pᵢ',1);}
+    if(id==='hfi'&&si>=3)mark('phos',COLORS.hfi,si===3?es(u,.3,.55):1,T_('sem Pᵢ'),1);}
   // anel de aprisionamento/toxicidade
   const R=P.ring,RT=P.ringT;let show=0;
-  if(id==='hfi'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',430);R.setAttribute('cy',120);R.setAttribute('rx',84);R.setAttribute('ry',44);RT.setAttribute('x',350);RT.setAttribute('y',86);RT.style.textAnchor='end';RT.textContent='Pᵢ PRESO';}
-  if(id==='galt'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',440);R.setAttribute('cy',120);R.setAttribute('rx',90);R.setAttribute('ry',44);RT.setAttribute('x',500);RT.setAttribute('y',72);RT.style.textAnchor='start';RT.textContent='TÓXICO';}
-  if(id==='galk'&&si>=3&&si<6){show=si===3?es(u,.3,.6):1;R.setAttribute('cx',215);R.setAttribute('cy',235);R.setAttribute('rx',74);R.setAttribute('ry',40);RT.setAttribute('x',262);RT.setAttribute('y',282);RT.style.textAnchor='start';RT.textContent='PRESO';}
+  if(id==='hfi'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',430);R.setAttribute('cy',120);R.setAttribute('rx',84);R.setAttribute('ry',44);RT.setAttribute('x',350);RT.setAttribute('y',86);RT.style.textAnchor='end';RT.textContent=T_('Pᵢ PRESO');}
+  if(id==='galt'&&si>=2&&si<6){show=si===2?es(u,.2,.5):1;R.setAttribute('cx',440);R.setAttribute('cy',120);R.setAttribute('rx',90);R.setAttribute('ry',44);RT.setAttribute('x',500);RT.setAttribute('y',72);RT.style.textAnchor='start';RT.textContent=T_('TÓXICO');}
+  if(id==='galk'&&si>=3&&si<6){show=si===3?es(u,.3,.6):1;R.setAttribute('cx',215);R.setAttribute('cy',235);R.setAttribute('rx',74);R.setAttribute('ry',40);RT.setAttribute('x',262);RT.setAttribute('y',282);RT.style.textAnchor='start';RT.textContent=T_('PRESO');}
   R.setAttribute('stroke',COLORS[ch.c]);RT.setAttribute('fill',COLORS[ch.c]);
   const pulse=show*(.75+.25*Math.sin(T*4));R.setAttribute('opacity',pulse.toFixed(2));RT.setAttribute('opacity',show.toFixed(2));
   // anotações
@@ -677,10 +995,10 @@ function drawPath(ch,si,u,T,mv){
 const FL='"IBM Plex Sans Condensed", "Arial Narrow", sans-serif';
 function mix(a,b,t){const A=parseInt(a.slice(1),16),B=parseInt(b.slice(1),16);const c=i=>Math.round(((A>>i)&255)*(1-t)+((B>>i)&255)*t);return `rgb(${c(16)},${c(8)},${c(0)})`;}
 function bg(g){const gr=g.createRadialGradient(200,130,10,200,150,280);gr.addColorStop(0,'#0e2650');gr.addColorStop(1,'#050e22');g.fillStyle=gr;g.fillRect(0,0,400,300);}
-function lbl(g,x,y,tx,ty,text,col){col=col||'#dfe9f8';g.save();g.strokeStyle=col;g.globalAlpha=.85;g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(tx,ty);g.stroke();
+function lbl(g,x,y,tx,ty,text,col){text=T_(text);col=col||'#dfe9f8';g.save();g.strokeStyle=col;g.globalAlpha=.85;g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(tx,ty);g.stroke();
   g.globalAlpha=1;g.fillStyle=col;g.beginPath();g.arc(x,y,2.2,0,6.283);g.fill();g.font=`500 13px ${FL}`;const w=g.measureText(text).width;const left=tx<x;
   let bx=left?tx-w-10:tx+2;bx=Math.max(4,Math.min(bx,388-w));g.fillStyle='rgba(5,14,32,.88)';g.fillRect(bx,ty-10,w+8,19);g.fillStyle=col;g.textBaseline='middle';g.fillText(text,bx+4,ty);g.restore();}
-function tag(g,x,y,text,col,dark){g.save();g.font=`700 12px ${FL}`;const w=g.measureText(text).width+14;g.fillStyle=col;g.globalAlpha=.95;
+function tag(g,x,y,text,col,dark){text=T_(text);g.save();g.font=`700 12px ${FL}`;const w=g.measureText(text).width+14;g.fillStyle=col;g.globalAlpha=.95;
   g.beginPath();g.roundRect?g.roundRect(x,y,w,20,4):g.rect(x,y,w,20);g.fill();g.globalAlpha=1;g.fillStyle=dark?'#08142c':'#fff';g.textBaseline='middle';g.fillText(text,x+7,y+10.5);g.restore();}
 function poly(g,x,y,r,n,rot){g.beginPath();for(let i=0;i<n;i++){const a=rot+i*6.2832/n;g[i?'lineTo':'moveTo'](x+Math.cos(a)*r,y+Math.sin(a)*r);}g.closePath();}
 function sugar(g,kind,x,y,r,ph){g.save();g.lineWidth=1.6;
@@ -730,10 +1048,10 @@ ORG.hepatocyte={name:'Hepatócito',draw(g,s,T){bg(g);const inj=s.injury||0,sw=1+
   lbl(g,168,140,120,82,'núcleo');lbl(g,300,160,350,84,atp<.5?'mitocôndrias · ATP ↓':'mitocôndrias · ATP',atp<.5?'#ff8c8c':'#ffd9a8');
   if(ph>.3)lbl(g,262,226,330,268,(pk==='fru'?'F1P':'Gal-1-P')+' · Pᵢ preso','#ffb6d9');else if(gl>.3)lbl(g,250,200,320,268,s.lock>.3?'glicogênio retido':'glicogênio','#e0d2ff');
   if(inj>.35)lbl(g,140,212,58,258,'esteatose · lesão','#ffe2a8');
-  g.fillStyle='rgba(255,200,215,.7)';g.font=`600 11px ${FL}`;g.fillText('SINUSOIDE',10,14);
+  g.fillStyle='rgba(255,200,215,.7)';g.font=`600 11px ${FL}`;g.fillText(T_('SINUSOIDE'),10,14);
   // mini medidor de ATP
   g.fillStyle='rgba(5,14,32,.85)';g.fillRect(10,272,118,20);g.fillStyle='#17305a';g.fillRect(44,279,76,6);g.fillStyle=atp<.5?'#ff5a52':'#ffb35c';g.fillRect(44,279,76*atp,6);
-  g.fillStyle='#dfe9f8';g.font=`600 11px ${FL}`;g.textBaseline='middle';g.fillText('ATP',16,282);g.textBaseline='alphabetic';}};
+  g.fillStyle='#dfe9f8';g.font=`600 11px ${FL}`;g.textBaseline='middle';g.fillText(T_('ATP'),16,282);g.textBaseline='alphabetic';}};
 
 ORG.liver={name:'Fígado',draw(g,s,T){bg(g);const sz=s.size||1,j=s.jaundice||0;
   if(s.infant){g.strokeStyle='rgba(174,191,218,.25)';g.lineWidth=2;g.beginPath();g.moveTo(30,30);g.bezierCurveTo(10,140,30,260,60,300);g.moveTo(370,30);g.bezierCurveTo(390,140,370,260,340,300);g.stroke();}
@@ -780,7 +1098,7 @@ ORG.lens={name:'Cristalino',draw(g,s,T){bg(g);const tol=s.tol||0,w=s.water||0,op
     g.fillStyle=mix('#29466f','#9fb4cc',op*.8);g.fill();g.strokeStyle='rgba(200,225,255,.5)';g.lineWidth=1;g.stroke();
     if(tol>.3&&(r*7+c)%3===0)sugar(g,'tol',x,y,3.4);}
   g.restore();g.strokeStyle='rgba(74,114,173,.6)';g.beginPath();g.moveTo(cx+rx,cy-20);g.lineTo(X0,Y0+H);g.stroke();
-  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText('fibras · corte transversal',X0,Y0+H+14);
+  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText(T_('fibras · corte transversal'),X0,Y0+H+14);
   lbl(g,cx,cy-ry+6,58,40,'cristalino','#e8f2ff');if(tol>.2)lbl(g,cx+6,cy+20,205,262,'galactitol (preso)','#6fdcff');if(w>.2)lbl(g,cx-rx-18,cy+40,30,262,'H₂O entra','#7cc0ff');}};
 
 ORG.eye={name:'Olho · reflexo vermelho',draw(g,s,T){bg(g);const c=s.cat||0,j=s.jaundice||0;
@@ -813,7 +1131,7 @@ ORG.kidney={name:'Rim',draw(g,s,T){bg(g);const sp=s.spill||0,f=s.fanconi||0,k=s.
   for(let i=0;i<Math.round(sp*7);i++){const ph=(T*.12+i/7)%1;const [x,y]=at(R,ph*R.L);sugar(g,k,x,y,5);}
   g.fillStyle='#d9c35a';g.globalAlpha=.85;g.beginPath();g.moveTo(330,264);g.lineTo(372,264);g.lineTo(366,292);g.lineTo(336,292);g.closePath();g.fill();g.globalAlpha=1;
   for(let i=0;i<Math.round(sp*4);i++)sugar(g,k,340+i*8,280,4.5);
-  if(f>.3){['Pᵢ','glicose','aminoácidos','HCO₃⁻'].forEach((t,i)=>{g.fillStyle=hx('#ff8c8c',f);g.font=`500 11.5px ${FL}`;g.fillText(t+' →',224,160+i*18);});}
+  if(f>.3){['Pᵢ','glicose','aminoácidos','HCO₃⁻'].forEach((t,i)=>{g.fillStyle=hx('#ff8c8c',f);g.font=`500 11.5px ${FL}`;g.fillText(T_(t)+' →',224,160+i*18);});}
   lbl(g,248,52,300,36,'glomérulo');lbl(g,318,104,372,120,f>.3?'túbulo · Fanconi':'túbulo proximal',f>.3?'#ff8c8c':'#dfe9f8');
   lbl(g,350,278,280,288,'urina: '+(k==='fru'?'frutose':'galactose'),'#f6d987');}};
 
@@ -880,19 +1198,19 @@ ORG.urine={name:'Urina · testes',draw(g,s,T){bg(g);const u=s.u==null?1:s.u,q=es
   g.strokeStyle='#cfe0ff';g.lineWidth=2;g.beginPath();g.moveTo(66,40);g.lineTo(66,214);g.quadraticCurveTo(66,236,90,236);g.quadraticCurveTo(114,236,114,214);g.lineTo(114,40);g.stroke();
   g.fillStyle=q<.5?mix('#2f6fd6','#3fae6a',q*2):mix('#3fae6a','#e07a2a',(q-.5)*2);g.beginPath();g.moveTo(68,110);g.lineTo(68,214);g.quadraticCurveTo(68,234,90,234);g.quadraticCurveTo(112,234,112,214);g.lineTo(112,110);g.fill();
   ['#2f6fd6','#3a9a8e','#7aa83e','#c99a2c','#e07a2a'].forEach((c,i)=>{g.fillStyle=c;g.fillRect(36+i*22,246,18,12);});
-  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText('neg',36,272);g.fillText('2%+',124,272);
+  g.fillStyle='#aebfda';g.font=`500 11px ${FL}`;g.fillText(T_('neg'),36,272);g.fillText(T_('2%+'),124,272);
   g.fillStyle='#e9eef6';g.fillRect(250,30,22,238);
   const pads=['#f4f1d0','#d9e6f0','#e8d8c0','#f0e0e8'];pads.forEach((c,i)=>{g.fillStyle=c;g.fillRect(250,60+i*44,22,22);});
   g.strokeStyle='#ff8c8c';g.lineWidth=2;g.strokeRect(248,58,26,26);
   ['#bfe3f2','#9ccf9a','#6aa564','#7b6a3a'].forEach((c,i)=>{g.fillStyle=c;g.fillRect(300+i*22,62,18,18);});
-  g.fillStyle='#aebfda';g.fillText('neg',300,96);g.fillText('glicose ↑',336,96);
+  g.fillStyle='#aebfda';g.fillText(T_('neg'),300,96);g.fillText(T_('glicose ↑'),336,96);
   tag(g,130,64,'REDUTOR +','#ffa53d',1);tag(g,298,108,'GLICOSE −','#8fa0bf',1);
   lbl(g,90,160,128,196,'redução de cobre','#ffd3a0');lbl(g,272,71,292,160,'fita glicose-oxidase','#cfe0ff');
-  g.fillStyle='#f2ead3';g.font=`600 13px ${FL}`;g.fillText('açúcar redutor que não é glicose → frutose',22,296);}};
+  g.fillStyle='#f2ead3';g.font=`600 13px ${FL}`;g.fillText(T_('açúcar redutor que não é glicose → frutose'),22,296);}};
 
 ORG.growth={name:'Curva de crescimento',draw(g,s,T){bg(g);const u=s.u==null?1:s.u;const X=m=>58+m/6*318,Y=kg=>262-(kg-2)/8*232;
   g.strokeStyle='rgba(174,191,218,.18)';g.lineWidth=1;g.font=`500 11px ${FL}`;g.fillStyle='#7891b5';
-  for(let m=0;m<=6;m++){g.beginPath();g.moveTo(X(m),Y(2));g.lineTo(X(m),Y(10));g.stroke();g.fillText(m+'m',X(m)-6,278);}
+  for(let m=0;m<=6;m++){g.beginPath();g.moveTo(X(m),Y(2));g.lineTo(X(m),Y(10));g.stroke();g.fillText(m+T_('m'),X(m)-6,278);}
   for(let k=2;k<=10;k+=2){g.beginPath();g.moveTo(X(0),Y(k));g.lineTo(X(6),Y(k));g.stroke();g.fillText(k+' kg',18,Y(k)+4);}
   const P={P97:[4.3,5.7,7,7.9,8.6,9.2,9.7],P50:[3.3,4.5,5.6,6.4,7,7.5,7.9],P3:[2.5,3.4,4.4,5.1,5.6,6.1,6.4]};
   Object.entries(P).forEach(([n,a])=>{g.strokeStyle=n==='P50'?'#aebfda':'rgba(174,191,218,.55)';g.lineWidth=n==='P50'?2:1.4;g.beginPath();a.forEach((v,m)=>g[m?'lineTo':'moveTo'](X(m),Y(v)));g.stroke();g.fillStyle='#aebfda';g.fillText(n,X(6)+4,Y(a[6])+4);});
@@ -900,77 +1218,99 @@ ORG.growth={name:'Curva de crescimento',draw(g,s,T){bg(g);const u=s.u==null?1:s.
   g.strokeStyle='#ffa53d';g.lineWidth=2.4;g.beginPath();pts.slice(0,n).forEach(([m,k],i)=>g[i?'lineTo':'moveTo'](X(m),Y(k)));g.stroke();
   pts.slice(0,n).forEach(([m,k])=>{g.fillStyle='#ffa53d';g.beginPath();g.arc(X(m),Y(k),4,0,6.283);g.fill();});
   if(n>=5)lbl(g,X(2),Y(3.8),X(3.2),Y(2.6),'cruza percentis para baixo','#ffd3a0');
-  g.fillStyle='#7891b5';g.fillText('peso para a idade · curvas aproximadas (OMS)',58,16);}};
+  g.fillStyle='#7891b5';g.fillText(T_('peso para a idade · curvas aproximadas (OMS)'),58,16);}};
 
 ORG.timeline={name:'Linha do tempo',draw(g,s,T){bg(g);const X=m=>40+m/12*330;const f=s.focus;
   g.strokeStyle='#aebfda';g.lineWidth=1.5;g.beginPath();g.moveTo(X(0),236);g.lineTo(X(12),236);g.stroke();g.font=`500 11px ${FL}`;g.fillStyle='#7891b5';
-  [0,2,4,6,8,10,12].forEach(m=>{g.beginPath();g.moveTo(X(m),232);g.lineTo(X(m),240);g.stroke();g.fillText(m+'m',X(m)-6,254);});
-  [[0,'leite'],[3.5,'mamadas espaçadas'],[5,'desmame: frutas, sacarose']].forEach(([m,t],i)=>{g.strokeStyle='rgba(242,234,211,.35)';g.setLineDash([3,4]);g.beginPath();g.moveTo(X(m),30);g.lineTo(X(m),232);g.stroke();g.setLineDash([]);g.fillStyle='#f2ead3';g.fillText(t,X(m)+4,282-(i===2?0:0)+ (i===1?-14:0));});
+  [0,2,4,6,8,10,12].forEach(m=>{g.beginPath();g.moveTo(X(m),232);g.lineTo(X(m),240);g.stroke();g.fillText(m+T_('m'),X(m)-6,254);});
+  [[0,'leite'],[3.5,'mamadas espaçadas'],[5,'desmame: frutas, sacarose']].forEach(([m,t],i)=>{g.strokeStyle='rgba(242,234,211,.35)';g.setLineDash([3,4]);g.beginPath();g.moveTo(X(m),30);g.lineTo(X(m),232);g.stroke();g.setLineDash([]);g.fillStyle='#f2ead3';g.fillText(T_(t),X(m)+4,282-(i===2?0:0)+ (i===1?-14:0));});
   const bars=[['galt','Galactosemia clássica',.1,12],['vg','Von Gierke (jejum)',3,12],['hfi','HFI (frutose)',5,12],['ef','Frutosúria essencial',null,null]];
-  bars.forEach(([k,t,a,b],i)=>{const y=52+i*42,on=!f||f===k;g.globalAlpha=on?1:.35;g.fillStyle=COLORS[k];g.font=`600 12px ${FL}`;g.fillText(t,X(0),y-6);
-    if(a==null){g.strokeStyle=COLORS[k];g.setLineDash([2,5]);g.lineWidth=2;g.beginPath();g.moveTo(X(0),y+6);g.lineTo(X(12),y+6);g.stroke();g.setLineDash([]);g.fillStyle='#7891b5';g.font=`500 11px ${FL}`;g.fillText('assintomática',X(8),y-6);}
+  bars.forEach(([k,t,a,b],i)=>{const y=52+i*42,on=!f||f===k;g.globalAlpha=on?1:.35;g.fillStyle=COLORS[k];g.font=`600 12px ${FL}`;g.fillText(T_(t),X(0),y-6);
+    if(a==null){g.strokeStyle=COLORS[k];g.setLineDash([2,5]);g.lineWidth=2;g.beginPath();g.moveTo(X(0),y+6);g.lineTo(X(12),y+6);g.stroke();g.setLineDash([]);g.fillStyle='#7891b5';g.font=`500 11px ${FL}`;g.fillText(T_('assintomática'),X(8),y-6);}
     else{const p=f===k?es(s.u==null?1:s.u,.1,.7):1;g.fillRect(X(a),y,(X(b)-X(a))*p,12);}g.globalAlpha=1;});}};
 
 /* ======================= controle ======================= */
-const S={ci:0,si:0,t:0,play:!REDUCED,speed:1,figs:[],kind:null};
-const TOTAL=DUR.reduce((a,b)=>a+b,0);
+const S={ci:0,si:0,t:0,play:!REDUCED,speed:1,figs:[],kind:null,L:[]};
+const isN=ch=>ch.id==='nrm';
+const stepsOf=ch=>isN(ch)?ch.steps.map(s=>({t:L(s.t),lv:s.lv,d:s.dur})):L(STEPS).map((t,i)=>({t,lv:LEVEL[i],d:DUR[i]}));
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 const DPR=()=>Math.min(window.devicePixelRatio||1,2);
+const LANGS=[['pt','PT','Português'],['en','EN','English'],['es','ES','Español']];
 
-$('#chaps').innerHTML=CH.map((c,i)=>`<button class="chap" type="button" data-i="${i}" style="--c:${COLORS[c.c]}" aria-pressed="false"><i></i><b>${c.name}</b><small>${c.pt}</small></button>`).join('');
-$('#chaps').addEventListener('click',e=>{const b=e.target.closest('.chap');if(b)setChapter(+b.dataset.i,true);});
-$('#prog').innerHTML=STEPS.map((t,i)=>`<button class="chip" type="button" data-i="${i}" title="${t}"><span class="bar"><i></i></span><span class="nm"><span>${i+1}</span><b>${STEP_SHORT[i]}</b></span></button>`).join('');
+function renderChaps(){$('#chaps').innerHTML=CH.map((c,i)=>`<button class="chap" type="button" data-i="${i}" style="--c:${COLORS[c.c]}" aria-pressed="${i===S.ci}"><i></i><b>${L(c.name)}</b><small>${L(c.sub)}</small></button>`).join('');}
+function renderStatic(){document.documentElement.lang={pt:'pt-BR',en:'en',es:'es'}[LANG];document.title={pt:'Frutose e Galactose',en:'Fructose and Galactose',es:'Fructosa y Galactosa'}[LANG];
+  document.querySelectorAll('[data-i18n]').forEach(e=>{e.textContent=U(e.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>{e.innerHTML=U(e.dataset.i18nHtml);});
+  $('#langs').setAttribute('aria-label',U('lang'));
+  $('#langs').innerHTML=LANGS.map(([k,c,n])=>`<button type="button" data-lang="${k}" title="${n}" aria-label="${n}" aria-pressed="${k===LANG}">${FLAGS[k]}<span>${c}</span></button>`).join('');
+  $('#speed').querySelectorAll('button').forEach(b=>{const v=+b.dataset.s;b.textContent=(LANG==='en'?String(v):String(v).replace('.',','))+'×';});
+  renderChaps();}
+function setLang(lg){if(lg===LANG)return;LANG=lg;try{localStorage.setItem('metapaths-lang',lg);}catch(e){}
+  const si=S.si,t=S.t;renderStatic();S.kind=null;setChapter(S.ci);if(si)goStep(si);S.t=t;}
+$('#langs').addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.dataset.lang);});
+$('#chaps').addEventListener('click',e=>{const b=e.target.closest('.chap');if(b)setChapter(+b.dataset.i);});
 $('#prog').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)goStep(+b.dataset.i);});
-const chipEls=[...document.querySelectorAll('#prog .chip')];
+$('#rt').addEventListener('click',e=>{const m=e.target.closest('.mapc');if(m)setChapter(+m.dataset.k);const n=e.target.closest('#nextC');if(n)setChapter((S.ci+1)%CH.length);});
+let chipEls=[];
 
 function sizeCanvas(c){const r=c.getBoundingClientRect();const d=DPR();const w=Math.max(1,Math.round(r.width*d)),h=Math.max(1,Math.round(r.height*d));if(c.width!==w||c.height!==h){c.width=w;c.height=h;}}
 const ro=('ResizeObserver' in window)?new ResizeObserver(es=>es.forEach(e=>sizeCanvas(e.target))):null;
-function paint(c,org,st,T){const g=c.getContext('2d');if(!c.width)sizeCanvas(c);const W=c.width,H=c.height;g.setTransform(1,0,0,1,0,0);const lb=g.createRadialGradient(W/2,H*.45,0,W/2,H/2,Math.max(W,H)*.7);lb.addColorStop(0,'#0e2650');lb.addColorStop(1,'#050e22');g.fillStyle=lb;g.fillRect(0,0,W,H);
+function paint(c,org,st,T){const g=c.getContext('2d');if(!c.width)sizeCanvas(c);const W=c.width,H=c.height;g.setTransform(1,0,0,1,0,0);
+  const lb=g.createRadialGradient(W/2,H*.45,0,W/2,H/2,Math.max(W,H)*.7);lb.addColorStop(0,'#0e2650');lb.addColorStop(1,'#050e22');g.fillStyle=lb;g.fillRect(0,0,W,H);
   const s=Math.min(W/400,H/300);g.setTransform(s,0,0,s,(W-400*s)/2,(H-300*s)/2);g.save();g.beginPath();g.rect(0,0,400,300);g.clip();try{ORG[org].draw(g,st,T);}catch(err){}g.restore();}
 
-function setChapter(i,user){S.ci=i;const ch=CH[i];document.documentElement.style.setProperty('--cur',COLORS[ch.c]);
+function setChapter(i){S.ci=i;const ch=CH[i];S.L=stepsOf(ch);document.documentElement.style.setProperty('--cur',COLORS[ch.c]);
+  $('#vhName').textContent=L(ch.name);$('#vhPt').textContent=L(ch.sub);
   document.querySelectorAll('.chap').forEach((b,k)=>b.setAttribute('aria-pressed',k===i?'true':'false'));
-  if(S.kind!==ch.path){buildPath(ch.path);S.kind=ch.path;}
-  $('#prof').innerHTML=ch.prof.map(([k,v],n)=>`<span class="pchip${n===2?' k':''}"><b>${k}:</b> ${v}</span>`).join('');
-  $('#meters').innerHTML=ch.meters.map(m=>`<div class="mt"><div class="mt-h"><span>${m.l}</span><em></em></div><div class="tr"><i></i><s style="left:calc(${m.base*100}% - 1px)"></s></div></div>`).join('');
-  try{history.replaceState(null,'','#'+ch.id);}catch(e){}
+  $('#prof').innerHTML=L(ch.prof).map(([k,v],n)=>`<span class="pchip${n===2?' k':''}"><b>${k}:</b> ${v}</span>`).join('');
+  $('#meters').innerHTML=ch.meters.map(m=>`<div class="mt"><div class="mt-h"><span>${L(m.l)}</span><em></em></div><div class="tr"><i></i><s style="left:calc(${m.base*100}% - 1px)"></s></div></div>`).join('');
+  const pg=$('#prog');pg.style.setProperty('--n',S.L.length);
+  pg.innerHTML=S.L.map((s,k)=>`<button class="chip" type="button" data-i="${k}" title="${U('step')} ${k+1} · ${s.t}" aria-label="${U('step')} ${k+1}: ${s.t}"><span class="bar"><i></i></span><span class="nm">${k+1}</span></button>`).join('');
+  chipEls=[...pg.querySelectorAll('.chip')];
+  if(!window.__VIDEO){try{history.replaceState(null,'','#'+ch.id);}catch(e){}}
   goStep(0);}
 
-function goStep(si){const ch=CH[S.ci];S.si=si;S.t=0;
-  const st=ch.steps[si];setAnns(si<6?st.ann:[]);
-  $('#capNum').textContent=`Etapa ${si+1}/8`;$('#capTitle').textContent=STEPS[si];$('#capLv').textContent=LEVEL_NAME[LEVEL[si]];
-  const others=ch.diff.cols.filter(c=>!c.me).map(c=>c.n).join(', ');
-  $('#capText').innerHTML=si<6?st.cap:si===6?`<b>Como não confundir</b> ${ch.name} com ${others}. ${ch.diff.sub} Na via, cada bloqueio aparece na cor da sua doença.`
-    :`<b>Quadro resumo</b> do capítulo. Mensagem final: <span class="d">“${ch.take}”</span>`;
-  const lv=LEVEL[si],ord=['bio','cli','dif'];document.querySelectorAll('.lv').forEach(e=>{const k=ord.indexOf(e.dataset.l),c=ord.indexOf(lv);e.classList.toggle('on',k===c);e.classList.toggle('done',k<c);});
-  const ps=$('#pwStatus');ps.textContent=si===0?'Via normal':si===6?'Bloqueios comparados':'Bloqueio · '+ch.enzyme;ps.classList.toggle('nrm',si===0);
-  const rs=$('#rtStatus');rs.textContent=si<6?st.rs:si===6?'Diferencial':'Resumo';rs.classList.toggle('nrm',!!(si<6&&st.nrm));
-  $('#rtTitle').textContent=si<6?st.rt:si===6?'Como não confundir':'Quadro resumo';
+function figsHTML(figs){return `<div class="figs" data-n="${figs.length}">`+figs.map(f=>`<figure class="fg"><canvas aria-label="${L(f.t)}" role="img"></canvas><figcaption><b>${L(f.t)}</b>${L(f.c)}</figcaption></figure>`).join('')+'</div>';}
+
+function goStep(si){const ch=CH[S.ci],n=S.L.length,N=isN(ch);S.si=si;S.t=0;
+  const st=ch.steps[si];const kind=N?st.path:ch.path;if(S.kind!==kind){buildPath(kind);S.kind=kind;}
+  setAnns(N||si<6?st.ann:[]);
+  $('#capNum').textContent=`${U('step')} ${si+1}/${n}`;$('#capTitle').textContent=S.L[si].t;$('#capLv').textContent=L(LEVEL_NAME[S.L[si].lv]);
+  const D=ch.diff,d=D?(D[LANG]||D.pt):null;
+  let cap;if(N||si<6)cap=L(st.cap);else if(si===6){const others=D.cols.filter(c=>!c.me).map(c=>L(c.n)).join(', ');cap=fill(U('diffCap'),{a:L(ch.name),b:others,sub:d.sub});}
+  else cap=fill(U('sumCap'),{t:ch.take});$('#capText').innerHTML=cap;
+  const lv=S.L[si].lv,ord=['bio','cli','dif'];document.querySelectorAll('.lv').forEach(e=>{const k=ord.indexOf(e.dataset.l),c=ord.indexOf(lv);e.classList.toggle('on',k===c);e.classList.toggle('done',k<c);});
+  const ps=$('#pwStatus');if(N){ps.textContent=st.marks?U('sMarks'):U('sNormal');ps.classList.toggle('nrm',!st.marks);}
+  else{ps.textContent=si===0?U('sNormal'):si===6?U('sCompared'):U('sBlock')+ch.enzyme;ps.classList.toggle('nrm',si===0);}
+  const rs=$('#rtStatus');
+  if(N){rs.textContent=L(st.rs);rs.classList.toggle('nrm',!st.map);$('#rtTitle').textContent=L(st.rt);}
+  else{rs.textContent=si<6?L(st.rs):si===6?U('sDiff'):U('sSum');rs.classList.toggle('nrm',!!(si<6&&st.nrm));$('#rtTitle').textContent=si<6?L(st.rt):si===6?U('howNot'):U('sumT');}
   chipEls.forEach((c,k)=>{c.classList.toggle('on',k===si);c.classList.toggle('done',k<si);c.querySelector('i').style.transform=`scaleX(${k<si?1:0})`;});
   const rt=$('#rt');S.figs.forEach(f=>ro&&ro.unobserve(f.c));S.figs=[];
-  if(si<6){rt.innerHTML=`<div class="figs" data-n="${st.figs.length}">`+st.figs.map(f=>`<figure class="fg"><canvas aria-label="${f.t}" role="img"></canvas><figcaption><b>${f.t}</b>${f.c}</figcaption></figure>`).join('')+'</div>';
-    rt.querySelectorAll('canvas').forEach((c,k)=>{S.figs.push({c,f:st.figs[k]});if(ro)ro.observe(c);sizeCanvas(c);});}
-  else if(si===6){const d=ch.diff;rt.innerHTML=`<p class="dif-sub">${d.sub}</p><div class="dtw"><div class="dt" style="--n:${d.cols.length}"><div class="l"></div>`+
-    d.cols.map(c=>`<div class="h${c.me?' me':''}" style="--c:${COLORS[c.c]}"><small>${c.me?'ESTE CAPÍTULO':c.s}</small><b>${c.n}</b></div>`).join('')+
-    d.rows.map(r=>`<div class="l">${r[0]}</div>`+r.slice(1).map((v,k)=>`<div class="${d.cols[k].me?'me':''}">${v}</div>`).join('')).join('')+
+  if(N&&st.map){rt.innerHTML='<div class="maps">'+st.map.map(id=>{const k=CH.findIndex(c=>c.id===id),c=CH[k];
+      return `<button class="mapc" type="button" data-k="${k}" style="--c:${COLORS[c.c]}"><svg class="x" viewBox="-12 -12 24 24" aria-hidden="true"><use href="#gl-x"/></svg><b>${L(c.name)}</b><small>${L(c.sub)} · ${U('blockAt')} ${c.enzyme}</small><dl><dt>${U('dAcc')}</dt><dd>${L(c.sum).acc}</dd><dt>${U('dDmg')}</dt><dd>${L(c.prof)[2][1]}</dd></dl><span class="go">${U('openCh')}</span></button>`;}).join('')+'</div>';}
+  else if(N||si<6){rt.innerHTML=figsHTML(st.figs);rt.querySelectorAll('canvas').forEach((c,k)=>{S.figs.push({c,f:st.figs[k]});if(ro)ro.observe(c);sizeCanvas(c);});}
+  else if(si===6){rt.innerHTML=`<p class="dif-sub">${d.sub}</p><div class="dtw"><div class="dt" style="--n:${D.cols.length}"><div class="l"></div>`+
+    D.cols.map((c,k)=>`<div class="h${c.me?' me':''}" style="--c:${COLORS[c.c]}"><small>${c.me?U('thisCh'):d.s[k]}</small><b>${L(c.n)}</b></div>`).join('')+
+    d.rows.map(r=>`<div class="l">${r[0]}</div>`+r.slice(1).map((v,k)=>`<div class="${D.cols[k].me?'me':''}">${v}</div>`).join('')).join('')+
     `<div class="l last">${d.key[0]}</div>`+d.key.slice(1).map(v=>`<div class="key last">${v}</div>`).join('')+`</div></div><p class="rule">${d.rule}</p>`;}
-  else{const s=ch.sum,nx=CH[(S.ci+1)%CH.length];rt.innerHTML=`<div class="sumcard"><header><b>${ch.name}</b><span>${ch.pt}</span></header><dl>
-    <dt>Doença</dt><dd>${ch.name} · ${ch.pt}</dd><dt>Enzima</dt><dd class="mono">${s.enz}</dd><dt>Acúmulo</dt><dd>${s.acc}</dd><dt>Tecidos</dt><dd>${s.tis}</dd>
-    <dt>Pistas clínicas</dt><dd>${s.cli}</dd><dt>Não confundir com</dt><dd>${s.nc}</dd></dl></div>
-    <div class="take"><span>Take-home message</span><q>${ch.take}</q></div><button class="nextc" type="button" id="nextC">Próximo capítulo: ${nx.name} →</button>`;
-    $('#nextC').onclick=()=>setChapter((S.ci+1)%CH.length,true);}
+  else{const s=L(ch.sum),nx=CH[(S.ci+1)%CH.length];rt.innerHTML=`<div class="sumcard"><header><b>${L(ch.name)}</b><span>${L(ch.sub)}</span></header><dl>
+    <dt>${U('dDis')}</dt><dd>${L(ch.name)} · ${L(ch.sub)}</dd><dt>${U('dEnz')}</dt><dd class="mono">${s.enz}</dd><dt>${U('dAcc')}</dt><dd>${s.acc}</dd><dt>${U('dTis')}</dt><dd>${s.tis}</dd>
+    <dt>${U('dCli')}</dt><dd>${s.cli}</dd><dt>${U('dNc')}</dt><dd>${s.nc}</dd></dl></div>
+    <div class="take"><span>Take-home message</span><q>${ch.take}</q></div><button class="nextc" type="button" id="nextC">${U('next')} ${L(nx.name)}</button>`;}
   updTime();}
 
 function meterVals(ch,si,u){return ch.meters.map(m=>lerp(si===0?m.v[0]:m.v[si-1],m.v[si],es(u,.1,.8)));}
-function updMeters(ch,mv){document.querySelectorAll('#meters .mt').forEach((e,i)=>{const m=ch.meters[i],v=mv[i],d=v-m.base;let txt='normal',bad=false;
-  if(m.abs&&v<.05){txt='ausente';bad=true;}else if(d>.2){txt='↑ elevado';bad=true;}else if(d<-.2){txt='↓ baixo';bad=true;}
+function updMeters(ch,mv){document.querySelectorAll('#meters .mt').forEach((e,i)=>{const m=ch.meters[i],v=mv[i],d=v-m.base;let txt=U('mNormal'),bad=false;
+  if(m.abs&&v<.05){txt=U('mAbs');bad=true;}else if(d>.2){txt=U('mUp');bad=true;}else if(d<-.2){txt=U('mDown');bad=true;}
   e.classList.toggle('bad',bad);const em=e.querySelector('em');if(em.textContent!==txt){em.textContent=txt;em.classList.toggle('bad',bad);}e.querySelector('.tr i').style.width=(clamp(v)*100).toFixed(1)+'%';});}
-function updTime(){const el0=DUR.slice(0,S.si).reduce((a,b)=>a+b,0)+S.t;$('#time').textContent=`${fmt(el0)} / ${fmt(TOTAL)}`;}
-function setPlay(p){S.play=p;$('#icoPause').hidden=!p;$('#icoPlay').hidden=p;$('#bPlay').setAttribute('aria-label',p?'Pausar':'Reproduzir');}
-function next(){if(S.si<7)goStep(S.si+1);else if(S.ci<CH.length-1)setChapter(S.ci+1);else{S.t=DUR[7];setPlay(false);}}
-$('#bPlay').onclick=()=>{if(!S.play&&S.ci===CH.length-1&&S.si===7&&S.t>=DUR[7]-.05){setChapter(0);}setPlay(!S.play);};
+function updTime(){const tot=S.L.reduce((a,b)=>a+b.d,0),el0=S.L.slice(0,S.si).reduce((a,b)=>a+b.d,0)+S.t;$('#time').textContent=`${fmt(el0)} / ${fmt(tot)}`;}
+function setPlay(p){S.play=p;$('#icoPause').hidden=!p;$('#icoPlay').hidden=p;$('#bPlay').setAttribute('aria-label',p?'Pause':'Play');}
+const lastStep=()=>S.L.length-1;
+function next(){if(S.si<lastStep())goStep(S.si+1);else if(S.ci<CH.length-1)setChapter(S.ci+1);else{S.t=S.L[S.si].d;setPlay(false);}}
+$('#bPlay').onclick=()=>{if(!S.play&&S.ci===CH.length-1&&S.si===lastStep()&&S.t>=S.L[S.si].d-.05)setChapter(0);setPlay(!S.play);};
 $('#bFwd').onclick=next;
-$('#bBack').onclick=()=>{if(S.t>1.2)goStep(S.si);else if(S.si>0)goStep(S.si-1);else if(S.ci>0){setChapter(S.ci-1);goStep(7);}};
+$('#bBack').onclick=()=>{if(S.t>1.2)goStep(S.si);else if(S.si>0)goStep(S.si-1);else if(S.ci>0){setChapter(S.ci-1);goStep(lastStep());}};
 $('#bRestart').onclick=()=>goStep(0);
 $('#speed').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.speed=+b.dataset.s;$('#speed').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));});
 document.addEventListener('keydown',e=>{if($('#atl').open)return;const tg=e.target.tagName;if(tg==='INPUT'||tg==='SELECT'||tg==='TEXTAREA')return;
@@ -980,8 +1320,8 @@ document.addEventListener('keydown',e=>{if($('#atl').open)return;const tg=e.targ
 const ATL_DEF={hepatocyte:{fru:.5,f1p:.35,glyc:.6,atp:.85,trap:1},liver:{size:1.15,jaundice:.35,infant:1},lens:{tol:.6,water:.5,opac:.45},eye:{cat:.7,jaundice:.35},
   kidney:{sug:'fru',spill:.7,fanconi:.6},blood:{ecoli:.6,impair:1},intestine:{mode:'gal'},brain:{glu:.3},muscle:{hk:1},cardio:{},urine:{u:1},growth:{u:1},timeline:{}};
 let ATL=[];
-function openAtlas(){const use={};CH.forEach(c=>c.steps.forEach(st=>st.figs.forEach(f=>{(use[f.o]=use[f.o]||new Set()).add(c);})));
-  $('#atlG').innerHTML=Object.keys(ORG).map(k=>{const u=use[k]?[...use[k]]:[];return `<figure class="fg"><canvas role="img" aria-label="${ORG[k].name}"></canvas><figcaption><b>${ORG[k].name}</b><span class="use">${u.length?u.map(c=>`<i style="--c:${COLORS[c.c]}">${c.name}</i>`).join(''):'<i class="no">pronto para módulos futuros</i>'}</span></figcaption></figure>`;}).join('');
+function openAtlas(){const use={};CH.forEach(c=>c.steps.forEach(st=>(st.figs||[]).forEach(f=>{(use[f.o]=use[f.o]||new Set()).add(c);})));
+  $('#atlG').innerHTML=Object.keys(ORG).map(k=>{const u=use[k]?[...use[k]]:[];return `<figure class="fg"><canvas role="img" aria-label="${T_(ORG[k].name)}"></canvas><figcaption><b>${T_(ORG[k].name)}</b><span class="use">${u.length?u.map(c=>`<i style="--c:${COLORS[c.c]}">${L(c.name)}</i>`).join(''):`<i class="no">${U('future')}</i>`}</span></figcaption></figure>`;}).join('');
   ATL=[...$('#atlG').querySelectorAll('canvas')].map((c,i)=>({c,o:Object.keys(ORG)[i]}));$('#atl').showModal();ATL.forEach(a=>sizeCanvas(a.c));}
 $('#atlB').onclick=openAtlas;$('#atlX').onclick=()=>$('#atl').close();
 $('#atl').addEventListener('click',e=>{if(e.target===$('#atl'))$('#atl').close();});
@@ -989,17 +1329,32 @@ $('#atl').addEventListener('click',e=>{if(e.target===$('#atl'))$('#atl').close()
 /* laço */
 let last=performance.now(),T=0;
 function frame(now){const dt=Math.min(.1,(now-last)/1000);last=now;T+=dt;
-  const ch=CH[S.ci];if(S.play){S.t+=dt*S.speed;if(S.t>=DUR[S.si]){next();}}
-  const u=clamp(S.t/DUR[S.si]);const mv=meterVals(ch,S.si,u);
-  drawPath(ch,S.si,u,T,mv);updMeters(ch,mv);
+  if(S.play){S.t+=dt*S.speed;if(S.t>=S.L[S.si].d){next();}}
+  const u=clamp(S.t/S.L[S.si].d);const mv=meterVals(CH[S.ci],S.si,u);
+  drawPath(CH[S.ci],S.si,u,T,mv);updMeters(CH[S.ci],mv);
   S.figs.forEach(({c,f})=>paint(c,f.o,f.s(u),T));
-  chipEls[S.si].querySelector('i').style.transform=`scaleX(${u.toFixed(3)})`;updTime();
+  if(chipEls[S.si])chipEls[S.si].querySelector('i').style.transform=`scaleX(${u.toFixed(3)})`;updTime();
   if($('#atl').open)ATL.forEach(a=>paint(a.c,a.o,ATL_DEF[a.o]||{},T));
   requestAnimationFrame(frame);}
+renderStatic();
+if(window.__VIDEO){document.body.classList.add('vid');$('#vhead').hidden=false;S.play=false;setChapter(0);
+  const vc=$('#vcard');let vkey='';
+  window.__vid={
+    chapters:()=>CH.map(c=>({id:c.id,n:stepsOf(c).length})),
+    go(ci,si){vc.hidden=true;if(ci!==S.ci)setChapter(ci);goStep(si);const ct=$('#capText');ct.innerHTML=ct.innerHTML.replace('Escolha um capítulo no topo para ver cada uma.','A seguir, cada uma em detalhe.');return {len:ct.textContent.length,lv:S.L[si].lv};},
+    draw(u,T){const ch=CH[S.ci];const mv=meterVals(ch,S.si,u);drawPath(ch,S.si,u,T,mv);updMeters(ch,mv);S.figs.forEach(({c,f})=>paint(c,f.o,f.s(u),T));
+      chipEls.forEach((c,k)=>c.querySelector('i').style.transform=`scaleX(${k<S.si?1:k===S.si?u.toFixed(3):0})`);},
+    card(kind,ci,op){const k=kind+ci;if(k!==vkey){vkey=k;const ch=CH[ci]||CH[0];document.documentElement.style.setProperty('--cur',COLORS[ch.c]);
+        vc.innerHTML=kind==='intro'?`<div class="in"><span class="ey">${U('eyebrow')}</span><h2>${U('h1')}</h2><ol>${CH.map(c=>`<li style="--c:${COLORS[c.c]}"><i></i><span>${L(c.name)}</span></li>`).join('')}</ol></div>`
+          :kind==='end'?`<div class="in"><span class="ey">Take-home</span><ol>${CH.filter(c=>c.take).map(c=>`<li style="--c:${COLORS[c.c]}"><i></i><span>${L(c.name)}<br><small>${c.take}</small></span></li>`).join('')}</ol></div>`
+          :`<div class="in"><span class="ey">${ci+1} / ${CH.length}</span><span class="bar"></span><h2>${L(ch.name)}</h2><span class="pt">${L(ch.sub)}</span><div class="chips">${L(ch.prof).map(([a,b])=>`<span><b>${a}:</b> ${b}</span>`).join('')}</div></div>`;}
+      vc.hidden=false;vc.style.opacity=op;}
+  };
+}else{
 setPlay(S.play);
 const h=(location.hash||'').slice(1);const hi=CH.findIndex(c=>c.id===h);setChapter(hi>=0?hi:0);
 window.addEventListener('hashchange',()=>{const k=CH.findIndex(c=>c.id===location.hash.slice(1));if(k>=0&&k!==S.ci)setChapter(k);});
-requestAnimationFrame(frame);
+requestAnimationFrame(frame);}
 })();
 </script>
 

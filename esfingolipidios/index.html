@@ -698,7 +698,7 @@ const I18={"Animação 3D do metabolismo dos esfingolipídios. Arraste para gira
    Sem entrada no dicionário, o texto sai como está (siglas, genes, números). */
 const LANGS=[['pt','PT','Português','pt-BR'],['en','EN','English','en'],['es','ES','Español','es']];
 let LANG='pt';
-try{const q=(new URLSearchParams(location.search).get('lang')||'').toLowerCase();const v=(q==='pt'||q==='en'||q==='es')?q:localStorage.getItem('sph-lang');if(v==='en'||v==='es')LANG=v;}catch(e){}
+try{const q=(new URLSearchParams(location.search).get('lang')||'').toLowerCase();const v=(q==='pt'||q==='en'||q==='es')?q:(localStorage.getItem('metapaths-lang')||localStorage.getItem('sph-lang'));if(v==='en'||v==='es')LANG=v;}catch(e){}/* escolha vale para o site inteiro */
 const I18REC=/[?&]i18rec\b/.test(location.search)?new Set():null;if(I18REC)window.__i18rec=I18REC;
 const I18MISS=new Set();window.__i18miss=I18MISS;
 let I18OUT=new Set();
@@ -752,7 +752,7 @@ function i18apply(){i18out();const L0=LANGS.find(l=>l[0]===LANG);document.docume
   i18static();I18D.forEach(([o,k,v])=>{o[k]=T(v);});
   if(typeof LABELS!=='undefined')LABELS.forEach(L=>L.retr());
   I18H.forEach(f=>{try{f();}catch(e){console.error(e);}});renderLangs();}
-function setLang(lg){if(lg===LANG)return;LANG=lg;try{localStorage.setItem('sph-lang',lg);}catch(e){}i18apply();}
+function setLang(lg){if(lg===LANG)return;LANG=lg;try{localStorage.setItem('metapaths-lang',lg);}catch(e){}i18apply();}
 langsEl.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(b)setLang(b.dataset.lang);});
 i18out();i18scan();if(LANG!=='pt'){i18static();const L0=LANGS.find(l=>l[0]===LANG);document.documentElement.lang=L0[3];document.title=T('Esfingolipídios 3D');}
 renderLangs();
