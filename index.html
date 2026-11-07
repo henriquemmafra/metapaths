@@ -38,7 +38,14 @@ a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 
 /* ---------- abertura ---------- */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:24px 56px;align-items:center;padding:56px 0 40px}
+/* ---------- seletor de idioma (mesmo desenho dos módulos) ---------- */
+.bar{display:flex;justify-content:flex-end;padding-top:max(16px,env(safe-area-inset-top,0px))}
+.langs{display:inline-flex;gap:2px;border:1px solid var(--borda);border-radius:999px;padding:3px;background:var(--prancha)}
+.langs button{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;border-radius:999px;padding:5px 9px;cursor:pointer;color:var(--nevoa);font:600 11.5px/1 var(--sans);letter-spacing:.08em}
+.langs button:hover{color:var(--tinta)}
+.langs svg{width:22px;height:15px;border-radius:2px;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.28)}
+.langs button[aria-pressed="true"]{background:rgba(242,234,211,.16);color:var(--marfim)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:24px 56px;align-items:center;padding:28px 0 40px}
 .hero h1{margin:0;font:500 clamp(46px,7.2vw,88px)/.95 var(--serif);letter-spacing:-.025em;color:var(--marfim);font-variation-settings:"opsz" 60}
 .lede{margin:22px 0 0;max-width:34ch;font:400 20px/1.5 var(--serif);color:var(--tinta)}
 .how{margin:18px 0 0;max-width:46ch;font-size:15px;color:var(--nevoa)}
@@ -85,7 +92,7 @@ footer p{margin:0 0 6px;max-width:70ch}
 footer b{font-weight:500;color:var(--nevoa)}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:minmax(0,1fr);padding:36px 0 28px}
+  .hero{grid-template-columns:minmax(0,1fr);padding:20px 0 28px}
   .map{max-width:520px}
   .item{grid-template-columns:minmax(0,1fr);padding:28px 0}
   .item h3{font-size:28px}
@@ -99,11 +106,13 @@ footer b{font-weight:500;color:var(--nevoa)}
 <body>
 <div class="wrap">
 
+<div class="bar"><div class="langs" id="langs" role="group" aria-label="Idioma"></div></div>
+
 <header class="hero">
   <div>
     <h1>Rotas metabólicas</h1>
     <p class="lede">Animações interativas de erros inatos do metabolismo, da enzima que falta ao quadro clínico.</p>
-    <p class="how">Cada região do mapa é uma animação: clique para abrir. Os traços <span class="tick" aria-hidden="true"></span> vermelhos marcam os bloqueios enzimáticos estudados.</p>
+    <p class="how" data-i18h>Cada região do mapa é uma animação: clique para abrir. Os traços <span class="tick" aria-hidden="true"></span> vermelhos marcam os bloqueios enzimáticos estudados.</p>
   </div>
 
   <figure class="map">
@@ -199,7 +208,7 @@ footer b{font-weight:500;color:var(--nevoa)}
     <div>
       <h3><a href="glicogenolise/">Glicogenólise 3D</a></h3>
       <p>A degradação do glicogênio em 3D, uma enzima por vez: fosforilase, transferase e α-1,6-glicosidase. O mapa da glicólise mostra cada reação animada, com o saldo de ATP.</p>
-      <p class="dz"><b>Doenças:</b> doença de Cori em detalhe, e um atlas das glicogenoses com von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel e Danon.</p>
+      <p class="dz" data-i18h><b>Doenças:</b> doença de Cori em detalhe, e um atlas das glicogenoses com von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel e Danon.</p>
       <p class="note">Cena 3D: funciona melhor no computador.</p>
       <a class="open" href="glicogenolise/">Abrir a animação</a>
     </div>
@@ -210,7 +219,7 @@ footer b{font-weight:500;color:var(--nevoa)}
     <div>
       <h3><a href="frutose-galactose/">Frutose e galactose</a></h3>
       <p>Quatro mini-capítulos em oito etapas cada: via normal, bloqueio, acúmulo, tecidos atingidos, quadro clínico e como não confundir com as doenças vizinhas.</p>
-      <p class="dz"><b>Doenças:</b> frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica.</p>
+      <p class="dz" data-i18h><b>Doenças:</b> frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica.</p>
       <a class="open" href="frutose-galactose/">Abrir a animação</a>
     </div>
   </article>
@@ -220,7 +229,7 @@ footer b{font-weight:500;color:var(--nevoa)}
     <div>
       <h3><a href="atlas-metabolico/">Atlas Metabólico 3D</a></h3>
       <p>Mapa 3D clicável da fenilalanina e da tirosina, com os quatro destinos da tirosina: catabolismo, catecolaminas, melanina e hormônios tireoidianos. Cada doença tem animação própria e um caso clínico.</p>
-      <p class="dz"><b>Doenças:</b> fenilcetonúria, defeitos de BH4, tirosinemias I, II e III, alcaptonúria e albinismo.</p>
+      <p class="dz" data-i18h><b>Doenças:</b> fenilcetonúria, defeitos de BH4, tirosinemias I, II e III, alcaptonúria e albinismo.</p>
       <p class="note">Cena 3D: funciona melhor no computador.</p>
       <a class="open" href="atlas-metabolico/">Abrir a animação</a>
     </div>
@@ -231,7 +240,7 @@ footer b{font-weight:500;color:var(--nevoa)}
     <div>
       <h3><a href="esfingolipidios/">Esfingolipídios 3D</a></h3>
       <p>Da esfingosina à ceramida e às suas cabeças de açúcar, fosfocolina e sulfato. A síntese no RE e no Golgi, as saposinas levantando o lipídio para a enzima e a degradação no lisossomo, um resíduo por vez. Clique em qualquer seta do atlas para ver a enzima cortando a ligação.</p>
-      <p class="dz"><b>Doenças:</b> Tay-Sachs, Sandhoff, gangliosidose GM1, Fabry, Gaucher 1, 2 e 3, Niemann-Pick A, B e C, Krabbe, leucodistrofia metacromática, Farber e as deficiências de saposina, com sinais de imagem e diferenciais lado a lado.</p>
+      <p class="dz" data-i18h><b>Doenças:</b> Tay-Sachs, Sandhoff, gangliosidose GM1, Fabry, Gaucher 1, 2 e 3, Niemann-Pick A, B e C, Krabbe, leucodistrofia metacromática, Farber e as deficiências de saposina, com sinais de imagem e diferenciais lado a lado.</p>
       <p class="note">Cena 3D: funciona melhor no computador.</p>
       <a class="open" href="esfingolipidios/">Abrir a animação</a>
     </div>
@@ -239,10 +248,34 @@ footer b{font-weight:500;color:var(--nevoa)}
 </main>
 
 <footer>
-  <p>Feito por <b>Henrique Martins dos Santos Filho</b>, radiologista.</p>
+  <p data-i18h>Feito por <b>Henrique Martins dos Santos Filho</b>, radiologista.</p>
   <p>Material didático para estudo. Formas e posições das moléculas não são estruturais, e o conteúdo não substitui as fontes de referência.</p>
 </footer>
 
 </div>
+<script>
+/* idiomas: o texto da página fica em português; I18 traz inglês e espanhol. A escolha vale para o site inteiro (localStorage "metapaths-lang"). */
+(function(){
+const I18={"Idioma": ["Language", "Idioma"], "Rotas metabólicas": ["Metabolic pathways", "Rutas metabólicas"], "Animações interativas de erros inatos do metabolismo, da enzima que falta ao quadro clínico.": ["Interactive animations of inborn errors of metabolism, from the missing enzyme to the clinical picture.", "Animaciones interactivas de errores innatos del metabolismo, de la enzima que falta al cuadro clínico."], "Cada região do mapa é uma animação: clique para abrir. Os traços <span class=\"tick\" aria-hidden=\"true\"></span> vermelhos marcam os bloqueios enzimáticos estudados.": ["Each region of the map is an animation: click to open it. The red <span class=\"tick\" aria-hidden=\"true\"></span> marks are the enzyme blocks covered.", "Cada región del mapa es una animación: haz clic para abrirla. Las marcas rojas <span class=\"tick\" aria-hidden=\"true\"></span> señalan los bloqueos enzimáticos estudiados."], "Mapa do metabolismo: glicogênio, frutose e galactose, fenilalanina e tirosina, convergindo na glicólise e no ciclo de Krebs; esfingolipídios a partir da serina": ["Map of metabolism: glycogen, fructose and galactose, phenylalanine and tyrosine, converging on glycolysis and the Krebs cycle; sphingolipids from serine", "Mapa del metabolismo: glucógeno, fructosa y galactosa, fenilalanina y tirosina, que convergen en la glucólisis y el ciclo de Krebs; esfingolípidos a partir de la serina"], "Abrir Frutose e galactose": ["Open Fructose and galactose", "Abrir Fructosa y galactosa"], "Abrir Glicogenólise 3D": ["Open Glycogenolysis 3D", "Abrir Glucogenólisis 3D"], "Abrir Atlas Metabólico 3D": ["Open Metabolic Atlas 3D", "Abrir Atlas metabólico 3D"], "Abrir Esfingolipídios 3D": ["Open Sphingolipids 3D", "Abrir Esfingolípidos 3D"], "Frutose e": ["Fructose and", "Fructosa y"], "galactose": ["galactose", "galactosa"], "Glicogenólise": ["Glycogenolysis", "Glucogenólisis"], "Atlas Metabólico": ["Metabolic Atlas", "Atlas metabólico"], "Esfingolipídios": ["Sphingolipids", "Esfingolípidos"], "Glicogênio": ["Glycogen", "Glucógeno"], "Glicose-1-P": ["Glucose-1-P", "Glucosa-1-P"], "Glicose-6-P": ["Glucose-6-P", "Glucosa-6-P"], "Glicose": ["Glucose", "Glucosa"], "Glicólise": ["Glycolysis", "Glucólisis"], "Piruvato": ["Pyruvate", "Piruvato"], "Ciclo de": ["Krebs", "Ciclo de"], "Krebs": ["cycle", "Krebs"], "Galactose": ["Galactose", "Galactosa"], "Galactose-1-P": ["Galactose-1-P", "Galactosa-1-P"], "Frutose": ["Fructose", "Fructosa"], "Frutose-1-P": ["Fructose-1-P", "Fructosa-1-P"], "trioses": ["trioses", "triosas"], "Fenilalanina": ["Phenylalanine", "Fenilalanina"], "Tirosina": ["Tyrosine", "Tirosina"], "Fumarato": ["Fumarate", "Fumarato"], "+ acetoacetato": ["+ acetoacetate", "+ acetoacetato"], "serina": ["serine", "serina"], "Glicolipídios": ["Glycolipids", "Glucolípidos"], "Ceramida": ["Ceramide", "Ceramida"], "Esquema simplificado: só as etapas ligadas às animações.": ["Simplified diagram: only the steps tied to the animations.", "Esquema simplificado: solo los pasos ligados a las animaciones."], "As animações": ["The animations", "Las animaciones"], "Glicogenólise 3D": ["Glycogenolysis 3D", "Glucogenólisis 3D"], "A degradação do glicogênio em 3D, uma enzima por vez: fosforilase, transferase e α-1,6-glicosidase. O mapa da glicólise mostra cada reação animada, com o saldo de ATP.": ["Glycogen breakdown in 3D, one enzyme at a time: phosphorylase, transferase and α-1,6-glucosidase. The glycolysis map animates every reaction, with the ATP balance.", "La degradación del glucógeno en 3D, una enzima a la vez: fosforilasa, transferasa y α-1,6-glucosidasa. El mapa de la glucólisis anima cada reacción, con el balance de ATP."], "<b>Doenças:</b> doença de Cori em detalhe, e um atlas das glicogenoses com von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel e Danon.": ["<b>Diseases:</b> Cori disease in detail, plus an atlas of the glycogen storage diseases with von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel and Danon.", "<b>Enfermedades:</b> enfermedad de Cori en detalle y un atlas de las glucogenosis con von Gierke, Pompe, McArdle, Andersen, Hers, Tarui, Fanconi-Bickel y Danon."], "Cena 3D: funciona melhor no computador.": ["3D scene: works best on a computer.", "Escena 3D: funciona mejor en la computadora."], "Abrir a animação": ["Open the animation", "Abrir la animación"], "Frutose e galactose": ["Fructose and galactose", "Fructosa y galactosa"], "Quatro mini-capítulos em oito etapas cada: via normal, bloqueio, acúmulo, tecidos atingidos, quadro clínico e como não confundir com as doenças vizinhas.": ["Four mini-chapters of eight steps each: normal pathway, block, buildup, tissues affected, clinical picture and how not to confuse it with neighboring diseases.", "Cuatro minicapítulos de ocho pasos cada uno: vía normal, bloqueo, acúmulo, tejidos afectados, cuadro clínico y cómo no confundirla con las enfermedades vecinas."], "<b>Doenças:</b> frutosúria essencial, intolerância hereditária à frutose, deficiência de galactoquinase e galactosemia clássica.": ["<b>Diseases:</b> essential fructosuria, hereditary fructose intolerance, galactokinase deficiency and classic galactosemia.", "<b>Enfermedades:</b> fructosuria esencial, intolerancia hereditaria a la fructosa, deficiencia de galactocinasa y galactosemia clásica."], "Atlas Metabólico 3D": ["Metabolic Atlas 3D", "Atlas metabólico 3D"], "Mapa 3D clicável da fenilalanina e da tirosina, com os quatro destinos da tirosina: catabolismo, catecolaminas, melanina e hormônios tireoidianos. Cada doença tem animação própria e um caso clínico.": ["Clickable 3D map of phenylalanine and tyrosine, with the four fates of tyrosine: catabolism, catecholamines, melanin and thyroid hormones. Each disease has its own animation and a clinical case.", "Mapa 3D interactivo de la fenilalanina y la tirosina, con los cuatro destinos de la tirosina: catabolismo, catecolaminas, melanina y hormonas tiroideas. Cada enfermedad tiene su propia animación y un caso clínico."], "<b>Doenças:</b> fenilcetonúria, defeitos de BH4, tirosinemias I, II e III, alcaptonúria e albinismo.": ["<b>Diseases:</b> phenylketonuria, BH4 defects, tyrosinemias I, II and III, alkaptonuria and albinism.", "<b>Enfermedades:</b> fenilcetonuria, defectos de BH4, tirosinemias I, II y III, alcaptonuria y albinismo."], "Esfingolipídios 3D": ["Sphingolipids 3D", "Esfingolípidos 3D"], "Da esfingosina à ceramida e às suas cabeças de açúcar, fosfocolina e sulfato. A síntese no RE e no Golgi, as saposinas levantando o lipídio para a enzima e a degradação no lisossomo, um resíduo por vez. Clique em qualquer seta do atlas para ver a enzima cortando a ligação.": ["From sphingosine to ceramide and its sugar, phosphocholine and sulfate heads. Synthesis in the ER and Golgi, saposins lifting the lipid up to the enzyme, and degradation in the lysosome, one residue at a time. Click any arrow in the atlas to see the enzyme cut the bond.", "De la esfingosina a la ceramida y sus cabezas de azúcar, fosfocolina y sulfato. La síntesis en el RE y el Golgi, las saposinas levantando el lípido hacia la enzima y la degradación en el lisosoma, un residuo a la vez. Haz clic en cualquier flecha del atlas para ver a la enzima cortar el enlace."], "<b>Doenças:</b> Tay-Sachs, Sandhoff, gangliosidose GM1, Fabry, Gaucher 1, 2 e 3, Niemann-Pick A, B e C, Krabbe, leucodistrofia metacromática, Farber e as deficiências de saposina, com sinais de imagem e diferenciais lado a lado.": ["<b>Diseases:</b> Tay-Sachs, Sandhoff, GM1 gangliosidosis, Fabry, Gaucher 1, 2 and 3, Niemann-Pick A, B and C, Krabbe, metachromatic leukodystrophy, Farber and the saposin deficiencies, with imaging signs and differentials side by side.", "<b>Enfermedades:</b> Tay-Sachs, Sandhoff, gangliosidosis GM1, Fabry, Gaucher 1, 2 y 3, Niemann-Pick A, B y C, Krabbe, leucodistrofia metacromática, Farber y las deficiencias de saposina, con signos de imagen y diferenciales lado a lado."], "Feito por <b>Henrique Martins dos Santos Filho</b>, radiologista.": ["Made by <b>Henrique Martins dos Santos Filho</b>, radiologist.", "Hecho por <b>Henrique Martins dos Santos Filho</b>, radiólogo."], "Material didático para estudo. Formas e posições das moléculas não são estruturais, e o conteúdo não substitui as fontes de referência.": ["Teaching material for study. Molecule shapes and positions are not structural, and the content does not replace reference sources.", "Material didáctico para estudio. Las formas y posiciones de las moléculas no son estructurales, y el contenido no sustituye a las fuentes de referencia."]};
+const LANGS=[['pt','PT','Português','pt-BR'],['en','EN','English','en'],['es','ES','Español','es']];
+let LANG='pt';try{const q=(new URLSearchParams(location.search).get('lang')||'').toLowerCase();const v=(q==='pt'||q==='en'||q==='es')?q:localStorage.getItem('metapaths-lang');if(v==='en'||v==='es')LANG=v;if(q)localStorage.setItem('metapaths-lang',q);}catch(e){}
+const T=s=>{if(LANG==='pt')return s;const t=s.trim(),e=I18[t];return e?s.replace(t,e[LANG==='en'?0:1]):s;};
+const FLAGS={
+ pt:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#009b3a"/><polygon points="15,2.2 27.5,10 15,17.8 2.5,10" fill="#fedf00"/><circle cx="15" cy="10" r="4.7" fill="#002776"/><path d="M10.5 9.3 Q15 7.7 19.6 10.7" fill="none" stroke="#fff" stroke-width="1"/></svg>',
+ en:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/>'+[0,2,4,6,8,10,12].map(i=>'<rect y="'+(i*20/13).toFixed(2)+'" width="30" height="1.54" fill="#b22234"/>').join('')+'<rect width="13" height="10.8" fill="#3c3b6e"/>'+[1.8,4.6,7.4,10.2].map(x=>[1.8,4.5,7.2,9.6].map(y=>'<circle cx="'+(x+((y>3&&y<6)||y>8?1.3:0))+'" cy="'+y+'" r=".55" fill="#fff"/>').join('')).join('')+'</svg>',
+ es:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#aa151b"/><rect y="5" width="30" height="10" fill="#f1bf00"/><rect x="7" y="7.6" width="3.6" height="4.8" rx=".8" fill="#ad1519" opacity=".8"/></svg>'};
+const S=[];
+(function walk(el){['aria-label','alt'].forEach(a=>{const v=el.getAttribute&&el.getAttribute(a);if(v)S.push({el,a,v});});
+  if(el.hasAttribute&&el.hasAttribute('data-i18h')){S.push({el,h:el.innerHTML.trim()});return;}
+  for(const c of el.childNodes){if(c.nodeType===3){if(/[A-Za-zÀ-ú]/.test(c.nodeValue))S.push({n:c,v:c.nodeValue});}else if(c.nodeType===1&&!/^(SCRIPT|STYLE)$/.test(c.tagName))walk(c);}})(document.body);
+const box=document.getElementById('langs');
+function apply(){document.documentElement.lang=LANGS.find(l=>l[0]===LANG)[3];document.title=T('Rotas metabólicas');
+  S.forEach(x=>{if(x.n)x.n.nodeValue=T(x.v);else if(x.a)x.el.setAttribute(x.a,T(x.v));else x.el.innerHTML=T(x.h);});
+  box.setAttribute('aria-label',T('Idioma'));
+  box.innerHTML=LANGS.map(([k,c,n])=>'<button type="button" data-lang="'+k+'" title="'+n+'" aria-label="'+n+'" aria-pressed="'+(k===LANG)+'">'+FLAGS[k]+'<span>'+c+'</span></button>').join('');}
+box.addEventListener('click',e=>{const b=e.target.closest('button[data-lang]');if(!b||b.dataset.lang===LANG)return;LANG=b.dataset.lang;try{localStorage.setItem('metapaths-lang',LANG);}catch(e){}apply();});
+apply();
+})();
+</script>
 </body>
 </html>
